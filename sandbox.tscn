@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://p25qwebvermt"]
+
+[ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="1_m7804"]
+[ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://wall.tscn" id="2_eq4uc"]
+
+[sub_resource type="Gradient" id="Gradient_i0kan"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sodpj"]
+gradient = SubResource("Gradient_i0kan")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9, 0.9)
+
+[node name="Sandbox" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1769.0
+offset_top = -1510.0
+offset_right = 6159.0
+offset_bottom = 3607.0
+color = Color(0.475489, 0.493061, 0.541979, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_m7804")]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(135, 281)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_sodpj")
+texture_scale = 15.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Wall" parent="." instance=ExtResource("2_eq4uc")]
+position = Vector2(272, 277)
+scale = Vector2(0.609375, 6.14844)
