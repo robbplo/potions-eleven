@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw6kkiyj8aglt"]
+[gd_scene load_steps=9 format=3 uid="uid://bw6kkiyj8aglt"]
 
 [ext_resource type="Script" path="res://enemy_path_follower.gd" id="1_hgdig"]
 [ext_resource type="Texture2D" uid="uid://djbmmji0d4w6n" path="res://icon.svg" id="2_22lp3"]
 [ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://wall.tscn" id="3_57pmu"]
 [ext_resource type="Script" path="res://radial_raycast.gd" id="3_0287r"]
+[ext_resource type="Texture2D" uid="uid://ceqt04s8x4p7n" path="res://Sprites/VIS_CONES/VisCone_90.png" id="4_km1jw"]
 
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
@@ -57,8 +58,13 @@ shape = SubResource("CircleShape2D_fi7xk")
 
 [node name="RadialRaycast" type="Node2D" parent="Path2D/PathFollow2D/Enemy"]
 script = ExtResource("3_0287r")
-radial_angle = 120.0
-ray_range = 512.0
+ray_count = 30
+radial_angle = 90.0
+ray_range = 540.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Path2D/PathFollow2D/Enemy"]
+shadow_enabled = true
+texture = ExtResource("4_km1jw")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
