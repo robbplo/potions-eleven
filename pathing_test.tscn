@@ -1,14 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw6kkiyj8aglt"]
+[gd_scene load_steps=8 format=3 uid="uid://bw6kkiyj8aglt"]
 
 [ext_resource type="Script" path="res://enemy_path_follower.gd" id="1_hgdig"]
 [ext_resource type="Texture2D" uid="uid://djbmmji0d4w6n" path="res://icon.svg" id="2_22lp3"]
 [ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://wall.tscn" id="3_57pmu"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_lckgc"]
-vertices = PackedVector2Array(723, 437, 723, -38.75, 801.5, 249.633, 801.5, 666.383, 972.5, 666.383, 1511.77, 912.258, -190.93, 946.656, 1526.2, -244.398, 972.5, 249.633, 552, 437, -171.047, -281.602, 552, -38.75)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 3), PackedInt32Array(7, 5, 4, 8), PackedInt32Array(0, 3, 6, 9), PackedInt32Array(9, 6, 10, 11), PackedInt32Array(11, 10, 7, 1), PackedInt32Array(1, 7, 8, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-234, -347, 1591, -307, 1575, 975, -256, 1012)])
-agent_radius = 64.0
+[ext_resource type="Script" path="res://radial_raycast.gd" id="3_0287r"]
 
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
@@ -19,37 +14,59 @@ point_count = 6
 [sub_resource type="CircleShape2D" id="CircleShape2D_fi7xk"]
 radius = 64.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lckgc"]
+vertices = PackedVector2Array(1020.5, 674.383, 1511.77, 912.258, -190.93, 946.656, 849.5, 674.383, 723, 437, 723, -38.75, 849.5, 257.633, 1526.2, -244.398, 1020.5, 257.633, 552, 437, -171.047, -281.602, 552, -38.75)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 3), PackedInt32Array(7, 1, 0, 8), PackedInt32Array(4, 3, 2, 9), PackedInt32Array(9, 2, 10, 11), PackedInt32Array(11, 10, 7, 5), PackedInt32Array(5, 7, 8, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-234, -347, 1591, -307, 1575, 975, -256, 1012)])
+agent_radius = 64.0
+
 [node name="PathingTest" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2029.0
+offset_top = -2060.0
+offset_right = 5899.0
+offset_bottom = 3057.0
+color = Color(0.475489, 0.493061, 0.541979, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-47, 476)
+curve = SubResource("Curve2D_gi8k0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(393.247, -168.387)
+rotation = 1.55044
+progress = 360.976
+
+[node name="Enemy" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
+motion_mode = 1
+wall_min_slide_angle = 0.785398
+script = ExtResource("1_hgdig")
+
+[node name="Icon" type="Sprite2D" parent="Path2D/PathFollow2D/Enemy"]
+rotation = 1.5708
+texture = ExtResource("2_22lp3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Path2D/PathFollow2D/Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Enemy"]
+shape = SubResource("CircleShape2D_fi7xk")
+
+[node name="RadialRaycast" type="Node2D" parent="Path2D/PathFollow2D/Enemy"]
+script = ExtResource("3_0287r")
+radial_angle = 120.0
+ray_range = 512.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
-
-[node name="Wall" parent="NavigationRegion2D" instance=ExtResource("3_57pmu")]
-position = Vector2(887, 458)
-scale = Vector2(0.671875, 4.51172)
 
 [node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("3_57pmu")]
 position = Vector2(637.5, 199.125)
 scale = Vector2(0.671875, 5.43359)
 
-[node name="Path2D" type="Path2D" parent="NavigationRegion2D"]
-position = Vector2(-47, 476)
-curve = SubResource("Curve2D_gi8k0")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="NavigationRegion2D/Path2D"]
-position = Vector2(393.633, -126.65)
-rotation = 1.57281
-progress = 402.715
-
-[node name="Enemy" type="CharacterBody2D" parent="NavigationRegion2D/Path2D/PathFollow2D"]
-motion_mode = 1
-wall_min_slide_angle = 0.785398
-script = ExtResource("1_hgdig")
-
-[node name="Icon" type="Sprite2D" parent="NavigationRegion2D/Path2D/PathFollow2D/Enemy"]
-texture = ExtResource("2_22lp3")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="NavigationRegion2D/Path2D/PathFollow2D/Enemy"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Path2D/PathFollow2D/Enemy"]
-shape = SubResource("CircleShape2D_fi7xk")
+[node name="Wall" parent="NavigationRegion2D" instance=ExtResource("3_57pmu")]
+position = Vector2(935, 466)
+scale = Vector2(0.671875, 4.51172)
