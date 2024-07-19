@@ -26,18 +26,34 @@ offset_bottom = 3596.0
 color = Color(0.475489, 0.493061, 0.541979, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_m7804")]
+position = Vector2(147, 180)
+rotation = -0.000531903
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(135, 281)
+position = Vector2(199, 428)
 shadow_enabled = true
+shadow_filter = 1
 texture = SubResource("GradientTexture2D_sodpj")
 
 [node name="RadialRaycast" type="Node2D" parent="PointLight2D"]
 script = ExtResource("2_hys6l")
+ray_count = 100
+ray_range = 512.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(656, -490)
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_sodpj")
+
+[node name="RadialRaycast" type="Node2D" parent="PointLight2D2"]
+script = ExtResource("2_hys6l")
+ray_count = 100
+ray_range = 512.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.347817, 0.347817, 0.347817, 1)
 
 [node name="Wall" parent="." instance=ExtResource("2_eq4uc")]
-position = Vector2(394, 457)
+position = Vector2(571, 463)
 scale = Vector2(0.609375, 9.40234)

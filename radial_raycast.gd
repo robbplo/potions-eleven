@@ -2,7 +2,7 @@ extends Node2D
 
 @export var ray_count: int = 60
 @export var radial_angle: float = 360.0
-@export var ray_range: float = 400.0
+@export var ray_range: float
 
 var debug_rays := {}
 
