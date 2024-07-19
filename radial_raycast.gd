@@ -17,8 +17,9 @@ func _draw() -> void:
 func _physics_process(delta: float) -> void:
 	var space_state = get_world_2d().direct_space_state
 	var cast_ray = func (ray_angle):
+		var global_angle = deg_to_rad(ray_angle + global_rotation_degrees)
 		var a = self.global_position
-		var b = (a + Vector2(0, ray_range).rotated(deg_to_rad(ray_angle)))
+		var b = (a + Vector2(ray_range, 0).rotated(global_angle))
 		var query = PhysicsRayQueryParameters2D.create(a, b)
 		var result := space_state.intersect_ray(query)
 		if get_tree().debug_collisions_hint:
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 func for_rays(function: Callable):
 	var angle_per_ray = radial_angle / ray_count
 	for i in ray_count:
-		function.call(angle_per_ray * i)
+		var ray_angle = angle_per_ray * i
+		ray_angle -= radial_angle / 2
+		function.call(ray_angle)
 		# use global coordinates, not local to node
-
-
