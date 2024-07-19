@@ -20,10 +20,10 @@ fill_to = Vector2(0.5, 0)
 [node name="Sandbox" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -2349.0
-offset_top = -1521.0
-offset_right = 5579.0
-offset_bottom = 3596.0
+offset_left = -2205.0
+offset_top = -1773.0
+offset_right = 5723.0
+offset_bottom = 3344.0
 color = Color(0.475489, 0.493061, 0.541979, 1)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -55,5 +55,5 @@ ray_count = 100
 ray_range = 512.0
 
 [node name="Wall" parent="." instance=ExtResource("2_eq4uc")]
-position = Vector2(571, 463)
+position = Vector2(823, 955)
 scale = Vector2(0.609375, 9.40234)

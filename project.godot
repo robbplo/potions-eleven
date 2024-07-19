@@ -14,6 +14,10 @@ config/name="Potion's Eleven"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+IlluminatedEntities="*res://illuminated_entities.gd"
+
 [input]
 
 left={
