@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://l7oisqarvqqk"]
+
+[ext_resource type="Script" path="res://PolygonWall.gd" id="1_8h4h1"]
+[ext_resource type="Shader" path="res://OutlineShader.gdshader" id="2_f3h28"]
+[ext_resource type="Script" path="res://light_occluder_2d.gd" id="2_npdev"]
+[ext_resource type="Script" path="res://polygon_outline.gd" id="4_v6l75"]
+
+[sub_resource type="Shader" id="Shader_jl83h"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qnfv"]
+shader = SubResource("Shader_jl83h")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_116ev"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xbvai"]
+polygon = PackedVector2Array(5, 2, 104, -1, 142, 44, -8, 43)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_73ais"]
+shader = ExtResource("2_f3h28")
+
+[node name="Wall" type="Polygon2D"]
+material = SubResource("ShaderMaterial_1qnfv")
+position = Vector2(2.08165e-12, 2.08165e-12)
+color = Color(0.172549, 0.137255, 0.196078, 1)
+texture = SubResource("CanvasTexture_116ev")
+polygon = PackedVector2Array(5, 2, 104, -1, 142, 44, -8, 43)
+uv = PackedVector2Array(-0.552381, -0.358491, 0.361905, -0.273585, 0.447619, 0.5, -0.438095, 0.641509)
+script = ExtResource("1_8h4h1")
+wall_color = Color(0.172549, 0.137255, 0.196078, 1)
+has_outline = true
+outline_color = Color(0.0862745, 0.054902, 0.105882, 1)
+occludes = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(5, 2, 104, -1, 142, 44, -8, 43)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_xbvai")
+script = ExtResource("2_npdev")
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_73ais")
+points = PackedVector2Array(5, 2, 104, -1, 142, 44, -8, 43)
+closed = true
+width = 2.0
+default_color = Color(0.0862745, 0.054902, 0.105882, 1)
+script = ExtResource("4_v6l75")
+
+[connection signal="property_list_changed" from="." to="." method="_on_property_list_changed"]

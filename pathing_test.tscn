@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="1_mdii8"]
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="3_8y6x8"]
-[ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://wall.tscn" id="3_57pmu"]
+[ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://Level assets/wall.tscn" id="3_57pmu"]
 [ext_resource type="Script" path="res://radial_raycast.gd" id="4_vn76n"]
 
 [sub_resource type="Gradient" id="Gradient_i0kan"]
