@@ -1,19 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw6kkiyj8aglt"]
+[gd_scene load_steps=5 format=3 uid="uid://bw6kkiyj8aglt"]
 
-[ext_resource type="Script" path="res://enemy_path_follower.gd" id="1_hgdig"]
-[ext_resource type="Texture2D" uid="uid://djbmmji0d4w6n" path="res://icon.svg" id="2_22lp3"]
+[ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="1_mdii8"]
 [ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://wall.tscn" id="3_57pmu"]
-[ext_resource type="Script" path="res://radial_raycast.gd" id="3_0287r"]
-[ext_resource type="Texture2D" uid="uid://b2mim5cflnr8a" path="res://Sprites/VIS_CONES/VisCone_90.png" id="4_km1jw"]
 
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 193, -357, -25.4624, -30.9081, 25.4624, 30.9081, 372, -344, 13.6027, -26.696, -13.6027, 26.696, 385, -5, 23.1895, 34.487, -23.1895, -34.487, 180, -5, 0, 0, 0, 0, 193, -357, 0, 0, 0, 0, 193, -357)
+"points": PackedVector2Array(25, -25, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 50, 400, 0, 0, 0, 0, 0, 400, 0, 0, 0, 0, 0, 0)
 }
-point_count = 6
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fi7xk"]
-radius = 64.0
+point_count = 5
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lckgc"]
 vertices = PackedVector2Array(1020.5, 674.383, 1511.77, 912.258, -190.93, 946.656, 849.5, 674.383, 723, 437, 723, -38.75, 849.5, 257.633, 1526.2, -244.398, 1020.5, 257.633, 552, 437, -171.047, -281.602, 552, -38.75)
@@ -33,38 +27,12 @@ color = Color(0.475489, 0.493061, 0.541979, 1)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.347817, 0.347817, 0.347817, 1)
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(-47, 476)
+[node name="Enemy" parent="." instance=ExtResource("1_mdii8")]
+
+[node name="Path2D" type="Path2D" parent="Enemy"]
+top_level = true
+position = Vector2(277, 129)
 curve = SubResource("Curve2D_gi8k0")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(393.247, -168.387)
-rotation = 1.55044
-progress = 360.976
-
-[node name="Enemy" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
-motion_mode = 1
-wall_min_slide_angle = 0.785398
-script = ExtResource("1_hgdig")
-
-[node name="Icon" type="Sprite2D" parent="Path2D/PathFollow2D/Enemy"]
-rotation = 1.5708
-texture = ExtResource("2_22lp3")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Path2D/PathFollow2D/Enemy"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Enemy"]
-shape = SubResource("CircleShape2D_fi7xk")
-
-[node name="RadialRaycast" type="Node2D" parent="Path2D/PathFollow2D/Enemy"]
-script = ExtResource("3_0287r")
-ray_count = 30
-radial_angle = 90.0
-ray_range = 540.0
-
-[node name="PointLight2D" type="PointLight2D" parent="Path2D/PathFollow2D/Enemy"]
-shadow_enabled = true
-texture = ExtResource("4_km1jw")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
