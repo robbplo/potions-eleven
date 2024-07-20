@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dil1beaphcqts"
-path="res://.godot/imported/CircleParticles.png-31bd07a9e0b38c7f5c3357738600a5c6.ctex"
+path="res://.godot/imported/CircleParticles.png-73fb744c3cf1088d4d666c33876fc748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/CircleParticles.png"
-dest_files=["res://.godot/imported/CircleParticles.png-31bd07a9e0b38c7f5c3357738600a5c6.ctex"]
+source_file="res://Visual assets/Sprites/CircleParticles.png"
+dest_files=["res://.godot/imported/CircleParticles.png-73fb744c3cf1088d4d666c33876fc748.ctex"]
 
 [params]
 

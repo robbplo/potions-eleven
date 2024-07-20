@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0tueexsxrjtd"]
+
+[ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_90.png" id="1_0t3xv"]
+[ext_resource type="Script" path="res://PolygonWall.gd" id="2_0v1fm"]
+[ext_resource type="Shader" path="res://OutlineShader.gdshader" id="3_y3sci"]
+
+[sub_resource type="Curve" id="Curve_83pnd"]
+min_value = 0.1
+max_value = 0.9
+_data = [Vector2(0, 0.1), 0.0, 0.0344068, 0, 0, Vector2(1e-05, 0.1), 0.0, 0.0, 0, 0, Vector2(1, 0.9), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_83fws"]
+min_value = 0.1
+max_value = 0.9
+_data = [Vector2(0, 0.1), 0.0, 0.0109917, 0, 0, Vector2(1, 0.9), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_0d177"]
+min_value = 0.1
+max_value = 0.9
+_data = [Vector2(0, 0.1), 0.0, -0.0250642, 0, 0, Vector2(1, 0.9), -3.01636e-07, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_l4vcp"]
+curve_x = SubResource("Curve_83pnd")
+curve_y = SubResource("Curve_83fws")
+curve_z = SubResource("Curve_0d177")
+
+[sub_resource type="Environment" id="Environment_h65r1"]
+background_mode = 3
+adjustment_enabled = true
+adjustment_brightness = 1.32
+adjustment_contrast = 0.8
+adjustment_color_correction = SubResource("CurveXYZTexture_l4vcp")
+
+[sub_resource type="Shader" id="Shader_jl83h"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qnfv"]
+shader = SubResource("Shader_jl83h")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_116ev"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_c8b6j"]
+cull_mode = 2
+polygon = PackedVector2Array(-244, -182, -166, -184, -165, -157, -125, -156, -13, -68, -14, -24, -44, -23, -49, -58, -133, -131, -188, -132, -191, -165, -227, -161, -229.267, -24.5128, -101, -24, -105, 0, -229.848, 10.461, -232, 140, -253, 139, -247, -162)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87d7b"]
+shader = ExtResource("3_y3sci")
+
+[node name="LevelExperiment" type="Node2D"]
+texture_filter = 5
+position = Vector2(2, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h65r1")
+
+[node name="Floor" type="Polygon2D" parent="."]
+texture_filter = 2
+color = Color(0.8, 0.776471, 0.780392, 1)
+polygon = PackedVector2Array(-35, -35, -34, 687, 1170, 687, 1167, -46)
+
+[node name="Wall" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_1qnfv")
+position = Vector2(379, 235)
+color = Color(0.172549, 0.137255, 0.196078, 1)
+texture = SubResource("CanvasTexture_116ev")
+polygon = PackedVector2Array(-244, -182, -166, -184, -165, -157, -125, -156, -13, -68, -14, -24, -44, -23, -49, -58, -133, -131, -188, -132, -191, -165, -227, -161, -229.267, -24.5128, -101, -24, -105, 0, -229.848, 10.461, -232, 140, -253, 139, -247, -162)
+uv = PackedVector2Array(-0.552381, -0.358491, 0.361905, -0.273585, 0.447619, 0.5, -0.438095, 0.641509)
+script = ExtResource("2_0v1fm")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Wall"]
+visibility_layer = 0
+occluder = SubResource("OccluderPolygon2D_c8b6j")
+
+[node name="PolygonOutline" type="Line2D" parent="Wall"]
+light_mask = 33
+material = SubResource("ShaderMaterial_87d7b")
+points = PackedVector2Array(-244, -182, -166, -184, -165, -157, -125, -156, -13, -68, -14, -24, -44, -23, -49, -58, -133, -131, -188, -132, -191, -165, -227, -161, -229.267, -24.5128, -101, -24, -105, 0, -229.848, 10.461, -232, 140, -253, 139, -247, -162)
+closed = true
+width = 2.0
+default_color = Color(0.262745, 0.231373, 0.301961, 1)
+joint_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall/StaticBody2D"]
+polygon = PackedVector2Array(-244, -182, -166, -184, -165, -157, -125, -156, -13, -68, -14, -24, -44, -23, -49, -58, -133, -131, -188, -132, -191, -165, -227, -161, -229.267, -24.5128, -101, -24, -105, 0, -229.848, 10.461, -232, 140, -253, 139, -247, -162)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(214, 123)
+color = Color(0.72549, 0.960784, 0.666667, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0.0343352, 0.0187658, 0.0465454, 1)
+texture = ExtResource("1_0t3xv")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(233, 257)
+color = Color(1, 0.666667, 0.752941, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("1_0t3xv")
+texture_scale = 0.7
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+texture_filter = 1
+color = Color(0.0862745, 0.054902, 0.105882, 1)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxgpni1gkphvf"
-path="res://.godot/imported/Spotlight.png-f87b18fe0abb4b1c221bc9681a534ef8.ctex"
+uid="uid://cbwfb1w20envj"
+path="res://.godot/imported/Palette_Octogenesis_1X.png-2704b130b64dc6e14e5bdbae9a902141.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Spotlight.png"
-dest_files=["res://.godot/imported/Spotlight.png-f87b18fe0abb4b1c221bc9681a534ef8.ctex"]
+source_file="res://Visual assets/Palette_Octogenesis_1X.png"
+dest_files=["res://.godot/imported/Palette_Octogenesis_1X.png-2704b130b64dc6e14e5bdbae9a902141.ctex"]
 
 [params]
 

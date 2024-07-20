@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ryroc1xq4vie"
-path="res://.godot/imported/EnergyOrb.png-d7b2d6efb67b00a6e70ce6027dde1682.ctex"
+uid="uid://d3jn2q0u0iqdr"
+path="res://.godot/imported/Circle_Gradient_90.png-9401508fbf7040d7b85e0615c3e37832.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/EnergyOrb.png"
-dest_files=["res://.godot/imported/EnergyOrb.png-d7b2d6efb67b00a6e70ce6027dde1682.ctex"]
+source_file="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_90.png"
+dest_files=["res://.godot/imported/Circle_Gradient_90.png-9401508fbf7040d7b85e0615c3e37832.ctex"]
 
 [params]
 

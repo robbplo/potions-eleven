@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj86amgf7x03"
-path="res://.godot/imported/VisCone_120.png-ee5aed5dd13ba22c7f6be1a786676a2d.ctex"
+uid="uid://ci1c88m8kpq4d"
+path="res://.godot/imported/Circle_Gradient_20.png-ef39f4c690ae690f6eac48c4bc9ce750.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/VIS_CONES/VisCone_120.png"
-dest_files=["res://.godot/imported/VisCone_120.png-ee5aed5dd13ba22c7f6be1a786676a2d.ctex"]
+source_file="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_20.png"
+dest_files=["res://.godot/imported/Circle_Gradient_20.png-ef39f4c690ae690f6eac48c4bc9ce750.ctex"]
 
 [params]
 

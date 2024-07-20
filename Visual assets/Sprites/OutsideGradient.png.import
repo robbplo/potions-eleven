@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg8asqf2jcspt"
-path="res://.godot/imported/LaserLightSprite.png-c5d6e428aed2215f566f26a2edcb52cc.ctex"
+uid="uid://cb8ad682h8ak0"
+path="res://.godot/imported/OutsideGradient.png-6e5b4a56d717426c6956e2db0e846b3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/LaserLightSprite.png"
-dest_files=["res://.godot/imported/LaserLightSprite.png-c5d6e428aed2215f566f26a2edcb52cc.ctex"]
+source_file="res://Visual assets/Sprites/OutsideGradient.png"
+dest_files=["res://.godot/imported/OutsideGradient.png-6e5b4a56d717426c6956e2db0e846b3b.ctex"]
 
 [params]
 

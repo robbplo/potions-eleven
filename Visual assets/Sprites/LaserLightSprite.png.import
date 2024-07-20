@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dka353b1a67vu"
-path="res://.godot/imported/LaserLightSpriteNoise.png-86c02b204f03da793c4b23e72859b829.ctex"
+uid="uid://bg8asqf2jcspt"
+path="res://.godot/imported/LaserLightSprite.png-d751b7ebd0ba072eeaf3bc3ea5e975e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/LaserLightSpriteNoise.png"
-dest_files=["res://.godot/imported/LaserLightSpriteNoise.png-86c02b204f03da793c4b23e72859b829.ctex"]
+source_file="res://Visual assets/Sprites/LaserLightSprite.png"
+dest_files=["res://.godot/imported/LaserLightSprite.png-d751b7ebd0ba072eeaf3bc3ea5e975e5.ctex"]
 
 [params]
 

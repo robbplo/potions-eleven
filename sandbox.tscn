@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="1_m7804"]
 [ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://wall.tscn" id="2_eq4uc"]
 [ext_resource type="Script" path="res://radial_raycast.gd" id="2_hys6l"]
-[ext_resource type="Texture2D" uid="uid://ceqt04s8x4p7n" path="res://Sprites/VIS_CONES/VisCone_90.png" id="3_ue4gx"]
+[ext_resource type="Texture2D" uid="uid://b2mim5cflnr8a" path="res://Visual assets/Sprites/VIS_CONES/VisCone_90.png" id="3_ue4gx"]
 
 [sub_resource type="Gradient" id="Gradient_i0kan"]
 offsets = PackedFloat32Array(0.980519, 1)
@@ -44,7 +44,7 @@ shadow_enabled = true
 texture = ExtResource("3_ue4gx")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(199, 428)
+position = Vector2(215, 367)
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_sodpj")
@@ -55,5 +55,5 @@ ray_count = 100
 ray_range = 512.0
 
 [node name="Wall" parent="." instance=ExtResource("2_eq4uc")]
-position = Vector2(823, 955)
+position = Vector2(518, 272)
 scale = Vector2(0.609375, 9.40234)

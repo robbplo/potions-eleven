@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb8ad682h8ak0"
-path="res://.godot/imported/OutsideGradient.png-923fada1ddf6642b4d42aa53dd09fbe0.ctex"
+uid="uid://cxgpni1gkphvf"
+path="res://.godot/imported/Spotlight.png-30fd71b59009edabb173c2ee4320af74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/OutsideGradient.png"
-dest_files=["res://.godot/imported/OutsideGradient.png-923fada1ddf6642b4d42aa53dd09fbe0.ctex"]
+source_file="res://Visual assets/Sprites/Spotlight.png"
+dest_files=["res://.godot/imported/Spotlight.png-30fd71b59009edabb173c2ee4320af74.ctex"]
 
 [params]
 
