@@ -1,9 +1,11 @@
 extends Node2D
 
+signal entity_seen(body: CharacterBody2D)
+
 @export var ray_count: int = 60
 @export var radial_angle: float = 360.0
 @export var ray_range: float
-@export var illumintes_entites: bool = true
+@export var illuminates_entites: bool = true
 
 var debug_rays := {}
 var delta_colliders := {}
@@ -45,11 +47,18 @@ func _physics_process(_delta: float) -> void:
 		queue_redraw()
 
 	for_rays(cast_ray)
+
 	for collider_id in delta_colliders:
-		if not colliders.has(collider_id):
-			IlluminatedEntities.erase(collider_id)
+		if illuminates_entites:
+			if not colliders.has(collider_id):
+				IlluminatedEntities.erase(collider_id)
 	for collider_id in colliders:
-		IlluminatedEntities.add(collider_id, colliders[collider_id])
+		var body = colliders[collider_id]
+		if illuminates_entites:
+			IlluminatedEntities.add(collider_id, body)
+		if IlluminatedEntities.has(collider_id):
+			entity_seen.emit(body)
+
 	delta_colliders = colliders
 
 
@@ -59,4 +68,3 @@ func for_rays(function: Callable):
 		var ray_angle = angle_per_ray * i
 		ray_angle -= radial_angle / 2
 		function.call(ray_angle)
-		# use global coordinates, not local to node

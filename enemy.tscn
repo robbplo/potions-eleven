@@ -33,3 +33,5 @@ ray_range = 540.0
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
 texture = ExtResource("4_q1f6k")
+
+[connection signal="entity_seen" from="RadialRaycast" to="." method="_on_radial_raycast_entity_seen"]

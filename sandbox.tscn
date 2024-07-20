@@ -5,12 +5,12 @@
 [ext_resource type="Script" path="res://radial_raycast.gd" id="2_hys6l"]
 [ext_resource type="Texture2D" uid="uid://b2mim5cflnr8a" path="res://Sprites/VIS_CONES/VisCone_90.png" id="3_ue4gx"]
 
-[sub_resource type="Gradient" id="Gradient_i0kan"]
+[sub_resource type="Gradient" id="Gradient_csrra"]
 offsets = PackedFloat32Array(0.980519, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sodpj"]
-gradient = SubResource("Gradient_i0kan")
+gradient = SubResource("Gradient_csrra")
 width = 1024
 height = 1024
 fill = 1

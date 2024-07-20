@@ -73,3 +73,8 @@ func get_speed():
 	if state == State.ALERTED:
 		return ALERTED_SPEED
 	return PATROLLING_SPEED
+
+func _on_radial_raycast_entity_seen(body: CharacterBody2D) -> void:
+	if body is Player:
+		alert(body.global_position)
+
