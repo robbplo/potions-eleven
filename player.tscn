@@ -12,9 +12,6 @@ polygon = PackedVector2Array(0, 0, 125, 0, 125, 125, 0, 125)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1um88")
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("2_m0jnx")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_mbhwj")
@@ -23,3 +20,6 @@ shape = SubResource("RectangleShape2D_mbhwj")
 position = Vector2(-63, -63)
 occluder = SubResource("OccluderPolygon2D_ad63u")
 occluder_light_mask = 2
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_m0jnx")

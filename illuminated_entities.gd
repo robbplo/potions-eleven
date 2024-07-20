@@ -2,8 +2,8 @@ extends Node2D
 
 var dict: Dictionary = {}
 
-func has(node: Node2D) -> bool:
-	return dict.has(node.get_instance_id())
+func has(id: int) -> bool:
+	return dict.has(id)
 
 func erase(id):
 	dict.erase(id)

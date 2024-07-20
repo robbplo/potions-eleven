@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bak0chjmjimnj"]
+
+[ext_resource type="Script" path="res://enemy_path_follower.gd" id="1_ynx1n"]
+[ext_resource type="Texture2D" uid="uid://djbmmji0d4w6n" path="res://icon.svg" id="2_gumyi"]
+[ext_resource type="Script" path="res://radial_raycast.gd" id="3_t4nug"]
+[ext_resource type="Texture2D" uid="uid://b2mim5cflnr8a" path="res://Sprites/VIS_CONES/VisCone_90.png" id="4_q1f6k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fi7xk"]
+radius = 64.0
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(277, 129)
+motion_mode = 1
+wall_min_slide_angle = 0.785398
+script = ExtResource("1_ynx1n")
+
+[node name="Icon" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_gumyi")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fi7xk")
+
+[node name="RadialRaycast" type="Node2D" parent="."]
+script = ExtResource("3_t4nug")
+ray_count = 30
+radial_angle = 90.0
+ray_range = 540.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("4_q1f6k")
+
+[connection signal="entity_seen" from="RadialRaycast" to="." method="_on_radial_raycast_entity_seen"]
