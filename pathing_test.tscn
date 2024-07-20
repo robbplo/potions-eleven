@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djbmmji0d4w6n" path="res://icon.svg" id="2_22lp3"]
 [ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://wall.tscn" id="3_57pmu"]
 [ext_resource type="Script" path="res://radial_raycast.gd" id="3_0287r"]
-[ext_resource type="Texture2D" uid="uid://ceqt04s8x4p7n" path="res://Sprites/VIS_CONES/VisCone_90.png" id="4_km1jw"]
+[ext_resource type="Texture2D" uid="uid://b2mim5cflnr8a" path="res://Sprites/VIS_CONES/VisCone_90.png" id="4_km1jw"]
 
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
