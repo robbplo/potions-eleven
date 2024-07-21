@@ -16,6 +16,7 @@ const RETURN_TIMEOUT := 2.0
 var return_timer: SceneTreeTimer
 var last_player_pos := Vector2.ZERO
 var player_velocity := Vector2.ZERO
+var predicted_player_pos := Vector2.ZERO
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var path: Path2D = $Path2D
@@ -35,12 +36,13 @@ func patrol():
 	var curve_points := path.curve.get_baked_points()
 	nav.target_position = curve_points[path_current_point] + path.global_position
 	last_player_pos = Vector2.ZERO
+	predicted_player_pos = Vector2.ZERO
 	state = State.PATROLLING
 
 func search(delta):
 	state = State.ALERTED_SEARCHING
 	if player_velocity != Vector2.ZERO and last_player_pos != Vector2.ZERO:
-		var predicted_player_pos = last_player_pos + (player_velocity / delta)
+		predicted_player_pos = last_player_pos + (player_velocity / delta)
 		nav.target_position = predicted_player_pos
 
 func is_alerted() -> bool:
@@ -51,13 +53,13 @@ func _ready() -> void:
 	await NavigationServer2D.map_changed
 	patrol()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			alert(event.global_position)
-		else:
-			patrol()
-
+#func _input(event: InputEvent) -> void:
+#	if event is InputEventMouseButton:
+#		if event.button_index == MOUSE_BUTTON_LEFT:
+#			alert(event.global_position)
+#		else:
+#			patrol()
+#
 func _physics_process(delta: float) -> void:
 	match state:
 		State.PATROLLING:
@@ -90,6 +92,11 @@ func _move_toward_target(delta):
 	var direction := global_position.direction_to(nav.get_next_path_position())
 	velocity = direction * _get_speed()
 	move_and_slide()
+
+	if state == State.ALERTED and last_player_pos != Vector2.ZERO:
+		direction = global_position.direction_to(last_player_pos)
+	elif state == State.ALERTED_SEARCHING and predicted_player_pos != Vector2.ZERO:
+		direction = global_position.direction_to(predicted_player_pos)
 
 	var angle := direction.angle()
 	# Scale rotation to angle between self and target
