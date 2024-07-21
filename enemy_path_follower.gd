@@ -7,13 +7,13 @@ enum State {
 	ALERTED_WAITING
 }
 
-const PATROLLING_SPEED = 100.0
-const ALERTED_SPEED = 200.0
-const JUMP_VELOCITY = -400.0
-const APPROACH_DEADZONE = 5.0
-const RETURN_TIMEOUT = 2.0
-const PATROLLING_ROTATE_SPEED = PI
-const ALERTED_ROTATE_SPEED = PI * 2
+const PATROLLING_SPEED := 100.0
+const ALERTED_SPEED := 200.0
+const JUMP_VELOCITY := -400.0
+const APPROACH_DEADZONE := 5.0
+const RETURN_TIMEOUT := 2.0
+const PATROLLING_ROTATE_SPEED := PI
+const ALERTED_ROTATE_SPEED := PI * 2
 
 var return_timer: SceneTreeTimer
 
@@ -90,4 +90,8 @@ func get_rotation_speed():
 func _on_radial_raycast_entity_seen(body: CharacterBody2D) -> void:
 	if body is Player:
 		alert(body.global_position)
+
+func _on_kill_area_body_entered(body:Node2D) -> void:
+	if body is Player:
+		body.die()
 
