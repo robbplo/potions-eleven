@@ -32,5 +32,3 @@ func _eye_look_at(target: Vector2):
 	var direction = global_position.direction_to(target)
 	var movement_scale = (distance / EYE_MAX_DISTANCE) * direction.sign()
 	$EyeIris.position = movement_scale * direction * EYE_MAX_MOVEMENT
-
-

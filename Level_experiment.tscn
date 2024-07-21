@@ -1,39 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0tueexsxrjtd"]
+[gd_scene load_steps=4 format=3 uid="uid://c0tueexsxrjtd"]
 
 [ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_90.png" id="1_0t3xv"]
+[ext_resource type="PackedScene" uid="uid://df0ick8tv8ieu" path="res://standard_world_env.res" id="1_7gib5"]
 [ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://Level assets/Poly_wall.tscn" id="1_s2lju"]
-
-[sub_resource type="Curve" id="Curve_83pnd"]
-min_value = 0.15
-_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 1, Vector2(0.06, 0.15), 0.0, 1.01064, 0, 1, Vector2(1, 1.1), 1.01064, 0.0, 1, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_83fws"]
-min_value = 0.15
-_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 1, Vector2(0.06, 0.15), 0.0, 1.01064, 1, 1, Vector2(1, 1.1), 1.01064, 0.0, 1, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_0d177"]
-min_value = 0.15
-_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 1, Vector2(0.06, 0.15), 0.0, 1.01064, 1, 1, Vector2(1, 1.1), 1.01064, 0.0, 1, 0]
-point_count = 3
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_l4vcp"]
-curve_x = SubResource("Curve_83pnd")
-curve_y = SubResource("Curve_83fws")
-curve_z = SubResource("Curve_0d177")
-
-[sub_resource type="Environment" id="Environment_h65r1"]
-background_mode = 3
-adjustment_enabled = true
-adjustment_color_correction = SubResource("CurveXYZTexture_l4vcp")
 
 [node name="LevelExperiment" type="Node2D"]
 texture_filter = 5
 position = Vector2(2, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_h65r1")
+[node name="StandardWorldEnv" parent="." instance=ExtResource("1_7gib5")]
 
 [node name="Floor" type="Polygon2D" parent="."]
 texture_filter = 2
