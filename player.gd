@@ -14,14 +14,12 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-			throw_potion()
+			throw_potion(event.global_position)
 
-func throw_potion():
+func throw_potion(target: Vector2):
 	var instance: Potion = POTION_SCENE.instantiate()
-	var direction := global_position.direction_to(get_global_mouse_position())
-	instance.velocity = THROW_SPEED * direction
+	instance.throw_target = target
 	instance.global_position = global_position
-	instance.global_rotation = direction.angle()
 	get_tree().root.add_child(instance)
 
 func die():
