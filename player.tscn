@@ -1,25 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq00o3co8gq3p"]
+[gd_scene load_steps=4 format=3 uid="uid://dq00o3co8gq3p"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1um88"]
-[ext_resource type="Texture2D" uid="uid://djbmmji0d4w6n" path="res://icon.svg" id="2_m0jnx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbhwj"]
-size = Vector2(125, 125)
+[ext_resource type="Texture2D" uid="uid://ce5kbwar3gfyd" path="res://Visual assets/Sprites/CHAR_ICONS/ANOR_LONDO.png" id="2_75mf5"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ad63u"]
-polygon = PackedVector2Array(0, 0, 125, 0, 125, 125, 0, 125)
+polygon = PackedVector2Array(-115, -287, -115, -285.6, -136.1, -280, -139.6, -280, -162.6, -265, -165, -265, -185, -240, -186.4, -240, -194.4, -220, -195.7, -220, -198.7, -202, -200, -202, -200, 126.3, -193, 149.2, -193, 152.6, -178, 175.6, -178, 178, -153, 197.9, -153, 199.3, -136, 206.3, -136, 207.6, -113.2, 213, 113.3, 213, 131.1, 208, 134.5, 208, 149.5, 200, 151.8, 200, 175.7, 179, 177.2, 179, 191.1, 154, 192.6, 154, 198.5, 128, 200, 128, 200, -200.3, 193, -223.3, 193, -226.6, 178, -249.7, 178, -252, 153, -272, 153, -273.4, 133, -281.4, 133, -282.7, 115, -285.8, 115, -287)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
 script = ExtResource("1_1um88")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_mbhwj")
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2(-63, -63)
+position = Vector2(-10.5, 1)
+rotation = 1.57079
+scale = Vector2(0.287, 0.287)
 occluder = SubResource("OccluderPolygon2D_ad63u")
 occluder_light_mask = 2
 
-[node name="Icon" type="Sprite2D" parent="."]
-texture = ExtResource("2_m0jnx")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-10.5, 1)
+rotation = 1.57079
+scale = Vector2(0.287, 0.287)
+polygon = PackedVector2Array(-115, -287, -115, -285.6, -136.1, -280, -139.6, -280, -162.6, -265, -165, -265, -185, -240, -186.4, -240, -194.4, -220, -195.7, -220, -198.7, -202, -200, -202, -200, 126.3, -193, 149.2, -193, 152.6, -178, 175.6, -178, 178, -153, 197.9, -153, 199.3, -136, 206.3, -136, 207.6, -113.2, 213, 113.3, 213, 131.1, 208, 134.5, 208, 149.5, 200, 151.8, 200, 175.7, 179, 177.2, 179, 191.1, 154, 192.6, 154, 198.5, 128, 200, 128, 200, -200.3, 193, -223.3, 193, -226.6, 178, -249.7, 178, -252, 153, -272, 153, -273.4, 133, -281.4, 133, -282.7, 115, -285.8, 115, -287)
+
+[node name="Icon" type="Polygon2D" parent="."]
+position = Vector2(-10.5, 0)
+rotation = 1.57079
+scale = Vector2(0.287043, 0.287043)
+texture = ExtResource("2_75mf5")
+polygon = PackedVector2Array(-115, -287, -115, -285.6, -136.1, -280, -139.6, -280, -162.6, -265, -165, -265, -185, -240, -186.4, -240, -194.4, -220, -195.7, -220, -198.7, -202, -200, -202, -200, 126.3, -193, 149.2, -193, 152.6, -178, 175.6, -178, 178, -153, 197.9, -153, 199.3, -136, 206.3, -136, 207.6, -113.2, 213, 113.3, 213, 131.1, 208, 134.5, 208, 149.5, 200, 151.8, 200, 175.7, 179, 177.2, 179, 191.1, 154, 192.6, 154, 198.5, 128, 200, 128, 200, -200.3, 193, -223.3, 193, -226.6, 178, -249.7, 178, -252, 153, -272, 153, -273.4, 133, -281.4, 133, -282.7, 115, -285.8, 115, -287)
+uv = PackedVector2Array(185, 13, 185, 14.4, 163.9, 20, 160.4, 20, 137.4, 35, 135, 35, 115, 60, 113.6, 60, 105.6, 80, 104.3, 80, 101.3, 98, 100, 98, 100, 426.3, 107, 449.2, 107, 452.6, 122, 475.6, 122, 478, 147, 497.9, 147, 499.3, 164, 506.3, 164, 507.6, 186.8, 513, 413.3, 513, 431.1, 508, 434.5, 508, 449.5, 500, 451.8, 500, 475.7, 479, 477.2, 479, 491.1, 454, 492.6, 454, 498.5, 428, 500, 428, 500, 99.7, 493, 76.7, 493, 73.4, 478, 50.3, 478, 48, 453, 28, 453, 26.6, 433, 18.6, 433, 17.3, 415, 14.2, 415, 13)
