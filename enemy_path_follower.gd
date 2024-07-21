@@ -4,7 +4,7 @@ enum State {
 	IDLE,
 	PATROLLING,
 	ALERTED,
-	ALERTED_WAITING
+	ALERTED_SEARCHING
 }
 
 const PATROLLING_SPEED := 100.0
@@ -16,15 +16,38 @@ const PATROLLING_ROTATE_SPEED := PI
 const ALERTED_ROTATE_SPEED := PI * 2
 
 var return_timer: SceneTreeTimer
+var last_player_pos := Vector2.ZERO
+var player_velocity := Vector2.ZERO
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var path: Path2D = $Path2D
 
 var state: State = State.IDLE
-# Index of the path point which should be navigated to
+# Index of the point in the Path 2D which should be navigated to
 var path_current_point := 0
 
+func alert(target: Vector2):
+	if last_player_pos != Vector2.ZERO:
+		player_velocity = target - last_player_pos
+	last_player_pos = target
+	nav.target_position = target
+	state = State.ALERTED
+
+func patrol():
+	var curve_points := path.curve.get_baked_points()
+	nav.target_position = curve_points[path_current_point] + path.global_position
+	last_player_pos = Vector2.ZERO
+	state = State.PATROLLING
+
+func search(delta):
+	state = State.ALERTED_SEARCHING
+	if player_velocity != Vector2.ZERO and last_player_pos != Vector2.ZERO:
+		var predicted_player_pos = last_player_pos + (player_velocity / delta)
+		nav.target_position = predicted_player_pos
+
 func _ready() -> void:
+	# Wait for navigation map to be ready
+	await NavigationServer2D.map_changed
 	patrol()
 
 func _input(event: InputEvent) -> void:
@@ -37,55 +60,51 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	match state:
 		State.PATROLLING:
-			move_toward_target(delta)
-			if nav.is_target_reached():
+			if nav.is_navigation_finished():
 				var curve_points := path.curve.get_baked_points()
 				path_current_point = (path_current_point + 1) % curve_points.size()
 				patrol()
+			else:
+				_move_toward_target(delta)
 		State.ALERTED:
-			if nav.is_target_reached():
-				state = State.ALERTED_WAITING
+			if nav.is_navigation_finished():
+				search(delta)
+			else:
+				_move_toward_target(delta)
+		State.ALERTED_SEARCHING:
+			if nav.is_navigation_finished():
 				return_timer = get_tree().create_timer(RETURN_TIMEOUT)
 				await return_timer.timeout
-				if state == State.ALERTED_WAITING:
+				if state == State.ALERTED_SEARCHING:
 					patrol()
 			else:
-				move_toward_target(delta)
+				_move_toward_target(delta)
 
-func alert(target: Vector2):
-	nav.target_position = target
-	state = State.ALERTED
-
-func patrol():
-	var curve_points := path.curve.get_baked_points()
-	nav.target_position = curve_points[path_current_point] + path.global_position
-	state = State.PATROLLING
-
-
-func move_toward_target(delta):
-	if nav.get_final_position() != Vector2.ZERO and not nav.is_target_reachable():
+func _move_toward_target(delta):
+	if not nav.is_target_reachable():
+		# TODO: find nearest suitible location
 		print("target not reachable: ", nav.target_position)
 		return patrol()
-	var direction := global_position.direction_to(nav.get_next_path_position())
-	var target_angle := direction.angle()
-	# Scale rotation to angle between self and target
-	var rot_scale: float = abs(angle_difference(global_rotation, target_angle)) * randf_range(0.9, 1.1)
-	var delta_rotation: float = get_rotation_speed() * delta * rot_scale
-	global_rotation = rotate_toward(global_rotation, target_angle, delta_rotation)
 
-	velocity = direction * get_speed()
+	var direction := global_position.direction_to(nav.get_next_path_position())
+	velocity = direction * _get_speed()
 	move_and_slide()
 
-func get_speed():
-	if state == State.ALERTED:
+	var angle := direction.angle()
+	# Scale rotation to angle between self and target
+	var rot_scale: float = abs(angle_difference(global_rotation, angle)) * randf_range(0.9, 1.1)
+	var delta_rotation: float = _get_rotation_speed() * delta * rot_scale
+	global_rotation = rotate_toward(global_rotation, angle, delta_rotation)
+
+func _get_speed():
+	if state == State.ALERTED or state == State.ALERTED_SEARCHING:
 		return ALERTED_SPEED
 	return PATROLLING_SPEED
 
-func get_rotation_speed():
-	if state == State.ALERTED:
+func _get_rotation_speed():
+	if state == State.ALERTED or state == State.ALERTED_SEARCHING:
 		return ALERTED_ROTATE_SPEED
 	return PATROLLING_ROTATE_SPEED
-
 
 func _on_radial_raycast_entity_seen(body: CharacterBody2D) -> void:
 	if body is Player:
@@ -94,4 +113,5 @@ func _on_radial_raycast_entity_seen(body: CharacterBody2D) -> void:
 func _on_kill_area_body_entered(body:Node2D) -> void:
 	if body is Player:
 		body.die()
+		state = State.IDLE
 
