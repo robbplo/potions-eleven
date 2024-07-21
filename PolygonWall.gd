@@ -5,6 +5,10 @@ extends Polygon2D
 ## As much as possible, use only the export values to change wall properties.
 ## If export values prove insufficient, add the export value in code and then tweak.
 
+#@export_group("Shape")
+#@export var radius: int = 100
+#@export var smoothness: int = 4
+
 @export_group("Wall")
 @export var wall_color: Color
 ## The shader materials make the walls and outlines unshaded. This is done with
@@ -35,24 +39,10 @@ var shape: PackedVector2Array
 
 
 func _ready():
-	
 	## DO NOT SET MATERIALS IN REALTIME.
 	material = wall_material
-	
-	#outline.set_owner(self)
-	outline.set_name("Outline")
-	outline.closed = true
-	outline.width = 4
-	outline.joint_mode = Line2D.LINE_JOINT_ROUND
-	outline.set_material(outline_material)
-	add_child(outline)
-	
-	#occluder.set_owner(self)
-	occluder.set_name("Occluder")
-	occluder.set_occluder_polygon(occluder_polygon)
-	occluder.occluder.cull_mode = OccluderPolygon2D.CULL_CLOCKWISE
-	occluder.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
-	add_child(occluder)
+	_create_outline()
+	_create_occluder()
 	
 	_update_polygons()
 	_update_properties()
@@ -76,8 +66,24 @@ func _process(_delta):
 			shape = polygon
 			_update_polygons()
 			_update_properties()
-		
-		
+
+func _create_occluder():
+	#occluder.set_owner(self)
+	occluder.set_name("Occluder")
+	occluder.set_occluder_polygon(occluder_polygon)
+	occluder.occluder.cull_mode = OccluderPolygon2D.CULL_CLOCKWISE
+	occluder.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
+	add_child(occluder)
+	
+func _create_outline():
+	#outline.set_owner(self)
+	outline.set_name("Outline")
+	outline.closed = true
+	outline.width = 4
+	outline.joint_mode = Line2D.LINE_JOINT_ROUND
+	outline.set_material(outline_material)
+	add_child(outline)
+	
 ## Set occluder, outline and collision to be the same shape as the polygon
 func _update_polygons():
 		outline.points = shape

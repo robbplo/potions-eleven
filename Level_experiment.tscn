@@ -1,26 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0tueexsxrjtd"]
+[gd_scene load_steps=8 format=3 uid="uid://c0tueexsxrjtd"]
 
 [ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_90.png" id="1_0t3xv"]
 [ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://Level assets/Poly_wall.tscn" id="1_s2lju"]
-[ext_resource type="Shader" path="res://Level assets/Wall Shaders/OutlineShader.gdshader" id="3_6d7js"]
 
 [sub_resource type="Curve" id="Curve_83pnd"]
-min_value = 0.1
-max_value = 0.9
-_data = [Vector2(0, 0.1), 0.0, 0.8, 0, 1, Vector2(1, 0.9), 0.8, 0.0, 1, 0]
-point_count = 2
+min_value = 0.15
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 1, Vector2(0.06, 0.15), 0.0, 1.01064, 0, 1, Vector2(1, 1.1), 1.01064, 0.0, 1, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_83fws"]
-min_value = 0.1
-max_value = 0.9
-_data = [Vector2(0, 0.1), 0.0, 0.8, 0, 1, Vector2(1, 0.9), 0.8, 0.0, 1, 0]
-point_count = 2
+min_value = 0.15
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 1, Vector2(0.06, 0.15), 0.0, 1.01064, 1, 1, Vector2(1, 1.1), 1.01064, 0.0, 1, 0]
+point_count = 3
 
 [sub_resource type="Curve" id="Curve_0d177"]
-min_value = 0.1
-max_value = 0.9
-_data = [Vector2(0, 0.1), 0.0, 0.8, 0, 1, Vector2(1, 0.9), 0.8, 0.0, 1, 0]
-point_count = 2
+min_value = 0.15
+_data = [Vector2(0, 0.15), 0.0, 0.0, 0, 1, Vector2(0.06, 0.15), 0.0, 1.01064, 1, 1, Vector2(1, 1.1), 1.01064, 0.0, 1, 0]
+point_count = 3
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_l4vcp"]
 curve_x = SubResource("Curve_83pnd")
@@ -30,12 +26,7 @@ curve_z = SubResource("Curve_0d177")
 [sub_resource type="Environment" id="Environment_h65r1"]
 background_mode = 3
 adjustment_enabled = true
-adjustment_brightness = 1.32
-adjustment_contrast = 0.8
 adjustment_color_correction = SubResource("CurveXYZTexture_l4vcp")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ahko"]
-shader = ExtResource("3_6d7js")
 
 [node name="LevelExperiment" type="Node2D"]
 texture_filter = 5
@@ -46,7 +37,7 @@ environment = SubResource("Environment_h65r1")
 
 [node name="Floor" type="Polygon2D" parent="."]
 texture_filter = 2
-color = Color(0.8, 0.776471, 0.780392, 1)
+color = Color(1, 0.996078, 0.968627, 1)
 polygon = PackedVector2Array(-35, -35, -34, 687, 1170, 687, 1167, -46)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -54,7 +45,7 @@ position = Vector2(214, 123)
 color = Color(0.72549, 0.960784, 0.666667, 1)
 energy = 0.5
 shadow_enabled = true
-shadow_color = Color(0.0343352, 0.0187658, 0.0465454, 1)
+shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("1_0t3xv")
 texture_scale = 0.5
 
@@ -69,18 +60,14 @@ texture_scale = 0.7
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 texture_filter = 1
-color = Color(0.0862745, 0.054902, 0.105882, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Wall" parent="." instance=ExtResource("1_s2lju")]
-material = SubResource("ShaderMaterial_5ahko")
-position = Vector2(33, 23)
-polygon = PackedVector2Array(50, 1, 194, -17, 207, 88, 51, 90)
-has_outline = true
-outline_color = Color(0.788235, 0.411765, 0.6, 1)
+position = Vector2(282, 173)
+color = Color(0.14902, 0.164706, 0.247059, 1)
+polygon = PackedVector2Array(43, -13, 104, -1, 142, 44, -8, 43)
 
 [node name="Wall2" parent="." instance=ExtResource("1_s2lju")]
-material = SubResource("ShaderMaterial_5ahko")
-position = Vector2(168, 214)
-polygon = PackedVector2Array(26, -19, 117, -58, 142, 44, -61, 27)
-has_outline = true
-outline_color = Color(0.611765, 0.556863, 0.584314, 1)
+position = Vector2(89, 29)
+color = Color(0.14902, 0.164706, 0.247059, 1)
+polygon = PackedVector2Array(-2.08165e-12, -2.08165e-12, 104, -1, 53, 79, -8, 43)
