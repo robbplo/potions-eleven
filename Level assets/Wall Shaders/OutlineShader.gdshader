@@ -6,7 +6,6 @@ void vertex() {
 }
 
 void fragment() {
-	//COLOR.rgb = vec3(1.0);
 }
 
 //void light() {
