@@ -60,6 +60,7 @@ position = Vector2(277, 129)
 curve = SubResource("Curve2D_gi8k0")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-24, -13)
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
 
 [node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("3_57pmu")]
