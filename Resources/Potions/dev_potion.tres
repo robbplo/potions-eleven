@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PotionResource" load_steps=3 format=3 uid="uid://bqnjq0gq8rdov"]
+
+[ext_resource type="Script" path="res://Resources/Potions/potion_resource.gd" id="1_jucss"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="2_fa4hb"]
+
+[resource]
+script = ExtResource("1_jucss")
+texture = ExtResource("2_fa4hb")
+texture_scale = 0.03
+count = 3

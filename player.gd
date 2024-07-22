@@ -1,11 +1,11 @@
-extends CharacterBody2D
-class_name Player
+class_name Player extends CharacterBody2D
 
 const SPEED := 300.0
 const THROW_SPEED := 900.0
 const EYE_MAX_MOVEMENT := Vector2(80, 60)
 const EYE_MAX_DISTANCE := Vector2(600.0, 300.0)
-const POTION_SCENE := preload("res://potion_projectile.tscn")
+
+@onready var potion_belt: PotionBelt = $PotionBelt
 
 func _physics_process(_delta: float) -> void:
 	var input_vector := Input.get_vector("left", "right", "up", "down")
@@ -16,13 +16,7 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-			throw_potion(event.global_position)
-
-func throw_potion(target: Vector2):
-	var instance: PotionProjectile = POTION_SCENE.instantiate()
-	instance.throw_target = target
-	instance.global_position = global_position
-	get_tree().root.add_child(instance)
+			potion_belt.throw_potion(event.global_position)
 
 func die():
 	queue_free()
