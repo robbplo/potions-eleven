@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qkej6tvyyap2"
-path="res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"
+uid="uid://cj86amgf7x03"
+path="res://.godot/imported/VisCone_120.png-f08bffcc7bdfc7d798835be91a94247a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Flat.png"
-dest_files=["res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"]
+source_file="res://Visual assets/Sprites/Vision cones/VisCone_120.png"
+dest_files=["res://.godot/imported/VisCone_120.png-f08bffcc7bdfc7d798835be91a94247a.ctex"]
 
 [params]
 

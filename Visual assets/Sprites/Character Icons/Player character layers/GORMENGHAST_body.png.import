@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qkej6tvyyap2"
-path="res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"
+uid="uid://ca3qf3uelfc2r"
+path="res://.godot/imported/GORMENGHAST_body.png-a6c4a5e6f8cdedb8c80410c582b6f1dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Flat.png"
-dest_files=["res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"]
+source_file="res://Visual assets/Sprites/Character Icons/Player character layers/GORMENGHAST_body.png"
+dest_files=["res://.godot/imported/GORMENGHAST_body.png-a6c4a5e6f8cdedb8c80410c582b6f1dd.ctex"]
 
 [params]
 

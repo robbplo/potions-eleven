@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qkej6tvyyap2"
-path="res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"
+uid="uid://dg8p5ly3bnev8"
+path="res://.godot/imported/MENZOBERRANZAN_iris.png-3c70959fd96dbfebf8d2fbfb89123e55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Flat.png"
-dest_files=["res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"]
+source_file="res://Visual assets/Sprites/Character Icons/Player character layers/MENZOBERRANZAN_iris.png"
+dest_files=["res://.godot/imported/MENZOBERRANZAN_iris.png-3c70959fd96dbfebf8d2fbfb89123e55.ctex"]
 
 [params]
 

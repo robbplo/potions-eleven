@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qkej6tvyyap2"
-path="res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"
+uid="uid://babvi18r15l6e"
+path="res://.godot/imported/FOE_EYE_pupil_small.png-f0d468c64ad671f9150c4a1eb1dbf863.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Flat.png"
-dest_files=["res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"]
+source_file="res://Visual assets/Sprites/Character Icons/Enemies/FOE_EYE_pupil_small.png"
+dest_files=["res://.godot/imported/FOE_EYE_pupil_small.png-f0d468c64ad671f9150c4a1eb1dbf863.ctex"]
 
 [params]
 

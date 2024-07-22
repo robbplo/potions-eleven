@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qkej6tvyyap2"
-path="res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"
+uid="uid://chw5nmj1k3d7x"
+path="res://.godot/imported/STORMWIND.png-bffc9d4a7f3829252fc40e377195225f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Flat.png"
-dest_files=["res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"]
+source_file="res://Visual assets/Sprites/Character Icons/STORMWIND.png"
+dest_files=["res://.godot/imported/STORMWIND.png-bffc9d4a7f3829252fc40e377195225f.ctex"]
 
 [params]
 
