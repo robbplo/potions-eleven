@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Potion
+class_name PotionProjectile
 
 const SPEED := 900.0
 const THROW_TIME := .5

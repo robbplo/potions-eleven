@@ -5,7 +5,7 @@ const SPEED := 300.0
 const THROW_SPEED := 900.0
 const EYE_MAX_MOVEMENT := Vector2(80, 60)
 const EYE_MAX_DISTANCE := Vector2(600.0, 300.0)
-const POTION_SCENE := preload("res://potion.tscn")
+const POTION_SCENE := preload("res://potion_projectile.tscn")
 
 func _physics_process(_delta: float) -> void:
 	var input_vector := Input.get_vector("left", "right", "up", "down")
@@ -19,7 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			throw_potion(event.global_position)
 
 func throw_potion(target: Vector2):
-	var instance: Potion = POTION_SCENE.instantiate()
+	var instance: PotionProjectile = POTION_SCENE.instantiate()
 	instance.throw_target = target
 	instance.global_position = global_position
 	get_tree().root.add_child(instance)

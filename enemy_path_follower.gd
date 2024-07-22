@@ -84,11 +84,6 @@ func _physics_process(delta: float) -> void:
 				_move_toward_target(delta)
 
 func _move_toward_target(delta):
-	if not nav.is_target_reachable():
-		# TODO: find nearest suitible location
-		print("target not reachable: ", nav.target_position)
-		return patrol()
-
 	var direction := global_position.direction_to(nav.get_next_path_position())
 	velocity = direction * _get_speed()
 	move_and_slide()
@@ -122,4 +117,3 @@ func _on_kill_area_body_entered(body:Node2D) -> void:
 	if is_alerted() and body is Player:
 		body.die()
 		state = State.IDLE
-
