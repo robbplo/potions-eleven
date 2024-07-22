@@ -1,6 +1,6 @@
 class_name PotionBelt extends Node2D
 
-const POTION_SCENE := preload("res://potion_projectile.tscn")
+const POTION_SCENE := preload("res://Entities/Potion/potion_projectile.tscn")
 
 @export var loadout: Array[PotionResource]
 var amounts: Array[int] = []
@@ -17,8 +17,8 @@ func throw_potion(target: Vector2):
 		return
 
 	var instance: PotionProjectile = POTION_SCENE.instantiate()
-	instance.resource = loadout[selected]
-	instance.throw_target = target
 	instance.global_position = global_position
+	instance.resource = loadout[selected].duplicate(true)
+	instance.set_target(target)
 	get_tree().root.add_child(instance)
 	amounts[selected] -= 1

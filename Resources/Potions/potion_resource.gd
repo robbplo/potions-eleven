@@ -6,3 +6,5 @@ class_name PotionResource extends Resource
 @export_range(0.01, 10) var texture_scale := 1.0
 ## Amount of potions that player starts with
 @export var count: int
+## Throwing behavior
+@export var throw_strategy: PotionThrowStrategy
