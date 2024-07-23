@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qkej6tvyyap2"
-path="res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"
+uid="uid://bahr605yfp0l4"
+path="res://.godot/imported/Tile_stars_3.png-0f90af12c1c1b9eaaaa0025468f1e850.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Flat.png"
-dest_files=["res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"]
+source_file="res://Visual assets/Textures/Tile_stars_3.png"
+dest_files=["res://.godot/imported/Tile_stars_3.png-0f90af12c1c1b9eaaaa0025468f1e850.ctex"]
 
 [params]
 
