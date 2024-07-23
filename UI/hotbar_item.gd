@@ -20,4 +20,3 @@ func set_key(key: int):
 
 func set_active(active: bool):
 	inactive_cover.visible = not active
-
