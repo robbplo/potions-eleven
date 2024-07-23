@@ -14,9 +14,8 @@ func _physics_process(_delta: float) -> void:
 	_eye_look_at(get_global_mouse_position())
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-			potion_belt.throw_potion(event.global_position)
+	if event.is_action_pressed("throw_potion"):
+		potion_belt.throw_potion(event.global_position)
 
 func die():
 	queue_free()

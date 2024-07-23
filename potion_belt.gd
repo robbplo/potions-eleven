@@ -3,16 +3,26 @@ class_name PotionBelt extends Node2D
 const POTION_SCENE := preload("res://Entities/Potion/potion_projectile.tscn")
 
 @export var loadout: Array[PotionResource]
-var amounts: Array[int] = []
+var ammo: Array[int] = []
 var selected: int = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for potion in loadout:
-		amounts.append(potion.count)
+		ammo.append(potion.count)
 
-func throw_potion(target: Vector2):
-	if amounts[selected] <= 0:
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed("hotbar_1"):
+		return select(0)
+	if event.is_action_pressed("hotbar_2"):
+		return select(1)
+	if event.is_action_pressed("hotbar_3"):
+		return select(2)
+	if event.is_action_pressed("hotbar_4"):
+		return select(3)
+
+## Yeet
+func throw_potion(target: Vector2) -> void:
+	if ammo[selected] <= 0:
 		# Cannot throw when no is potion
 		return
 
@@ -20,5 +30,13 @@ func throw_potion(target: Vector2):
 	instance.global_position = global_position
 	instance.resource = loadout[selected].duplicate(true)
 	instance.set_target(target)
-	get_tree().root.add_child(instance)
-	amounts[selected] -= 1
+	PlayerStats.get_player().get_parent().add_child(instance)
+
+	ammo[selected] -= 1
+	PlayerStats.potion_ammo_changed.emit(selected, ammo[selected])
+
+## Change selected potion
+func select(idx) -> void:
+	if idx <= loadout.size():
+		selected = idx
+		PlayerStats.potion_selected.emit(idx)

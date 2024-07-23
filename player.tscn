@@ -1,17 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq00o3co8gq3p"]
+[gd_scene load_steps=10 format=3 uid="uid://dq00o3co8gq3p"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1um88"]
 [ext_resource type="Texture2D" uid="uid://ch1ffkprb1atv" path="res://Visual assets/Sprites/Character Icons/Player character layers/ANOR_LONDO_body.png" id="2_2p5jt"]
 [ext_resource type="Script" path="res://Resources/Potions/potion_resource.gd" id="2_5mgnc"]
-[ext_resource type="Resource" uid="uid://bqnjq0gq8rdov" path="res://Resources/Potions/dev_potion.tres" id="3_4ov3b"]
 [ext_resource type="Texture2D" uid="uid://cjenajg2ckclr" path="res://Visual assets/Sprites/Character Icons/Player character layers/ANOR_LONDO_white.png" id="3_d1qlq"]
 [ext_resource type="Texture2D" uid="uid://c1rat82giq28n" path="res://Visual assets/Sprites/Character Icons/Player character layers/ANOR_LONDO_iris.png" id="3_ilrvt"]
 [ext_resource type="Script" path="res://potion_belt.gd" id="5_5ycqb"]
+[ext_resource type="Resource" uid="uid://bqnjq0gq8rdov" path="res://Resources/Potions/dev_potion.tres" id="7_3uqev"]
+[ext_resource type="Resource" uid="uid://hivyycwpmrjm" path="res://Resources/Potions/brick_potion.tres" id="7_tn4ub"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ad63u"]
 polygon = PackedVector2Array(-115, -287, -115, -285.6, -136.1, -280, -139.6, -280, -162.6, -265, -165, -265, -185, -240, -186.4, -240, -194.4, -220, -195.7, -220, -198.7, -202, -200, -202, -200, 126.3, -193, 149.2, -193, 152.6, -178, 175.6, -178, 178, -153, 197.9, -153, 199.3, -136, 206.3, -136, 207.6, -113.2, 213, 113.3, 213, 131.1, 208, 134.5, 208, 149.5, 200, 151.8, 200, 175.7, 179, 177.2, 179, 191.1, 154, 192.6, 154, 198.5, 128, 200, 128, 200, -200.3, 193, -223.3, 193, -226.6, 178, -249.7, 178, -252, 153, -272, 153, -273.4, 133, -281.4, 133, -282.7, 115, -285.8, 115, -287)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 5
@@ -40,4 +41,4 @@ texture = ExtResource("2_2p5jt")
 [node name="PotionBelt" type="Node2D" parent="."]
 position = Vector2(4, 0)
 script = ExtResource("5_5ycqb")
-loadout = Array[ExtResource("2_5mgnc")]([ExtResource("3_4ov3b")])
+loadout = Array[ExtResource("2_5mgnc")]([ExtResource("7_3uqev"), ExtResource("7_tn4ub")])

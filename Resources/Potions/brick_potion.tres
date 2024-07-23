@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PotionResource" load_steps=5 format=3 uid="uid://hivyycwpmrjm"]
+
+[ext_resource type="Script" path="res://Resources/Potions/potion_resource.gd" id="1_tckfq"]
+[ext_resource type="Script" path="res://Entities/Potion/Strategies/potion_throw_pitch.gd" id="1_w1d22"]
+[ext_resource type="Texture2D" uid="uid://crhlep6jnet5g" path="res://Visual assets/Sprites/Character Icons/Player character layers/OMELAS_iris.png" id="2_qphfj"]
+
+[sub_resource type="Resource" id="Resource_cp7rs"]
+script = ExtResource("1_w1d22")
+initial_speed = 3000.0
+drag = 0.97
+
+[resource]
+script = ExtResource("1_tckfq")
+texture = ExtResource("2_qphfj")
+texture_scale = 0.2
+count = 3
+throw_strategy = SubResource("Resource_cp7rs")
