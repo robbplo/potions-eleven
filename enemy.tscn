@@ -33,7 +33,8 @@ shape = SubResource("CircleShape2D_fi7xk")
 script = ExtResource("3_t4nug")
 ray_count = 30
 radial_angle = 90.0
-ray_range = 540.0
+ray_range = 1080.0
+illumination_range = 540.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true

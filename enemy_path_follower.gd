@@ -53,13 +53,6 @@ func _ready() -> void:
 	await NavigationServer2D.map_changed
 	patrol()
 
-#func _input(event: InputEvent) -> void:
-#	if event is InputEventMouseButton:
-#		if event.button_index == MOUSE_BUTTON_LEFT:
-#			alert(event.global_position)
-#		else:
-#			patrol()
-#
 func _physics_process(delta: float) -> void:
 	match state:
 		State.PATROLLING:

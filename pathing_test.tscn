@@ -43,7 +43,7 @@ texture = ExtResource("1_fivty")
 color = Color(0.347817, 0.347817, 0.347817, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1221, 775)
+position = Vector2(911, 736)
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_rw4wk")
@@ -52,6 +52,7 @@ texture = SubResource("GradientTexture2D_rw4wk")
 script = ExtResource("4_vn76n")
 ray_count = 100
 ray_range = 512.0
+illumination_range = 512.0
 
 [node name="Enemy" parent="." instance=ExtResource("1_mdii8")]
 
@@ -61,7 +62,7 @@ position = Vector2(277, 129)
 curve = SubResource("Curve2D_gi8k0")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-position = Vector2(-24, -13)
+position = Vector2(51, 61)
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
 
 [node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("3_57pmu")]
@@ -81,3 +82,5 @@ scale = Vector2(0.671875, 4.51172)
 position = Vector2(809, 170)
 
 [node name="StandardWorldEnv" parent="." instance=ExtResource("6_h7st5")]
+
+[editable path="Enemy"]
