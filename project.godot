@@ -19,6 +19,10 @@ config/icon="res://Visual assets/Sprites/Character Icons/icon.svg"
 IlluminatedEntities="*res://illuminated_entities.gd"
 PlayerStats="*res://Entities/Player/player_stats.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1920

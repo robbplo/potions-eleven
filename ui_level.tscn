@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wd5x384kouju"]
 
-[ext_resource type="PackedScene" uid="uid://be1qfoves2lqr" path="res://J_Experiment_LooknFeel.tscn" id="1_uh4s6"]
+[ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://pathing_test.tscn" id="1_58qq5"]
 [ext_resource type="PackedScene" uid="uid://bfrqeqfe46o7s" path="res://UI/game_ui.tscn" id="2_87lol"]
 
 [node name="UiLevel" type="Node2D"]
@@ -14,7 +14,7 @@ handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="PathingTest" parent="SubViewportContainer/LevelViewport" instance=ExtResource("1_uh4s6")]
+[node name="PathingTest" parent="SubViewportContainer/LevelViewport" instance=ExtResource("1_58qq5")]
 
 [node name="UiViewport" type="SubViewport" parent="SubViewportContainer"]
 process_priority = 1

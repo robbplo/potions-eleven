@@ -15,3 +15,4 @@ texture = ExtResource("2_qphfj")
 texture_scale = 0.2
 count = 3
 throw_strategy = SubResource("Resource_cp7rs")
+mass = 0.5

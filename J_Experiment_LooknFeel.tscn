@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://be1qfoves2lqr"]
 
 [ext_resource type="Script" path="res://radial_raycast.gd" id="2_27dwg"]
-[ext_resource type="Shader" path="res://Level assets/Wall Shaders/OutlineShader.gdshader" id="3_6bdcw"]
+[ext_resource type="Shader" path="res://Level assets/Wall Shaders/unshaded.gdshader" id="3_6bdcw"]
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="3_e5pgv"]
 [ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://Level assets/Poly_wall.tscn" id="3_hltnd"]
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="5_0ir41"]

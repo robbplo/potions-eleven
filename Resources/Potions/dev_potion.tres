@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PotionResource" load_steps=5 format=3 uid="uid://bqnjq0gq8rdov"]
 
 [ext_resource type="Script" path="res://Resources/Potions/potion_resource.gd" id="1_jucss"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="2_fa4hb"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="2_fa4hb"]
 [ext_resource type="Script" path="res://Entities/Potion/Strategies/potion_throw_lob.gd" id="3_syf8m"]
 
 [sub_resource type="Resource" id="Resource_nsitl"]
@@ -15,3 +15,4 @@ texture = ExtResource("2_fa4hb")
 texture_scale = 0.03
 count = 100
 throw_strategy = SubResource("Resource_nsitl")
+mass = 0.5
