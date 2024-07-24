@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qkej6tvyyap2"
-path="res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"
+uid="uid://d3iwi8c0j6rk8"
+path="res://.godot/imported/Pot_teleport.png-f226d22d5598749e7de6286150106deb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Flat.png"
-dest_files=["res://.godot/imported/Circle_Flat.png-f0b3ecb25575e932d0e4154dc8cd7ac0.ctex"]
+source_file="res://Visual assets/Sprites/Character Icons/Pot_teleport.png"
+dest_files=["res://.godot/imported/Pot_teleport.png-f226d22d5598749e7de6286150106deb.ctex"]
 
 [params]
 
