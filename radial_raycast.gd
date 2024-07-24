@@ -1,5 +1,6 @@
-extends Node2D
+class_name RadialRaycast extends Node2D
 
+## When a body entered the radius while illuminated
 signal entity_seen(body: CharacterBody2D)
 signal entity_lost(body: CharacterBody2D)
 
@@ -18,7 +19,7 @@ var debug_rays := {}
 ## Colliders in current frame. Keys are instance ids.
 var colliders := {}
 ## Colliders in previous frame.
-var delta_colliders := {}
+var prev_colliders := {}
 
 func _ready() -> void:
 	for_each_ray(func (ray_angle): debug_rays[ray_angle] = [Vector2.ZERO, Vector2.ZERO, Color.GRAY])
@@ -33,7 +34,8 @@ func _physics_process(_delta: float) -> void:
 	colliders = {}
 	for_each_ray(cast_ray)
 	_set_illuminated_entities()
-	delta_colliders = colliders
+	_send_vision_signals()
+	prev_colliders = colliders
 
 ## Call a function for every ray.
 func for_each_ray(function: Callable):
@@ -79,19 +81,24 @@ func _collision_result_illuminates(result: Dictionary) -> bool:
 func _set_illuminated_entities() -> void:
 	# Check results from previous frame for illuminated colliders.
 	# If they are not present in the current frame, remove from list.
-	for collider_id in delta_colliders:
-		if not colliders.has(collider_id):
-			entity_lost.emit(delta_colliders[collider_id])
-			if delta_colliders[collider_id]["illuminated"]:
-				IlluminatedEntities.erase(collider_id)
+	for id in prev_colliders:
+		# if prev collider is no longer colliding
+		if not id in prev_colliders:
+			entity_lost.emit(prev_colliders[id])
+			if prev_colliders[id]["illuminated"]:
+				IlluminatedEntities.erase(id)
 
 	# Add any illuminated colliders from the current frame to the list.
 	# If not in illumination range, entity is seen if already illuminated.
-	for collider_id in colliders:
-		var result = colliders[collider_id]
+	for id in colliders:
+		var result = colliders[id]
 		if result["illuminated"]:
-			IlluminatedEntities.add(collider_id, result["collider"])
+			IlluminatedEntities.add(id, result["collider"])
 			entity_seen.emit(result["collider"])
-		elif IlluminatedEntities.has(collider_id):
+		elif IlluminatedEntities.has(id):
 			entity_seen.emit(result["collider"])
+
+func _send_vision_signals() -> void:
+	return
+
 

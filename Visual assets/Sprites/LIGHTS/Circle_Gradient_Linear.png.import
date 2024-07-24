@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kijed3y5swgh"
-path="res://.godot/imported/Circle_Gradient_Linear.png-4d093b95bfb96f6fdf13f94f383b2b32.ctex"
+path="res://.godot/imported/Circle_Gradient_Linear.png-4567668283302f7f7764ae7225dd003c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Lights/Circle_Gradient_Linear.png"
-dest_files=["res://.godot/imported/Circle_Gradient_Linear.png-4d093b95bfb96f6fdf13f94f383b2b32.ctex"]
+source_file="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_Linear.png"
+dest_files=["res://.godot/imported/Circle_Gradient_Linear.png-4567668283302f7f7764ae7225dd003c.ctex"]
 
 [params]
 
