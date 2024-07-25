@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=3 uid="uid://dweq7o6uye81i"]
+
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="1_1ej4r"]
+[ext_resource type="Theme" uid="uid://cqr3fbsh083nf" path="res://MainMenu_titles.tres" id="2_bej77"]
+[ext_resource type="Script" path="res://MenuButton.gd" id="3_a6bsi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcskc"]
+bg_color = Color(0.8, 0.776471, 0.780392, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1ej4r")
+theme_override_styles/panel = SubResource("StyleBoxFlat_lcskc")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenItems" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginLeft" type="Panel" parent="CenterContainer/ScreenItems"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+theme = ExtResource("1_1ej4r")
+
+[node name="MenuItems" type="VBoxContainer" parent="CenterContainer/ScreenItems"]
+custom_minimum_size = Vector2(400, 2.08165e-12)
+layout_mode = 2
+mouse_default_cursor_shape = 8
+alignment = 1
+
+[node name="Play" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+mouse_default_cursor_shape = 1
+theme = ExtResource("2_bej77")
+bbcode_enabled = true
+text = "PLAY"
+script = ExtResource("3_a6bsi")
+
+[node name="Options" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_bej77")
+text = "OPTIONS"
+
+[node name="Credits" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(2.08165e-12, 100)
+layout_mode = 2
+theme = ExtResource("2_bej77")
+text = "CREDITS"
+
+[node name="Quit" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_bej77")
+text = "QUIT"
+
+[node name="Panel" type="Panel" parent="CenterContainer/ScreenItems"]
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+theme = ExtResource("1_1ej4r")
+
+[node name="CrystalBall" type="TextureRect" parent="CenterContainer/ScreenItems"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/ScreenItems/CrystalBall"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.843137, 0.470588, 0.470588, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/ScreenItems/CrystalBall"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 71
+text = "THIS WILL BE A CRYSTAL BALL, OBVIOUSLY. "

@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqr3fbsh083nf"]
+
+[ext_resource type="FontFile" uid="uid://dmwl7a5s11gy6" path="res://Visual assets/UI/Jerian_english-Regular.otf" id="1_mdlrg"]
+[ext_resource type="FontFile" uid="uid://daymdiblkisko" path="res://Visual assets/UI/JerianScript-Regular.otf" id="2_ca40c"]
+
+[resource]
+default_font_size = 100
+RichTextLabel/colors/default_color = Color(0.0862745, 0.054902, 0.105882, 1)
+RichTextLabel/colors/font_selected_color = Color(0.988235, 0.772549, 0.223529, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.611765, 0.556863, 0.584314, 1)
+RichTextLabel/constants/shadow_offset_x = 4
+RichTextLabel/constants/shadow_offset_y = 4
+RichTextLabel/constants/shadow_outline_size = 8
+RichTextLabel/fonts/mono_font = ExtResource("2_ca40c")
+RichTextLabel/fonts/normal_font = ExtResource("1_mdlrg")

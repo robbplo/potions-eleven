@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfkms2vsok7e6"]
+
+[ext_resource type="Texture2D" uid="uid://nlgepfj3mhmb" path="res://Visual assets/Textures/Stars_1.png" id="1_ytbrt"]
+[ext_resource type="Texture2D" uid="uid://cqdh3rtnsf78n" path="res://Visual assets/Sprites/Potions/Pot_bomb.png" id="2_6kowj"]
+[ext_resource type="Texture2D" uid="uid://dsvi6rmf72mvb" path="res://Visual assets/Sprites/Potions/Pot_cement.png" id="3_3up16"]
+[ext_resource type="Texture2D" uid="uid://0qm75av164rh" path="res://Visual assets/Sprites/Potions/pot_teleport.png" id="4_fftbo"]
+
+[node name="Mission Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ytbrt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(1800, 700)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(1800, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Level_buttons" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1800, 700)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
+layout_mode = 2
+offset_left = 323.0
+offset_top = 219.0
+offset_right = 823.0
+offset_bottom = 719.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.340339
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("2_6kowj")
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
+offset_left = 886.0
+offset_top = 357.0
+offset_right = 1386.0
+offset_bottom = 857.0
+rotation = 0.10821
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("3_3up16")
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
+offset_left = 1347.0
+offset_top = 237.0
+offset_right = 1847.0
+offset_bottom = 737.0
+rotation = -0.432842
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_fftbo")
+stretch_mode = 0
+
+[node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1800, 250)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 76
+text = "This is the description of the selected mission (and those are buttons okay)"
