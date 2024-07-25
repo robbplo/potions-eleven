@@ -51,15 +51,16 @@ offset_bottom = 1080.0
 [node name="Stars2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_i51cy")
 custom_minimum_size = Vector2(1920, 1080)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Stars3" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_bdohu")
 custom_minimum_size = Vector2(1920, 1080)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Fisheye Effect" type="Polygon2D" parent="."]
 material = SubResource("ShaderMaterial_hsim5")
+position = Vector2(5, 17)
 polygon = PackedVector2Array(-49, -28, -32, 1100, 1956, 1109, 1954, -54)

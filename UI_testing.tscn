@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=3 uid="uid://daet44duy6q3o"]
+
+[ext_resource type="PackedScene" uid="uid://be1qfoves2lqr" path="res://J_Experiment_LooknFeel.tscn" id="1_gtnrm"]
+[ext_resource type="Script" path="res://resolution_button.gd" id="2_v2bsk"]
+[ext_resource type="Shader" path="res://Visual assets/Background/Texture_scroller_stars1.gdshader" id="3_sd4ee"]
+[ext_resource type="Texture2D" uid="uid://dmlubpdkrfepo" path="res://Visual assets/Textures/Tile_stars_1.png" id="4_gnfud"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbx2x"]
+shader = ExtResource("3_sd4ee")
+shader_parameter/scroll_speed = 0.08
+shader_parameter/angle_degrees = 20.0
+shader_parameter/repeat_x = 4.0
+shader_parameter/repeat_y = 4.0
+shader_parameter/row_offset = 1.0
+shader_parameter/texture_to_scroll = ExtResource("4_gnfud")
+
+[node name="UiTesting" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nbx2x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -892.0
+offset_top = -540.0
+offset_right = 892.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(1320, 960)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CenterContainer/VBoxContainer/HBoxContainer/MarginContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1320, 960)
+size_2d_override = Vector2i(1320, 960)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="PathingTest" parent="CenterContainer/VBoxContainer/HBoxContainer/MarginContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_gtnrm")]
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(460, 1080)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 960)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_right = 114.0
+offset_bottom = 45.0
+selected = 0
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "1600x800"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+script = ExtResource("2_v2bsk")
+
+[connection signal="item_selected" from="Control/OptionButton" to="Control/OptionButton" method="_on_item_selected"]

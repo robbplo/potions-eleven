@@ -11,32 +11,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 124)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 340.0
-grow_vertical = 0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_bottom = 24
-
-[node name="Hotbar" type="HBoxContainer" parent="MarginContainer"]
+[node name="Hotbar" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 20
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 100.0
+theme_override_constants/separation = 0
 script = ExtResource("1_gpodd")
 
-[node name="Panel" parent="MarginContainer/Hotbar" instance=ExtResource("2_66ydp")]
+[node name="Panel" parent="Hotbar" instance=ExtResource("2_66ydp")]
 layout_mode = 2
 
-[node name="Panel2" parent="MarginContainer/Hotbar" instance=ExtResource("2_66ydp")]
+[node name="Panel2" parent="Hotbar" instance=ExtResource("2_66ydp")]
 layout_mode = 2
 
-[node name="Panel3" parent="MarginContainer/Hotbar" instance=ExtResource("2_66ydp")]
+[node name="Panel3" parent="Hotbar" instance=ExtResource("2_66ydp")]
 layout_mode = 2
 
-[node name="Panel4" parent="MarginContainer/Hotbar" instance=ExtResource("2_66ydp")]
+[node name="Panel4" parent="Hotbar" instance=ExtResource("2_66ydp")]
 layout_mode = 2

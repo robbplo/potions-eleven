@@ -84,6 +84,7 @@ position = Vector2(4, -3)
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_a1csl")
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 40.0

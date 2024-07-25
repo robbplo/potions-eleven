@@ -1,26 +1,163 @@
-[gd_scene load_steps=3 format=3 uid="uid://wd5x384kouju"]
+[gd_scene load_steps=8 format=3 uid="uid://wd5x384kouju"]
 
 [ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://pathing_test.tscn" id="1_58qq5"]
 [ext_resource type="PackedScene" uid="uid://bfrqeqfe46o7s" path="res://UI/game_ui.tscn" id="2_87lol"]
+[ext_resource type="Texture2D" uid="uid://sc6xu4ji4nxc" path="res://Visual assets/UI/BackgroundBox.png" id="2_hx76q"]
+[ext_resource type="Theme" uid="uid://bfnp7ggiwgbgp" path="res://Crypt_script_theme.tres" id="3_lddto"]
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="4_krk0p"]
+[ext_resource type="Texture2D" uid="uid://b8qu6pscm3u4s" path="res://Visual assets/Sprites/Character Icons/ATUAN.png" id="5_tfc6l"]
+[ext_resource type="Texture2D" uid="uid://cdio61bvhkgr7" path="res://Visual assets/UI/SpeechBubblePoint.png" id="6_d5325"]
 
-[node name="UiLevel" type="Node2D"]
+[node name="UiLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="LevelViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="Main Screen" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CenterContainer/Main Screen"]
+layout_mode = 2
+
+[node name="LevelViewport" type="SubViewport" parent="CenterContainer/Main Screen/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1920, 1080)
+size = Vector2i(1340, 960)
 render_target_update_mode = 4
 
-[node name="PathingTest" parent="SubViewportContainer/LevelViewport" instance=ExtResource("1_58qq5")]
+[node name="PathingTest" parent="CenterContainer/Main Screen/SubViewportContainer/LevelViewport" instance=ExtResource("1_58qq5")]
 
-[node name="UiViewport" type="SubViewport" parent="SubViewportContainer"]
-process_priority = 1
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
+[node name="Sidepanel" type="VBoxContainer" parent="CenterContainer/Main Screen"]
+layout_mode = 2
+theme_override_constants/separation = -1
+alignment = 1
 
-[node name="GameUI" parent="SubViewportContainer/UiViewport" instance=ExtResource("2_87lol")]
+[node name="Mission" type="Control" parent="CenterContainer/Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/Main Screen/Sidepanel/Mission"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hx76q")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Main Screen/Sidepanel/Mission"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -187.0
+offset_right = 187.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_lddto")
+text = "MISSION:
+
+Get the objective and escape safely."
+shortcut_keys_enabled = false
+
+[node name="Pots" type="HBoxContainer" parent="CenterContainer/Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+
+[node name="GameUI" parent="CenterContainer/Main Screen/Sidepanel/Pots" instance=ExtResource("2_87lol")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CenterContainer/Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+theme = ExtResource("4_krk0p")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/Main Screen/Sidepanel/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hx76q")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Main Screen/Sidepanel/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -136.0
+offset_right = 177.5
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_lddto")
+text = "Ah yes, i love me some rock potions!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(2.08165e-12, 160)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/Main Screen/Sidepanel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 160)
+layout_mode = 2
+theme = ExtResource("4_krk0p")
+
+[node name="PlayerIcon" type="TextureRect" parent="CenterContainer/Main Screen/Sidepanel/HBoxContainer/Panel"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 150.0
+grow_vertical = 0
+texture = ExtResource("5_tfc6l")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="SpeechBubblePoint" type="TextureRect" parent="CenterContainer/Main Screen/Sidepanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_d5325")
+
+[editable path="CenterContainer/Main Screen/Sidepanel/Pots/GameUI"]
