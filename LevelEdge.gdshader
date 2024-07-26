@@ -13,16 +13,16 @@ void vertex() {
 
 void fragment() {
 	vec2 new_uv;
-	
+
 	ivec2 texture_size =  textureSize(mask_texture, 0);
 	new_uv = vec2(UV.x+float(frame_index) * float(frame_pixel_width) / float(texture_size.x), UV.y);
 	COLOR.a = texture(mask_texture, new_uv).r;
-	
+
 	//vec2 distortion_value = (texture(noise_texture, UV + (TIME * 0.01)).rg *2.0) - 1.0 * texture(mask_texture, new_uv).r;
 	//vec2 distortion = (distortion_value * distortion_amount);
 	//vec4 color = texture(TEXTURE, new_uv + distortion);
 	//COLOR.rgba = vec4(color.rgba);
-	
+
 }
 
 //void light() {

@@ -13,4 +13,3 @@ func erase(id: int) -> void:
 
 func add(id: int, entity: Node2D) -> void:
 	dict[id] = entity
-
