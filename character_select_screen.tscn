@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8xayyppwcjmu"]
+[gd_scene load_steps=10 format=3 uid="uid://c8xayyppwcjmu"]
 
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_pc6gk"]
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="2_8yxie"]
+[ext_resource type="Script" path="res://character_select_button.gd" id="3_i4oqf"]
+[ext_resource type="FontFile" uid="uid://daymdiblkisko" path="res://Visual assets/UI/JerianScript-Regular.otf" id="3_rrame"]
+[ext_resource type="FontFile" uid="uid://dmwl7a5s11gy6" path="res://Visual assets/UI/Jerian_english-Regular.otf" id="4_l0u0i"]
+[ext_resource type="Texture2D" uid="uid://sc6xu4ji4nxc" path="res://Visual assets/UI/BackgroundBox.png" id="5_i4rkl"]
+[ext_resource type="ButtonGroup" uid="uid://b1cg8fr6lbxre" path="res://Character_select_buttons.tres" id="6_cw24o"]
+[ext_resource type="Texture2D" uid="uid://b286q1fdkhupe" path="res://Visual assets/Sprites/Character Icons/RAPTURE.png" id="8_7u0iw"]
+
+[sub_resource type="Theme" id="Theme_0ydh5"]
+RichTextLabel/colors/default_color = Color(0.0862745, 0.054902, 0.105882, 1)
+RichTextLabel/font_sizes/mono_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/mono_font = ExtResource("3_rrame")
+RichTextLabel/fonts/normal_font = ExtResource("4_l0u0i")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,17 +42,25 @@ layout_mode = 2
 custom_minimum_size = Vector2(1000, 500)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 51
-text = "This is where i would put some description of the selected mission.
 
-IF I HAD ONE."
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 150)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 51
+text = "MISSION TITLE"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(800, 350)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 46
+text = "Mission description"
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -52,26 +74,14 @@ layout_mode = 2
 [node name="Characters 1 - 4" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4"]
+[node name="Character_select_button" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+mouse_force_pass_scroll_events = false
+theme = ExtResource("2_8yxie")
+script = ExtResource("3_i4oqf")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -65.0
-offset_top = -65.0
-offset_right = 65.0
-offset_bottom = 65.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "ICON OF GUY"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4/Panel"]
+[node name="Character_name" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4/Character_select_button"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -83,7 +93,40 @@ offset_top = -28.0
 offset_right = 65.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "NAME OF GUY"
+theme = SubResource("Theme_0ydh5")
+bbcode_enabled = true
+text = "NAME"
+
+[node name="Icon_background" type="NinePatchRect" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4/Character_select_button"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_right = 75.0
+offset_bottom = 150.0
+grow_horizontal = 2
+texture = ExtResource("5_i4rkl")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="Character_icon" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4/Character_select_button/Icon_background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(300, 300)
+toggle_mode = true
+button_group = ExtResource("6_cw24o")
+texture_normal = ExtResource("8_7u0iw")
+stretch_mode = 3
 
 [node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4"]
 custom_minimum_size = Vector2(200, 200)
