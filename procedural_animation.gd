@@ -46,7 +46,7 @@ func _ready():
 		setup()
 
 func _process(delta):
-	if target:
+	if target and is_instance_valid(target):
 		global_position = update(delta, target.global_position)
 
 func setup():

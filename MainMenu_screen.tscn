@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dweq7o6uye81i"]
+[gd_scene load_steps=16 format=3 uid="uid://dweq7o6uye81i"]
 
 [ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="1_1ej4r"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_2jtdq"]
+[ext_resource type="Script" path="res://main_menu_screen.gd" id="1_eeq5j"]
 [ext_resource type="Theme" uid="uid://cqr3fbsh083nf" path="res://MainMenu_titles.tres" id="2_bej77"]
 [ext_resource type="Script" path="res://MenuButton.gd" id="3_a6bsi"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="4_37n6y"]
@@ -182,13 +183,14 @@ _data = {
 "RESET": SubResource("Animation_rly1j")
 }
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eeq5j")
 
 [node name="Star_background" parent="." instance=ExtResource("1_2jtdq")]
 layout_mode = 1
@@ -307,3 +309,5 @@ autoplay = "Crystal_rotation"
 libraries = {
 "": SubResource("AnimationLibrary_r748f")
 }
+
+[connection signal="gui_input" from="CenterContainer/ScreenItems/MenuItems/Play" to="." method="_on_play_gui_input"]
