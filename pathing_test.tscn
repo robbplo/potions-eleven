@@ -60,10 +60,10 @@ position = Vector2(935, 466)
 scale = Vector2(0.671875, 4.51172)
 
 [node name="Player" parent="." instance=ExtResource("3_8y6x8")]
-position = Vector2(742, 174)
+position = Vector2(732, 470)
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_vcl5l")]
-position = Vector2(742, 174)
+position = Vector2(732, 470)
 target = NodePath("../Player")
 
 [node name="StandardWorldEnv" parent="." instance=ExtResource("6_h7st5")]

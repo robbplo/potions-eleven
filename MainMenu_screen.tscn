@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_2jtdq"]
 [ext_resource type="Theme" uid="uid://cqr3fbsh083nf" path="res://MainMenu_titles.tres" id="2_bej77"]
 [ext_resource type="Script" path="res://MenuButton.gd" id="3_a6bsi"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="4_37n6y"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="4_37n6y"]
 [ext_resource type="Texture2D" uid="uid://da635uoogp3ek" path="res://Visual assets/Animated sprites/Crystal_ball_1.png" id="5_wjore"]
 [ext_resource type="Texture2D" uid="uid://byxfimgrjeoav" path="res://Visual assets/Animated sprites/Crystal_ball_2.png" id="6_ib1h7"]
 [ext_resource type="Texture2D" uid="uid://btrfa8lpf6m2j" path="res://Visual assets/Animated sprites/Crystal_ball_3.png" id="7_axs4m"]
