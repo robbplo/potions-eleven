@@ -1,7 +1,7 @@
-class_name RadialRaycast extends Node2D
-
 ## Raycast used for light and shadow.
 ## NOTE: only the player is added to IlluminatedEntities
+
+class_name RadialRaycast extends Node2D
 
 const DEBUG_RAY_COLOR = Color.GRAY
 const DEBUG_RAY_COLLIDE_COLOR = Color.RED

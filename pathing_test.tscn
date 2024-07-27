@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw6kkiyj8aglt"]
+[gd_scene load_steps=13 format=3 uid="uid://bw6kkiyj8aglt"]
 
 [ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="1_fivty"]
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="1_mdii8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://standard_world_env.res" id="6_h7st5"]
 [ext_resource type="PackedScene" uid="uid://dp0uqms1uec1y" path="res://objective.tscn" id="7_xs7sg"]
 [ext_resource type="PackedScene" uid="uid://dnpr48jjt1ons" path="res://exit.tscn" id="8_sy5ui"]
+[ext_resource type="PackedScene" uid="uid://cx6chha4qpdqf" path="res://follow_camera.tscn" id="10_vcl5l"]
 
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
@@ -59,7 +60,11 @@ position = Vector2(935, 466)
 scale = Vector2(0.671875, 4.51172)
 
 [node name="Player" parent="." instance=ExtResource("3_8y6x8")]
-position = Vector2(724, 229)
+position = Vector2(742, 174)
+
+[node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_vcl5l")]
+position = Vector2(742, 174)
+target = NodePath("../Player")
 
 [node name="StandardWorldEnv" parent="." instance=ExtResource("6_h7st5")]
 
