@@ -35,12 +35,13 @@ shape = SubResource("CircleShape2D_fi7xk")
 
 [node name="RadialRaycast" type="Node2D" parent="."]
 script = ExtResource("3_t4nug")
-ray_count = 30
+ray_count = 20
 radial_angle = 90.0
 ray_range = 1080.0
 illumination_range = 540.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_q1f6k")
 

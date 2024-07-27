@@ -1,25 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw6kkiyj8aglt"]
+[gd_scene load_steps=12 format=3 uid="uid://bw6kkiyj8aglt"]
 
 [ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="1_fivty"]
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="1_mdii8"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="2_vcrhs"]
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="3_8y6x8"]
 [ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://Level assets/wall.tscn" id="3_57pmu"]
 [ext_resource type="Script" path="res://radial_raycast.gd" id="4_vn76n"]
 [ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://standard_world_env.res" id="6_h7st5"]
 [ext_resource type="PackedScene" uid="uid://dp0uqms1uec1y" path="res://objective.tscn" id="7_xs7sg"]
 [ext_resource type="PackedScene" uid="uid://dnpr48jjt1ons" path="res://exit.tscn" id="8_sy5ui"]
-
-[sub_resource type="Gradient" id="Gradient_i0kan"]
-offsets = PackedFloat32Array(0.980519, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rw4wk"]
-gradient = SubResource("Gradient_i0kan")
-width = 1024
-height = 1024
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
@@ -44,17 +33,16 @@ texture = ExtResource("1_fivty")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.347817, 0.347817, 0.347817, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="RadialRaycast" type="Node2D" parent="."]
 position = Vector2(608, 822)
-shadow_enabled = true
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_rw4wk")
-
-[node name="RadialRaycast" type="Node2D" parent="PointLight2D"]
 script = ExtResource("4_vn76n")
-ray_count = 100
-ray_range = 512.0
-illumination_range = 512.0
+ray_range = 540.0
+illumination_range = 540.0
+
+[node name="PointLight2D" type="PointLight2D" parent="RadialRaycast"]
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("2_vcrhs")
 
 [node name="Enemy" parent="." instance=ExtResource("1_mdii8")]
 
@@ -86,7 +74,7 @@ position = Vector2(809, 170)
 [node name="StandardWorldEnv" parent="." instance=ExtResource("6_h7st5")]
 
 [node name="Objective" parent="." instance=ExtResource("7_xs7sg")]
-position = Vector2(810, 1020)
+position = Vector2(784, 749)
 
 [node name="Exit" parent="." instance=ExtResource("8_sy5ui")]
 position = Vector2(831, 32)
