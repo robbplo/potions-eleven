@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfkms2vsok7e6"]
+[gd_scene load_steps=13 format=3 uid="uid://dfkms2vsok7e6"]
 
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_1rh5r"]
 [ext_resource type="Texture2D" uid="uid://nlgepfj3mhmb" path="res://Visual assets/Textures/Stars_1.png" id="1_ytbrt"]
@@ -8,9 +8,10 @@
 [ext_resource type="Script" path="res://UI/Mission Select/MissionDescription.gd" id="4_35ub8"]
 [ext_resource type="Texture2D" uid="uid://dfq7rh1wugdj0" path="res://Visual assets/UI/Mission_button_3.png" id="4_qewas"]
 [ext_resource type="Texture2D" uid="uid://cguwloaw2vfgr" path="res://Visual assets/UI/Mission_button_4.png" id="5_6gxw6"]
-[ext_resource type="Texture2D" uid="uid://wpgofns8qw3s" path="res://Visual assets/Sprites/Character Icons/Player character layers/ATUAN_white.png" id="9_5uj1k"]
-[ext_resource type="Script" path="res://UI/Next_screen_button.gd" id="9_tov3m"]
-[ext_resource type="Texture2D" uid="uid://crhlep6jnet5g" path="res://Visual assets/Sprites/Character Icons/Player character layers/OMELAS_iris.png" id="11_ncil0"]
+[ext_resource type="Texture2D" uid="uid://bnarmgvs4klad" path="res://Visual assets/UI/Button_BackNext_bg.png" id="9_e3wxi"]
+[ext_resource type="Script" path="res://UI/Screen_navigation_button.gd" id="10_m2311"]
+[ext_resource type="Texture2D" uid="uid://c5ref83klog6g" path="res://Visual assets/UI/Button_Back_text.png" id="11_w8fyr"]
+[ext_resource type="Texture2D" uid="uid://bskfol1s31wgo" path="res://Visual assets/UI/Button_Next_text.png" id="12_vwjae"]
 
 [node name="Mission Select" type="Control"]
 layout_mode = 3
@@ -21,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Star_background" parent="." instance=ExtResource("1_1rh5r")]
+visible = false
 layout_mode = 1
 Background_color = Color(0.262745, 0.231373, 0.301961, 1)
 
@@ -110,7 +112,6 @@ mission_name = "ANIMI"
 [node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1800, 250)
 layout_mode = 2
-theme = ExtResource("3_y4ajl")
 
 [node name="Description" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel2"]
 layout_mode = 1
@@ -125,28 +126,52 @@ bbcode_enabled = true
 text = "[center]No mission selected[/center]"
 script = ExtResource("4_35ub8")
 
-[node name="goto_character_select" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
+[node name="goto_main_menu" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
 clip_children = 2
 layout_mode = 1
-offset_left = 1353.0
-offset_top = -150.0
-offset_right = 1953.0
-offset_bottom = 450.0
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(300, 300)
-texture_normal = ExtResource("9_5uj1k")
-script = ExtResource("9_tov3m")
-default_iris_position = Vector2(80, 20)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+offset_right = 240.0
+grow_vertical = 0
+pivot_offset = Vector2(120, 42)
+texture_normal = ExtResource("9_e3wxi")
+script = ExtResource("10_m2311")
 
-[node name="Eyeris" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_character_select"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_main_menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = 20.0
-offset_right = 80.0
-offset_bottom = 20.0
+offset_top = 0.5
+offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_ncil0")
+texture = ExtResource("11_w8fyr")
+
+[node name="goto_Character_select" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(120, 42)
+texture_normal = ExtResource("9_e3wxi")
+script = ExtResource("10_m2311")
+go_to_screen = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_Character_select"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_vwjae")

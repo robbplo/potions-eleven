@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cadpflxxm27ei"]
+
+[ext_resource type="Script" path="res://UI/menu_screens.gd" id="1_es768"]
+[ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_fpkgo"]
+[ext_resource type="PackedScene" uid="uid://dweq7o6uye81i" path="res://MainMenu_screen.tscn" id="2_m3bol"]
+[ext_resource type="PackedScene" uid="uid://dfkms2vsok7e6" path="res://mission_select_screen.tscn" id="3_ig3uy"]
+[ext_resource type="PackedScene" uid="uid://c8xayyppwcjmu" path="res://character_select_screen.tscn" id="4_0f5yv"]
+
+[node name="Menu_screens" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Star_background" parent="." instance=ExtResource("1_fpkgo")]
+layout_mode = 1
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 5768.0
+offset_bottom = 1080.0
+script = ExtResource("1_es768")
+
+[node name="Main_menu" parent="Container" instance=ExtResource("2_m3bol")]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Mission Select" parent="Container" instance=ExtResource("3_ig3uy")]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+
+[node name="Character_select" parent="Container" instance=ExtResource("4_0f5yv")]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2

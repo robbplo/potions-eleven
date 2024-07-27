@@ -6,7 +6,7 @@ extends TextureButton
 func _ready():
 	mouse_entered.connect(_hover_tween)
 	mouse_exited.connect(_stopped_hover_tween)
-	button_down.connect(_next_screen)
+	button_down.connect(_goto_screen)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,5 +22,5 @@ func _stopped_hover_tween():
 		var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		tween.tween_property(self, "scale", Vector2(0.5, 0.5), 0.6)
 
-func _next_screen():
-	MissionState.set_current_screen(3)
+func _goto_screen():
+	MissionState.set_current_screen(1)

@@ -1,4 +1,3 @@
-@tool
 extends Control
 
 @export var Background_color : Color

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dweq7o6uye81i"]
+[gd_scene load_steps=16 format=3 uid="uid://dweq7o6uye81i"]
 
 [ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="1_1ej4r"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_2jtdq"]
 [ext_resource type="Theme" uid="uid://cqr3fbsh083nf" path="res://MainMenu_titles.tres" id="2_bej77"]
 [ext_resource type="Script" path="res://MenuButton.gd" id="3_a6bsi"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="4_37n6y"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="4_37n6y"]
+[ext_resource type="Script" path="res://UI/Screen_navigation_button.gd" id="5_o7h1y"]
 [ext_resource type="Texture2D" uid="uid://da635uoogp3ek" path="res://Visual assets/Animated sprites/Crystal_ball_1.png" id="5_wjore"]
 [ext_resource type="Texture2D" uid="uid://byxfimgrjeoav" path="res://Visual assets/Animated sprites/Crystal_ball_2.png" id="6_ib1h7"]
 [ext_resource type="Texture2D" uid="uid://btrfa8lpf6m2j" path="res://Visual assets/Animated sprites/Crystal_ball_3.png" id="7_axs4m"]
@@ -182,7 +183,7 @@ _data = {
 "RESET": SubResource("Animation_rly1j")
 }
 
-[node name="Control" type="Control"]
+[node name="Main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,6 +222,16 @@ theme = ExtResource("2_bej77")
 bbcode_enabled = true
 text = "PLAY"
 script = ExtResource("3_a6bsi")
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_o7h1y")
+go_to_screen = 1
 
 [node name="Options" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
 custom_minimum_size = Vector2(200, 100)
