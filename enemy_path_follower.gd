@@ -126,7 +126,6 @@ func _get_rotation_speed() -> float:
 
 ## Decide next behavior when navigation target is reached based on current state.
 func _handle_navigation_finished(delta):
-	print(state)
 	match state:
 		State.PATROLLING:
 			path_current_idx += 1

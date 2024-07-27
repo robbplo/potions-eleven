@@ -15,9 +15,8 @@ func set_target(target: Vector2):
 	resource.throw_strategy.set_target(self, target)
 
 func detonate() -> void:
-	queue_free()
+	resource.detonation_strategy.detonate(self)
 
 func _apply_resource():
-	sprite.texture = resource.texture
-	sprite.scale = Vector2.ONE * resource.texture_scale
-
+	sprite.texture = resource.proj_texture
+	sprite.scale = Vector2.ONE * resource.proj_texture_scale

@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="PotionResource" load_steps=5 format=3 uid="uid://bqnjq0gq8rdov"]
+[gd_resource type="Resource" script_class="PotionResource" load_steps=8 format=3 uid="uid://bqnjq0gq8rdov"]
 
+[ext_resource type="Script" path="res://Entities/Potion/Strategies/potion_detonation_strategy.gd" id="1_7pif8"]
 [ext_resource type="Script" path="res://Resources/Potions/potion_resource.gd" id="1_jucss"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="2_fa4hb"]
+[ext_resource type="Texture2D" uid="uid://dt07l3w366dbv" path="res://Visual assets/Sprites/Potions/small_pot_invisibility.png" id="2_h64tp"]
 [ext_resource type="Script" path="res://Entities/Potion/Strategies/potion_throw_lob.gd" id="3_syf8m"]
+[ext_resource type="Texture2D" uid="uid://rm6s6r1gdy3f" path="res://Visual assets/Sprites/Potions/pot_invis.png" id="5_7cmwu"]
+
+[sub_resource type="Resource" id="Resource_sgkbu"]
+script = ExtResource("1_7pif8")
 
 [sub_resource type="Resource" id="Resource_nsitl"]
 script = ExtResource("3_syf8m")
@@ -11,7 +16,9 @@ fuse_time = 1.0
 
 [resource]
 script = ExtResource("1_jucss")
-texture = ExtResource("2_fa4hb")
-texture_scale = 0.03
+proj_texture = ExtResource("2_h64tp")
+proj_texture_scale = 1.0
+ui_texture = ExtResource("5_7cmwu")
 count = 100
 throw_strategy = SubResource("Resource_nsitl")
+detonation_strategy = SubResource("Resource_sgkbu")

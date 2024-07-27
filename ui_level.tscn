@@ -26,6 +26,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StarBackground" parent="." instance=ExtResource("1_f0a0r")]
+layout_mode = 1
+Background_color = Color(0.0862745, 0.054902, 0.105882, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1080)

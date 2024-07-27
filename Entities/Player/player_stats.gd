@@ -25,6 +25,10 @@ func get_player() -> Player:
 	assert(player is Player, "player not found in scene tree")
 	return player
 
+## Gets the parent of the player node, which should be the level
+func get_level() -> Node2D:
+	return get_player().get_parent()
+
 func collect_objective():
 	has_objective = true
 	objective_collected.emit()
