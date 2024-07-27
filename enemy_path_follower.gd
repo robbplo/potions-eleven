@@ -144,12 +144,16 @@ func _handle_navigation_finished(delta):
 				state = State.PATROLLING
 
 func _on_radial_raycast_entity_seen(body: CharacterBody2D) -> void:
+	if state in [State.STUNNED, State.DEAD]:
+		return
 	if body is Player:
 		is_alert = true
 		set_target(body.global_position)
 		state = State.PURSUING
 
 func _on_kill_area_body_entered(body:Node2D) -> void:
+	if state in [State.STUNNED, State.DEAD]:
+		return
 	if is_alert and body is Player:
 		body.die()
 		state = State.IDLE

@@ -33,17 +33,22 @@ var prev_colliders := {}
 func _ready() -> void:
 	for_each_ray(func (ray_angle): debug_rays[ray_angle] = [Vector2.ZERO, Vector2.ZERO, Color.WHITE])
 
+func _physics_process(_delta: float) -> void:
+	colliders = {}
+	for_each_ray(cast_ray)
+	_set_illuminated_entities()
+	prev_colliders = colliders
+
 ## Draw debug lines
 func _draw() -> void:
 	if get_tree().debug_collisions_hint:
 		for ray in debug_rays.values():
 			draw_line(to_local(ray[0]), to_local(ray[1]), ray[2])
 
-func _physics_process(_delta: float) -> void:
-	colliders = {}
-	for_each_ray(cast_ray)
-	_set_illuminated_entities()
-	prev_colliders = colliders
+
+func _exit_tree() -> void:
+	for id in colliders:
+		IlluminatedEntities.erase(id, is_shadow)
 
 ## Call a function for every ray.
 func for_each_ray(function: Callable):
@@ -76,9 +81,8 @@ func cast_ray(ray_angle: float):
 			# add illuminated flag for future reference
 			result["illuminated"] = _collision_result_illuminates(result)
 			# add collider if not already present
-			if not colliders.has(result["collider_id"]):
-				colliders[result["collider_id"]] = result
-			# show red debug line when colliding with character
+			colliders.get_or_add(result["collider_id"], result)
+			# show debug line when colliding with character
 			if get_tree().debug_collisions_hint:
 				debug_ray[2] = DEBUG_RAY_COLLIDE_COLOR
 
