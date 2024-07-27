@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://wd5x384kouju"]
+[gd_scene load_steps=12 format=3 uid="uid://wd5x384kouju"]
 
 [ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://pathing_test.tscn" id="1_58qq5"]
+[ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_d415v"]
 [ext_resource type="Shader" path="res://LevelEdge.gdshader" id="1_hokyh"]
 [ext_resource type="PackedScene" uid="uid://bfrqeqfe46o7s" path="res://UI/game_ui.tscn" id="2_87lol"]
 [ext_resource type="Texture2D" uid="uid://sc6xu4ji4nxc" path="res://Visual assets/UI/BackgroundBox.png" id="2_hx76q"]
@@ -23,6 +24,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Star_background" parent="." instance=ExtResource("1_d415v")]
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+Background_color = Color(0.0862745, 0.054902, 0.105882, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1080)

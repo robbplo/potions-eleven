@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfkms2vsok7e6"]
+[gd_scene load_steps=12 format=3 uid="uid://dfkms2vsok7e6"]
 
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_1rh5r"]
 [ext_resource type="Texture2D" uid="uid://nlgepfj3mhmb" path="res://Visual assets/Textures/Stars_1.png" id="1_ytbrt"]
-[ext_resource type="Texture2D" uid="uid://c0rgowyvrkf7s" path="res://Visual assets/UI/Mission_button_1.png" id="2_sfxnl"]
+[ext_resource type="PackedScene" uid="uid://vccovs30q4s8" path="res://UI/Mission Select/mission_button.tscn" id="3_aie3o"]
 [ext_resource type="Texture2D" uid="uid://dj8ihlsb0b5v7" path="res://Visual assets/UI/Mission_button_2.png" id="3_b67qx"]
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="3_y4ajl"]
+[ext_resource type="Script" path="res://UI/Mission Select/MissionDescription.gd" id="4_35ub8"]
 [ext_resource type="Texture2D" uid="uid://dfq7rh1wugdj0" path="res://Visual assets/UI/Mission_button_3.png" id="4_qewas"]
 [ext_resource type="Texture2D" uid="uid://cguwloaw2vfgr" path="res://Visual assets/UI/Mission_button_4.png" id="5_6gxw6"]
-[ext_resource type="Texture2D" uid="uid://dmhenipc644bg" path="res://Visual assets/UI/Mission_button_5.png" id="6_l0yik"]
+[ext_resource type="Texture2D" uid="uid://wpgofns8qw3s" path="res://Visual assets/Sprites/Character Icons/Player character layers/ATUAN_white.png" id="9_5uj1k"]
+[ext_resource type="Script" path="res://UI/Next_screen_button.gd" id="9_tov3m"]
+[ext_resource type="Texture2D" uid="uid://crhlep6jnet5g" path="res://Visual assets/Sprites/Character Icons/Player character layers/OMELAS_iris.png" id="11_ncil0"]
 
 [node name="Mission Select" type="Control"]
 layout_mode = 3
@@ -18,6 +22,7 @@ grow_vertical = 2
 
 [node name="Star_background" parent="." instance=ExtResource("1_1rh5r")]
 layout_mode = 1
+Background_color = Color(0.262745, 0.231373, 0.301961, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -47,6 +52,7 @@ layout_mode = 2
 [node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(1800, 250)
 layout_mode = 2
+theme = ExtResource("3_y4ajl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -55,73 +61,92 @@ layout_mode = 2
 custom_minimum_size = Vector2(1800, 700)
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
-layout_mode = 2
-offset_left = 125.0
-offset_top = 150.0
-offset_right = 425.0
-offset_bottom = 520.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.340339
-scale = Vector2(0.6, 0.6)
-texture_normal = ExtResource("2_sfxnl")
-stretch_mode = 0
-
-[node name="TextureButton2" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
+[node name="Mission_button" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
 layout_mode = 0
-offset_left = 1108.0
-offset_top = 141.0
-offset_right = 1408.0
-offset_bottom = 511.0
-rotation = 0.10821
-scale = Vector2(0.6, 0.6)
+offset_left = 153.0
+offset_top = 165.0
+offset_right = 453.0
+offset_bottom = 535.0
+grow_horizontal = 1
+grow_vertical = 1
+mission_name = "XANTHOSIS"
+
+[node name="Mission_button2" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 168.0
+offset_right = 810.0
+offset_bottom = 538.0
+grow_horizontal = 1
+grow_vertical = 1
 texture_normal = ExtResource("3_b67qx")
-stretch_mode = 0
+button_image = ExtResource("3_b67qx")
+mission_name = "NEWT'S CRYSTAL"
 
-[node name="TextureButton3" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
+[node name="Mission_button3" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
 layout_mode = 0
-offset_left = 858.0
-offset_top = 339.0
-offset_right = 1158.0
-offset_bottom = 709.0
-rotation = 0.461578
-scale = Vector2(0.6, 0.6)
+offset_left = 888.0
+offset_top = 152.0
+offset_right = 1188.0
+offset_bottom = 522.0
+grow_horizontal = 1
+grow_vertical = 1
 texture_normal = ExtResource("4_qewas")
-stretch_mode = 0
+button_image = ExtResource("4_qewas")
+mission_name = "VOID LABORATORY"
 
-[node name="TextureButton4" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
+[node name="Mission_button4" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
 layout_mode = 0
-offset_left = 433.0
-offset_top = 190.0
-offset_right = 733.0
-offset_bottom = 560.0
-rotation = -0.0609905
-scale = Vector2(0.6, 0.6)
+offset_left = 1233.0
+offset_top = 149.0
+offset_right = 1533.0
+offset_bottom = 519.0
+grow_horizontal = 1
+grow_vertical = 1
 texture_normal = ExtResource("5_6gxw6")
-stretch_mode = 0
-
-[node name="TextureButton5" type="TextureButton" parent="CenterContainer/VBoxContainer/Level_buttons"]
-layout_mode = 0
-offset_left = 1312.0
-offset_top = 301.0
-offset_right = 1612.0
-offset_bottom = 671.0
-rotation = -0.432842
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("6_l0yik")
-stretch_mode = 0
+button_image = ExtResource("5_6gxw6")
+mission_name = "ANIMI"
 
 [node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1800, 250)
 layout_mode = 2
+theme = ExtResource("3_y4ajl")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel2"]
+[node name="Description" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_y4ajl")
 theme_override_font_sizes/normal_font_size = 76
-text = "This is the description of the selected mission (and those are buttons okay)"
+bbcode_enabled = true
+text = "[center]No mission selected[/center]"
+script = ExtResource("4_35ub8")
+
+[node name="goto_character_select" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
+clip_children = 2
+layout_mode = 1
+offset_left = 1353.0
+offset_top = -150.0
+offset_right = 1953.0
+offset_bottom = 450.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(300, 300)
+texture_normal = ExtResource("9_5uj1k")
+script = ExtResource("9_tov3m")
+default_iris_position = Vector2(80, 20)
+
+[node name="Eyeris" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_character_select"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_ncil0")

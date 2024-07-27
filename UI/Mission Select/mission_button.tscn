@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://vccovs30q4s8"]
+
+[ext_resource type="ButtonGroup" uid="uid://wkxtcyn8b20u" path="res://UI/Mission_Button_group.tres" id="1_nwnhc"]
+[ext_resource type="Texture2D" uid="uid://c0rgowyvrkf7s" path="res://Visual assets/UI/Mission_button_1.png" id="2_c7apq"]
+[ext_resource type="Script" path="res://UI/Mission_button.gd" id="3_ym8j4"]
+
+[node name="Mission_button" type="TextureButton"]
+offset_left = 125.0
+offset_top = 150.0
+offset_right = 425.0
+offset_bottom = 520.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.340339
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(150, 185)
+toggle_mode = true
+button_group = ExtResource("1_nwnhc")
+texture_normal = ExtResource("2_c7apq")
+stretch_mode = 0
+script = ExtResource("3_ym8j4")
+button_image = ExtResource("2_c7apq")
+
+[node name="Mission_name" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -70.0
+offset_right = 125.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(125, 50)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "XANTHOSIS"
+fit_content = true

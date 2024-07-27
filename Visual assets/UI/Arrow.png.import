@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvi1ie43aetxq"
-path="res://.godot/imported/RAPTURE.png-503b25bb8e9b5d80d487d666cb8aa2a6.ctex"
+uid="uid://c11q7g7vvulsr"
+path="res://.godot/imported/Arrow.png-db53f6bc99df7bcc7084e43382534b64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Visual assets/Sprites/Potions/RAPTURE.png"
-dest_files=["res://.godot/imported/RAPTURE.png-503b25bb8e9b5d80d487d666cb8aa2a6.ctex"]
+source_file="res://Visual assets/UI/Arrow.png"
+dest_files=["res://.godot/imported/Arrow.png-db53f6bc99df7bcc7084e43382534b64.ctex"]
 
 [params]
 
