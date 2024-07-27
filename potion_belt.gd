@@ -30,7 +30,7 @@ func throw_potion(target: Vector2) -> void:
 	instance.global_position = global_position
 	instance.resource = loadout[selected].duplicate(true)
 	instance.set_target(target)
-	PlayerStats.get_player().get_parent().add_child(instance)
+	PlayerStats.get_level().add_child(instance)
 
 	ammo[selected] -= 1
 	PlayerStats.potion_ammo_changed.emit(selected, ammo[selected])

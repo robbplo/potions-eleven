@@ -8,6 +8,7 @@ const EYE_MAX_DISTANCE := Vector2(600.0, 300.0)
 @onready var potion_belt: PotionBelt = $PotionBelt
 
 func _physics_process(_delta: float) -> void:
+
 	var input_vector := Input.get_vector("left", "right", "up", "down")
 	velocity = input_vector * SPEED
 	move_and_slide()
@@ -15,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("throw_potion"):
-		potion_belt.throw_potion(event.global_position)
+		potion_belt.throw_potion(get_global_mouse_position())
 
 func die():
 	queue_free()

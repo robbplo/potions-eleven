@@ -59,7 +59,6 @@ func _setup() -> void:
 func _physics_process(delta: float) -> void:
 	if state in [State.PATROLLING, State.PURSUING, State.SEARCHING]:
 		_move_toward_target(delta)
-		# Target reached, find next target
 
 ## Set a new navigation target.
 func set_target(target: Vector2):
@@ -126,7 +125,6 @@ func _get_rotation_speed() -> float:
 
 ## Decide next behavior when navigation target is reached based on current state.
 func _handle_navigation_finished(delta):
-	print(state)
 	match state:
 		State.PATROLLING:
 			path_current_idx += 1
@@ -138,6 +136,7 @@ func _handle_navigation_finished(delta):
 				nav.target_position = predicted_player_pos
 			state = State.SEARCHING
 		State.SEARCHING:
+			state = State.IDLE
 			searching_timer = get_tree().create_timer(SEARCHING_TIMEOUT)
 			await searching_timer.timeout
 			if searching_timer:

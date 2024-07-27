@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx6chha4qpdqf"]
+
+[ext_resource type="Script" path="res://procedural_animation.gd" id="1_w8xnr"]
+
+[node name="FollowCamera" type="Node2D"]
+script = ExtResource("1_w8xnr")
+damping = 2.0
+response = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="."]

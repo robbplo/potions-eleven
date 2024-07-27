@@ -6,7 +6,7 @@ class_name HotbarItem extends Panel
 @onready var inactive_cover: Panel = $InactiveCover
 
 func set_potion(potion: PotionResource):
-	set_texture(potion.texture)
+	set_texture(potion.ui_texture)
 	set_ammo(potion.count)
 
 func set_texture(texture: Texture2D):

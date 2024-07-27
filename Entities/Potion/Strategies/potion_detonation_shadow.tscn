@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://de2j62bq5n4us"]
+
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="1_55qt4"]
+[ext_resource type="Script" path="res://radial_raycast.gd" id="2_byp4h"]
+
+[node name="PotionDetonationShadow" type="Node2D"]
+
+[node name="Shadow" type="PointLight2D" parent="."]
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+texture = ExtResource("1_55qt4")
+
+[node name="RadialRaycast" type="Node2D" parent="."]
+script = ExtResource("2_byp4h")
+ray_range = 540.0
+illumination_range = 540.0
+is_shadow = true
