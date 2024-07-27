@@ -15,4 +15,8 @@ func apply_force(potion: PotionProjectile, delta: float):
 
 	var coll := potion.move_and_collide(movement)
 	if coll:
-		potion.velocity = potion.velocity.bounce(coll.get_normal())
+		var node = coll.get_collider()
+		if node is EnemyPathFollower and potion.velocity.length() > 1500:
+			node.state = EnemyPathFollower.State.DEAD
+		potion.velocity = potion.velocity.bounce(coll.get_normal()) * 0.5
+
