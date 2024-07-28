@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 const SPEED := 300.0
 const THROW_SPEED := 900.0
-const EYE_MAX_MOVEMENT := Vector2(80, 60)
+const EYE_MAX_MOVEMENT := Vector2(80, 60) * 0.25
 const EYE_MAX_DISTANCE := Vector2(600.0, 300.0)
 
 @onready var potion_belt: PotionBelt = $PotionBelt

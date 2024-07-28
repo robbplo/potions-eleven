@@ -18,6 +18,7 @@ const ALERTED_SPEED := 200.0
 const BASE_ROTATE_SPEED := PI
 const ALERTED_ROTATE_SPEED := PI * 2
 const SEARCHING_TIMEOUT := 2.0
+const ATTACK_TIMER := (1.0/60.0) * 2
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var path: Path2D = $Path2D
@@ -155,5 +156,7 @@ func _on_kill_area_body_entered(body:Node2D) -> void:
 	if state in [State.STUNNED, State.DEAD]:
 		return
 	if is_alert and body is Player:
-		body.die()
-		state = State.IDLE
+		await get_tree().create_timer(ATTACK_TIMER).timeout
+		if ($KillArea as Area2D).overlaps_body(body):
+			body.die()
+			state = State.IDLE
