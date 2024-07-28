@@ -59,7 +59,7 @@ layout_mode = 2
 
 [node name="LevelViewport" type="SubViewport" parent="CenterContainer/Main Screen/Level screen"]
 handle_input_locally = false
-size = Vector2i(1340, 960)
+size = Vector2i(1320, 960)
 render_target_update_mode = 4
 
 [node name="PathingTest" parent="CenterContainer/Main Screen/Level screen/LevelViewport" instance=ExtResource("1_58qq5")]

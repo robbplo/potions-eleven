@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dld4wkpq72688"]
+
+[ext_resource type="FontFile" uid="uid://daymdiblkisko" path="res://Visual assets/UI/JerianScript-Regular.otf" id="1_du773"]
+[ext_resource type="FontFile" uid="uid://dmwl7a5s11gy6" path="res://Visual assets/UI/Jerian_english-Regular.otf" id="2_n3niv"]
+
+[resource]
+RichTextLabel/colors/default_color = Color(0.0862745, 0.054902, 0.105882, 1)
+RichTextLabel/font_sizes/normal_font_size = 40
+RichTextLabel/fonts/mono_font = ExtResource("1_du773")
+RichTextLabel/fonts/normal_font = ExtResource("2_n3niv")

@@ -13,4 +13,3 @@ func set_mission(mission_name: String):
 func set_character(character_name: String):
 	selected_character = character_name
 	character_selected.emit(character_name)
-

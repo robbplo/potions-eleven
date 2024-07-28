@@ -9,13 +9,12 @@ var encrypted_text: String
 var decrypted_text: String
 var text_mode: String = "encrypted"
 
-@onready var button_text = $Play
+@onready var button_text = $Text
 
 func _ready():
 	decrypted_text = button_text.text
 	encrypted_text = "[code]" + button_text.text + "[/code]"
 	
-	button_down.connect(_pop_up)
 	mouse_entered.connect(_decrypt_animation)
 	mouse_exited.connect(_encrypt_animation)
 	
@@ -45,6 +44,3 @@ func _set_decrypted():
 
 func _set_encrypted():
 	button_text.text = encrypted_text
-
-func _pop_up():
-	pass

@@ -1,15 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8xayyppwcjmu"]
+[gd_scene load_steps=24 format=3 uid="uid://c8xayyppwcjmu"]
 
 [ext_resource type="Script" path="res://character_select_screen.gd" id="1_f70sp"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_pc6gk"]
 [ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="2_8yxie"]
-[ext_resource type="PackedScene" path="res://UI/character_select_button.tscn" id="2_hw7sa"]
+[ext_resource type="PackedScene" uid="uid://cvnuqnev7skun" path="res://UI/character_select_button.tscn" id="2_hw7sa"]
 [ext_resource type="Texture2D" uid="uid://dj8lrxafpjtsy" path="res://Visual assets/Sprites/Character Icons/OMELAS.png" id="3_bixdw"]
 [ext_resource type="Texture2D" uid="uid://ce5kbwar3gfyd" path="res://Visual assets/Sprites/Character Icons/ANOR_LONDO.png" id="4_shdnp"]
 [ext_resource type="Texture2D" uid="uid://chw5nmj1k3d7x" path="res://Visual assets/Sprites/Character Icons/STORMWIND.png" id="5_3alpd"]
+[ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://UI/Simple_text.tres" id="5_4dpnm"]
 [ext_resource type="Texture2D" uid="uid://sc6xu4ji4nxc" path="res://Visual assets/UI/BackgroundBox.png" id="5_i4rkl"]
 [ext_resource type="Texture2D" uid="uid://dm4g7puwhhpec" path="res://Visual assets/Sprites/Character Icons/MENZOBERRANZAN.png" id="6_gkn5d"]
+[ext_resource type="Script" path="res://mission_title.gd" id="6_r4yt1"]
 [ext_resource type="Texture2D" uid="uid://b8qu6pscm3u4s" path="res://Visual assets/Sprites/Character Icons/ATUAN.png" id="7_n7qvn"]
+[ext_resource type="Script" path="res://mission_description.gd" id="7_otwiu"]
 [ext_resource type="Texture2D" uid="uid://b286q1fdkhupe" path="res://Visual assets/Sprites/Character Icons/RAPTURE.png" id="8_7u0iw"]
 [ext_resource type="Texture2D" uid="uid://dsdubmob2m0vx" path="res://Visual assets/Sprites/Character Icons/RIVENDELL.png" id="9_y7x3k"]
 [ext_resource type="Texture2D" uid="uid://c76jkfc7ealix" path="res://Visual assets/Sprites/Character Icons/GORMENGHAST.png" id="10_oedqd"]
@@ -53,12 +56,12 @@ custom_minimum_size = Vector2(2.08165e-12, 85)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="MissionText" type="Panel" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1000, 480)
 layout_mode = 2
 theme = ExtResource("2_8yxie")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MissionText"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +69,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer"]
+[node name="NinePatchRect2" type="NinePatchRect" parent="CenterContainer/VBoxContainer/MissionText/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 150)
 layout_mode = 2
 size_flags_vertical = 3
@@ -76,25 +79,39 @@ patch_margin_top = 40
 patch_margin_right = 40
 patch_margin_bottom = 40
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer/NinePatchRect2"]
-custom_minimum_size = Vector2(600, 150)
+[node name="MissionTitle" type="RichTextLabel" parent="CenterContainer/VBoxContainer/MissionText/VBoxContainer/NinePatchRect2"]
+custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
+offset_top = 40.0
 offset_right = 1399.0
-offset_bottom = 150.0
-theme_override_font_sizes/normal_font_size = 51
-text = "MISSION TITLE"
+offset_bottom = 140.0
+theme = ExtResource("5_4dpnm")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]MISSION TITLE"
+script = ExtResource("6_r4yt1")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer/NinePatchRect2"]
-custom_minimum_size = Vector2(800, 350)
-layout_mode = 2
-offset_top = 150.0
-offset_right = 1397.0
-offset_bottom = 500.0
+[node name="MissionDescription" type="RichTextLabel" parent="CenterContainer/VBoxContainer/MissionText/VBoxContainer/NinePatchRect2"]
+custom_minimum_size = Vector2(600, 330)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -330.0
+offset_right = 500.0
 grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_4dpnm")
 theme_override_font_sizes/normal_font_size = 46
-text = "Mission description"
+bbcode_enabled = true
+text = "[center]Mission description"
+scroll_active = false
+script = ExtResource("7_otwiu")
 
-[node name="Panel3" type="Panel" parent="CenterContainer/VBoxContainer"]
+[node name="Margin" type="Panel" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 20)
 layout_mode = 2
 theme = ExtResource("2_8yxie")
@@ -182,15 +199,15 @@ patch_margin_bottom = 40
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer/NinePatchRect"]
 custom_minimum_size = Vector2(500, 150)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -0.5
-offset_right = 0.5
+offset_left = -250.0
+offset_top = 24.0
+offset_right = 250.0
+offset_bottom = 174.0
 grow_horizontal = 2
-grow_vertical = 2
+theme = ExtResource("5_4dpnm")
 bbcode_enabled = true
 text = "[center]No character selected[/center]"
 script = ExtResource("11_27rgt")

@@ -14,4 +14,3 @@ func _stopped_hover_tween():
 	if button_pressed == false:
 		var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		tween.tween_property(self, "scale", Vector2(0.6, 0.6), 0.6)
-
