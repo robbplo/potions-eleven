@@ -10,8 +10,6 @@ enum Screen {
 var selected_mission: String :set =set_mission
 var selected_character: String :set =set_character
 var current_screen: Screen = Screen.MAIN_MENU
-var is_pressed: bool = false
-
 
 
 func set_mission(mission_name: String):

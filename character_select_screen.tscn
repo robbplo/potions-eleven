@@ -70,7 +70,7 @@ patch_margin_bottom = 40
 [node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel/VBoxContainer/NinePatchRect2"]
 custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
-offset_right = 1416.0
+offset_right = 1399.0
 offset_bottom = 150.0
 theme_override_font_sizes/normal_font_size = 51
 text = "MISSION TITLE"
@@ -79,7 +79,7 @@ text = "MISSION TITLE"
 custom_minimum_size = Vector2(800, 350)
 layout_mode = 2
 offset_top = 150.0
-offset_right = 1416.0
+offset_right = 1397.0
 offset_bottom = 500.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 46

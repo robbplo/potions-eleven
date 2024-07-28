@@ -8,7 +8,7 @@ func _ready():
 	pass 
 
 
-func _process(delta):
+func _process(_delta):
 	#var target_distance = position.x / (1.0 + screen_width*MissionState.current_screen)
 	#print(target_distance)
 	if tween_playing == false:

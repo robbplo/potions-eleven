@@ -15,7 +15,7 @@ func _ready():
 	visible_ratio = 1
 	bbcode_enabled = true
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _decrypt_animation():

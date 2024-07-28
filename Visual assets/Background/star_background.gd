@@ -6,7 +6,7 @@ var screen_size = DisplayServer.window_get_size()
 func _ready():
 	$ColorRect.color = Background_color
 
-func _process(delta):
+func _process(_delta):
 	_follow_position(get_global_mouse_position())
 	$ColorRect.color = Background_color
 

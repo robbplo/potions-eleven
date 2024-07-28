@@ -10,7 +10,7 @@ func _ready():
 	button_down.connect(_goto_screen)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func _hover_tween():

@@ -23,14 +23,12 @@ grow_amount = -0.145
 transparency = 1
 cull_mode = 2
 albedo_texture = ExtResource("2_25h4w")
-subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao7a"]
 transparency = 1
 cull_mode = 2
 albedo_texture = ExtResource("3_jxdjp")
-subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0
 
 [node name="Node3D" type="Node3D"]
@@ -49,18 +47,18 @@ transform = Transform3D(1, 0, 0, 0, 0.668793, 0.743448, 0, -0.743448, 0.668793, 
 light_energy = 2.9
 
 [node name="Layer1" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0193145, 0.211513, 0.977184, -0.928552, -0.358582, 0.0959689, 0.370699, -0.90922, 0.189475, 0, 0, 0)
+transform = Transform3D(-0.33599, 0.457141, -0.823488, 0.711662, 0.695936, 0.0959688, 0.616966, -0.553801, -0.559158, 0, 0, 0)
 mesh = SubResource("SphereMesh_8efto")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1u1u")
 
 [node name="Layer2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.892171, 0.0985785, 0.0656812, 0, -0.499031, 0.748978, 0.118456, 0.742462, 0.49469, 0, 0, 0)
+transform = Transform3D(-0.412798, 0.300238, -0.741252, -1.25956e-07, 0.83417, 0.337875, 0.799749, 0.154971, -0.382605, 0, 0, 0)
 mesh = SubResource("SphereMesh_8efto")
 skeleton = NodePath("../Layer1")
 surface_material_override/0 = SubResource("StandardMaterial3D_rdgy8")
 
 [node name="Layer3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.00174125, -0.255507, -0.758098, 0, -0.7581, 0.255508, -0.799998, 0.000556127, 0.00165005, 0, 0, 0)
+transform = Transform3D(0.783934, 0.137816, -0.0803402, -6.08363e-08, 0.4029, 0.691137, 0.159524, -0.677257, 0.394809, 0, 0, 0)
 mesh = SubResource("SphereMesh_8efto")
 skeleton = NodePath("../Layer1")
 surface_material_override/0 = SubResource("StandardMaterial3D_kao7a")

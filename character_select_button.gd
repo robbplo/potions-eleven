@@ -32,7 +32,7 @@ func _ready():
 	name_label.bbcode_enabled = true
 	
 	$Icon_background/Character_icon.texture_normal = character_image
-func _process(delta):
+func _process(_delta):
 	## detects changes in the state of buttons and calles the button_changed function
 	var temp_pressed = character_icon.button_pressed
 	if temp_pressed != is_pressed:

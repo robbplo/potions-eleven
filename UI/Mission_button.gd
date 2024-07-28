@@ -6,7 +6,7 @@ extends TextureButton
 
 @onready var button_text: RichTextLabel = $Mission_name
 
-var is_pressed: bool = false
+var button_is_pressed: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,11 +19,11 @@ func _ready():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var temp_pressed = button_pressed
-	if temp_pressed != is_pressed:
+	if temp_pressed != button_is_pressed:
 		_button_changed()
-		is_pressed = temp_pressed
+		button_is_pressed = temp_pressed
 
 
 ## Everything that happens while the mouse hovers over the character_icon's bounding box

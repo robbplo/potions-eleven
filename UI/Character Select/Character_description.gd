@@ -6,7 +6,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	match MissionState.selected_character:
 		"OMELAS":
 			text = "Insists they’re actually just a really convincing illusion themselves."
