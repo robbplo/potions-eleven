@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_2jtdq"]
 [ext_resource type="Script" path="res://main_menu_screen.gd" id="1_eeq5j"]
 [ext_resource type="Theme" uid="uid://cqr3fbsh083nf" path="res://MainMenu_titles.tres" id="2_bej77"]
-[ext_resource type="Script" path="res://MenuButton.gd" id="3_a6bsi"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="4_37n6y"]
 [ext_resource type="Script" path="res://UI/Main_menu_play.gd" id="6_5xs3e"]
+[ext_resource type="Script" path="res://main_menu_popup_button.gd" id="6_k3t7u"]
 [ext_resource type="Script" path="res://crystal_ball_container.gd" id="7_mcjx7"]
 [ext_resource type="PackedScene" uid="uid://bajk6nx4csred" path="res://Visual assets/CrystalBall3D.tscn" id="8_2tywp"]
 
@@ -51,53 +51,63 @@ go_to_screen = 1
 
 [node name="Play" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton"]
 custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-offset_right = 400.0
-offset_bottom = 100.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("2_bej77")
 bbcode_enabled = true
 text = "PLAY"
 
 [node name="TextureButton2" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+script = ExtResource("6_k3t7u")
 
 [node name="Options" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton2"]
 custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-offset_top = 4.0
-offset_right = 400.0
-offset_bottom = 104.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_bej77")
 bbcode_enabled = true
 text = "OPTIONS"
-script = ExtResource("3_a6bsi")
 
 [node name="TextureButton3" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 
 [node name="Credits" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton3"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
-layout_mode = 2
-offset_top = -208.0
-offset_right = 400.0
-offset_bottom = -108.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_bej77")
 text = "CREDITS"
-script = ExtResource("3_a6bsi")
 
 [node name="TextureButton4" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 
 [node name="Quit" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton4"]
 custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-offset_top = -108.0
-offset_right = 400.0
-offset_bottom = -8.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_bej77")
 text = "QUIT"
-script = ExtResource("3_a6bsi")
 
 [node name="Panel" type="Panel" parent="CenterContainer/ScreenItems"]
 custom_minimum_size = Vector2(100, 2.08165e-12)
