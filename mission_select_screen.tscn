@@ -126,6 +126,33 @@ bbcode_enabled = true
 text = "[center]No mission selected[/center]"
 script = ExtResource("4_35ub8")
 
+[node name="goto_Character_select" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(120, 42)
+texture_normal = ExtResource("9_e3wxi")
+script = ExtResource("10_m2311")
+go_to_screen = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_Character_select"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_vwjae")
+
 [node name="goto_main_menu" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
 clip_children = 2
 layout_mode = 1
@@ -135,6 +162,7 @@ anchor_bottom = 1.0
 offset_top = -85.0
 offset_right = 240.0
 grow_vertical = 0
+scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(120, 42)
 texture_normal = ExtResource("9_e3wxi")
 script = ExtResource("10_m2311")
@@ -149,29 +177,3 @@ offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_w8fyr")
-
-[node name="goto_Character_select" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
-clip_children = 2
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -85.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(120, 42)
-texture_normal = ExtResource("9_e3wxi")
-script = ExtResource("10_m2311")
-go_to_screen = 1
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_Character_select"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_vwjae")

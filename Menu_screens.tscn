@@ -17,21 +17,22 @@ grow_vertical = 2
 [node name="Star_background" parent="." instance=ExtResource("1_fpkgo")]
 layout_mode = 1
 
-[node name="Container" type="HBoxContainer" parent="."]
+[node name="Menu_Mover" type="HBoxContainer" parent="."]
 layout_mode = 1
 offset_right = 5768.0
 offset_bottom = 1080.0
+theme_override_constants/separation = 80
 script = ExtResource("1_es768")
 
-[node name="Main_menu" parent="Container" instance=ExtResource("2_m3bol")]
+[node name="Main_menu" parent="Menu_Mover" instance=ExtResource("2_m3bol")]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="Mission Select" parent="Container" instance=ExtResource("3_ig3uy")]
+[node name="Mission Select" parent="Menu_Mover" instance=ExtResource("3_ig3uy")]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
 
-[node name="Character_select" parent="Container" instance=ExtResource("4_0f5yv")]
+[node name="Character_select" parent="Menu_Mover" instance=ExtResource("4_0f5yv")]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2

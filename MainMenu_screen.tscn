@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dweq7o6uye81i"]
+[gd_scene load_steps=10 format=3 uid="uid://dweq7o6uye81i"]
 
 [ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="1_1ej4r"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_2jtdq"]
@@ -6,7 +6,8 @@
 [ext_resource type="Theme" uid="uid://cqr3fbsh083nf" path="res://MainMenu_titles.tres" id="2_bej77"]
 [ext_resource type="Script" path="res://MenuButton.gd" id="3_a6bsi"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="4_37n6y"]
-[ext_resource type="Script" path="res://UI/Screen_navigation_button.gd" id="5_o7h1y"]
+[ext_resource type="Script" path="res://UI/Main_menu_play.gd" id="6_5xs3e"]
+[ext_resource type="Script" path="res://crystal_ball_container.gd" id="7_mcjx7"]
 [ext_resource type="PackedScene" uid="uid://bajk6nx4csred" path="res://Visual assets/CrystalBall3D.tscn" id="8_2tywp"]
 
 [node name="MainMenu" type="Control"]
@@ -19,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_eeq5j")
 
 [node name="Star_background" parent="." instance=ExtResource("1_2jtdq")]
+visible = false
 layout_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -42,23 +44,22 @@ custom_minimum_size = Vector2(400, 2.08165e-12)
 layout_mode = 2
 alignment = 1
 
-[node name="Play" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+script = ExtResource("6_5xs3e")
+go_to_screen = 1
+
+[node name="Play" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 100.0
+mouse_filter = 1
 theme = ExtResource("2_bej77")
 bbcode_enabled = true
 text = "PLAY"
 script = ExtResource("3_a6bsi")
-
-[node name="TextureButton" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems/Play"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_o7h1y")
-go_to_screen = 1
 
 [node name="Options" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
 custom_minimum_size = Vector2(200, 100)
@@ -87,12 +88,13 @@ custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 theme = ExtResource("1_1ej4r")
 
-[node name="CenterContainer" type="Control" parent="CenterContainer/ScreenItems"]
+[node name="CrystalBallContainer" type="Control" parent="CenterContainer/ScreenItems"]
 custom_minimum_size = Vector2(900, 900)
 layout_mode = 2
 size_flags_horizontal = 0
+script = ExtResource("7_mcjx7")
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/ScreenItems/CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/ScreenItems/CrystalBallContainer"]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -110,7 +112,7 @@ scale = Vector2(0.83, 0.83)
 pivot_offset = Vector2(540, 540)
 texture = ExtResource("4_37n6y")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CenterContainer/ScreenItems/CenterContainer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CenterContainer/ScreenItems/CrystalBallContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,12 +120,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="CenterContainer/ScreenItems/CenterContainer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="CenterContainer/ScreenItems/CrystalBallContainer/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(900, 900)
 render_target_update_mode = 4
 
-[node name="Node3D" parent="CenterContainer/ScreenItems/CenterContainer/SubViewportContainer/SubViewport" instance=ExtResource("8_2tywp")]
+[node name="Node3D" parent="CenterContainer/ScreenItems/CrystalBallContainer/SubViewportContainer/SubViewport" instance=ExtResource("8_2tywp")]
+undulate_amount_1 = 0.1
 
-[connection signal="gui_input" from="CenterContainer/ScreenItems/MenuItems/Play" to="." method="_on_play_gui_input"]
+[connection signal="gui_input" from="CenterContainer/ScreenItems/MenuItems/TextureButton/Play" to="." method="_on_play_gui_input"]
