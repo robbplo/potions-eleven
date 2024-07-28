@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="1_fivty"]
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="1_mdii8"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="2_vcrhs"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="2_vcrhs"]
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="3_8y6x8"]
 [ext_resource type="PackedScene" uid="uid://dmp7wm7pyo8pk" path="res://Level assets/wall.tscn" id="3_57pmu"]
 [ext_resource type="Texture2D" uid="uid://b2mim5cflnr8a" path="res://Visual assets/Sprites/Vision cones/VisCone_90.png" id="3_v1sr7"]

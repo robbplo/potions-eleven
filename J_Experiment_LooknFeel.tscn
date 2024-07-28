@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://Level assets/Poly_wall.tscn" id="3_hltnd"]
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="5_0ir41"]
 [ext_resource type="Texture2D" uid="uid://ce5kbwar3gfyd" path="res://Visual assets/Sprites/Character Icons/ANOR_LONDO.png" id="5_8pk35"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="6_x2042"]
-[ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_90.png" id="7_kwxvb"]
-[ext_resource type="Texture2D" uid="uid://brm26r05w60vt" path="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_70.png" id="9_4gqjm"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="6_x2042"]
+[ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://Visual assets/Sprites/Lights/Circle_Gradient_90.png" id="7_kwxvb"]
+[ext_resource type="Texture2D" uid="uid://brm26r05w60vt" path="res://Visual assets/Sprites/Lights/Circle_Gradient_70.png" id="9_4gqjm"]
 [ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://standard_world_env.res" id="10_0g6or"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6mpx"]
