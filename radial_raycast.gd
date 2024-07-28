@@ -26,29 +26,25 @@ signal entity_seen(body: CharacterBody2D)
 ## Dictionary containing rays which are drawn if "Visible collision shapes" is true.
 var debug_rays := {}
 ## Colliders in current frame. Keys are instance ids.
-var colliders := {}
-## Colliders in previous frame.
-var prev_colliders := {}
+var colliders: Array[Dictionary] = []
 
 func _ready() -> void:
+	IlluminatedEntities.register_raycast(self)
 	for_each_ray(func (ray_angle): debug_rays[ray_angle] = [Vector2.ZERO, Vector2.ZERO, Color.WHITE])
 
-func _physics_process(_delta: float) -> void:
-	colliders = {}
+func _exit_tree() -> void:
+	IlluminatedEntities.unregister_raycast(self)
+
+func query_colliders() -> Array[Dictionary]:
+	colliders = []
 	for_each_ray(cast_ray)
-	_set_illuminated_entities()
-	prev_colliders = colliders
+	return colliders
 
 ## Draw debug lines
 func _draw() -> void:
 	if get_tree().debug_collisions_hint:
 		for ray in debug_rays.values():
 			draw_line(to_local(ray[0]), to_local(ray[1]), ray[2])
-
-
-func _exit_tree() -> void:
-	for id in colliders:
-		IlluminatedEntities.erase(id, is_shadow)
 
 ## Call a function for every ray.
 func for_each_ray(function: Callable):
@@ -64,6 +60,9 @@ func cast_ray(ray_angle: float):
 	var start := self.global_position
 	var end := start + Vector2(ray_range, 0).rotated(global_angle)
 	var query := PhysicsRayQueryParameters2D.create(start, end)
+	if get_parent() is PhysicsBody2D:
+		query.exclude = [get_parent().get_rid()]
+	query.hit_from_inside = true
 	var result := space_state.intersect_ray(query)
 	var debug_ray := []
 
@@ -80,8 +79,7 @@ func cast_ray(ray_angle: float):
 		if collider is CharacterBody2D:
 			# add illuminated flag for future reference
 			result["illuminated"] = _collision_result_illuminates(result)
-			# add collider if not already present
-			colliders.get_or_add(result["collider_id"], result)
+			colliders.append(result)
 			# show debug line when colliding with character
 			if get_tree().debug_collisions_hint:
 				debug_ray[2] = DEBUG_RAY_COLLIDE_COLOR
@@ -92,23 +90,4 @@ func cast_ray(ray_angle: float):
 ## Check if the collision is within the illumination range
 func _collision_result_illuminates(result: Dictionary) -> bool:
 	return self.global_position.distance_to(result["position"]) <= illumination_range
-
-## Update the illuminated entities singleton
-## NOTE: this function currently spams signals instead of singular exit/entry events.
-func _set_illuminated_entities() -> void:
-	# Add any illuminated colliders from the current frame to the list.
-	# If not in illumination range, entity is seen if already illuminated.
-	for id in colliders:
-		var result = colliders[id]
-		if result["illuminated"]:
-			IlluminatedEntities.add(id, result["collider"], is_shadow)
-		if IlluminatedEntities.is_illuminated(id):
-			entity_seen.emit(result["collider"])
-
-	# Check results from previous frame for illuminated colliders.
-	# If they are not present in the current frame, remove from list.
-	for id in prev_colliders:
-		# if prev collider is no longer colliding
-		if not id in colliders or not prev_colliders[id]["illuminated"]:
-			IlluminatedEntities.erase(id, is_shadow)
 

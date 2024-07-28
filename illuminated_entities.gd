@@ -4,23 +4,45 @@
 
 extends Node2D
 
-var dict := {}
-var shadow_dict := {}
+var raycast_nodes: Array[RadialRaycast] = []
+## Colliders in current frame. Values are raycast query results.
+var colliders := {}
+## Which raycasts collided with each collider. Each key has a list of references to RadialRaycast.
+var collider_raycasts := {}
 
-## TODO: query raycasts from here every frame
+func _physics_process(_delta: float) -> void:
+	colliders = {}
+	collider_raycasts = {}
+	for raycast in raycast_nodes:
+		_add_results_from_raycast(raycast)
+	_send_raycast_signals()
+
+func register_raycast(raycast: RadialRaycast) -> void:
+	raycast_nodes.append(raycast)
+
+func unregister_raycast(raycast: RadialRaycast) -> void:
+	raycast_nodes.remove_at(raycast_nodes.find(raycast))
 
 ## Returns true if the instance id is illuminated and not inside a shadow.
 func is_illuminated(id: int) -> bool:
-	return dict.has(id) and not shadow_dict.has(id)
+	return colliders.has(id)
 
-func add(id: int, entity: Node2D, is_shadow: bool = false) -> void:
-	if is_shadow:
-		shadow_dict[id] = entity
-	else:
-		dict[id] = entity
+func _add_results_from_raycast(raycast: RadialRaycast) -> void:
+	for result in raycast.query_colliders():
+		var id: int = result["collider_id"]
+		var existing_collider: Dictionary = colliders.get_or_add(id, result)
+		if not existing_collider["illuminated"] and result["illuminated"]:
+			colliders[id]["illuminated"] = true
 
-func erase(id: int, is_shadow: bool) -> void:
-	if is_shadow:
-		shadow_dict.erase(id)
-	else:
-		shadow_dict.erase(id)
+		if collider_raycasts.has(id):
+			collider_raycasts[id].append(raycast)
+		else:
+			collider_raycasts[id] = [raycast]
+
+func _send_raycast_signals():
+	for collider_id in collider_raycasts:
+		var result := colliders[collider_id] as Dictionary
+		if not result["illuminated"]:
+			continue
+		for raycast_node in collider_raycasts[collider_id]:
+			(raycast_node as RadialRaycast).entity_seen.emit(result["collider"])
