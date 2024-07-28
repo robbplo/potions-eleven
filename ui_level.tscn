@@ -17,7 +17,7 @@ shader_parameter/frame_pixel_width = 1320
 shader_parameter/frame_index = 0
 shader_parameter/mask_texture = ExtResource("2_rp0dl")
 
-[node name="Mission_screen" type="Control"]
+[node name="UILevel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

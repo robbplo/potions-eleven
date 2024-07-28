@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_2jtdq"]
 [ext_resource type="Script" path="res://main_menu_screen.gd" id="1_eeq5j"]
 [ext_resource type="Theme" uid="uid://cqr3fbsh083nf" path="res://MainMenu_titles.tres" id="2_bej77"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="4_37n6y"]
+[ext_resource type="Script" path="res://MenuButton.gd" id="3_a6bsi"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="4_37n6y"]
 [ext_resource type="Script" path="res://UI/Main_menu_play.gd" id="6_5xs3e"]
 [ext_resource type="Script" path="res://main_menu_popup_button.gd" id="6_k3t7u"]
 [ext_resource type="Script" path="res://crystal_ball_container.gd" id="7_mcjx7"]
-[ext_resource type="PackedScene" uid="uid://bajk6nx4csred" path="res://Visual assets/CrystalBall3D.tscn" id="8_2tywp"]
+[ext_resource type="PackedScene" path="res://Visual assets/CrystalBall3D.tscn" id="8_2tywp"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -43,13 +44,13 @@ custom_minimum_size = Vector2(400, 2.08165e-12)
 layout_mode = 2
 alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
+[node name="Play" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 script = ExtResource("6_5xs3e")
 go_to_screen = 1
 
-[node name="Play" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton"]
+[node name="Text" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/Play"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = 15
@@ -154,3 +155,5 @@ render_target_update_mode = 4
 
 [node name="Node3D" parent="CenterContainer/ScreenItems/CrystalBallContainer/SubViewportContainer/SubViewport" instance=ExtResource("8_2tywp")]
 undulate_amount_1 = 0.1
+
+[connection signal="pressed" from="CenterContainer/ScreenItems/MenuItems/Play" to="." method="_on_play_pressed"]
