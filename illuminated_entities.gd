@@ -1,11 +1,13 @@
-extends Node2D
-
 ## Global dictionary containing entities which are currently illuminated.
 ## Keys are instance ids, which you can find with `Node.get_instance_id()`.
 ## Keeps a separate list of entities which are inside a 'shadow' raycast.
 
+extends Node2D
+
 var dict := {}
 var shadow_dict := {}
+
+## TODO: query raycasts from here every frame
 
 ## Returns true if the instance id is illuminated and not inside a shadow.
 func is_illuminated(id: int) -> bool:

@@ -45,6 +45,12 @@ blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_q1f6k")
 
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+color = Color(1, 1, 1, 0.133333)
+shadow_enabled = true
+texture = ExtResource("4_q1f6k")
+texture_scale = 2.0
+
 [node name="FoeEyeWhite" type="Sprite2D" parent="."]
 scale = Vector2(0.317, 0.317)
 texture = ExtResource("4_1amve")

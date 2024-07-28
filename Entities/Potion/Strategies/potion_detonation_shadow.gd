@@ -10,7 +10,7 @@ const PLAYER_SIZE := 90.0
 
 func detonate(potion: PotionProjectile) -> void:
 	potion.visible = false
-	var instance = SCENE.instantiate()
+	var instance := SCENE.instantiate()
 	instance.global_position = potion.global_position
 
 	var shadow := instance.get_node("Shadow") as PointLight2D
@@ -21,9 +21,21 @@ func detonate(potion: PotionProjectile) -> void:
 	raycast.illumination_range = radius - PLAYER_SIZE
 	raycast.is_shadow = true
 
+	var occluder := (instance.get_node("LightOccluder2D") as LightOccluder2D).occluder
+	occluder.polygon = _create_circle()
+
 	PlayerStats.get_level().add_child(instance)
 
 	await instance.get_tree().create_timer(duration).timeout
 	potion.queue_free()
 	instance.queue_free()
+
+func _create_circle() -> PackedVector2Array:
+	var points: PackedVector2Array = []
+	var resolution = 100
+	for i in resolution:
+		var angle := (1.0/resolution) * i as float * TAU
+		var point := (Vector2.UP * radius).rotated(angle)
+		points.append(point)
+	return points
 
