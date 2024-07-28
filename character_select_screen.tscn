@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8xayyppwcjmu"]
+[gd_scene load_steps=21 format=3 uid="uid://c8xayyppwcjmu"]
 
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_pc6gk"]
 [ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="2_8yxie"]
@@ -19,6 +19,15 @@
 [ext_resource type="Script" path="res://UI/goto_game_screen.gd" id="17_7uunq"]
 [ext_resource type="Texture2D" uid="uid://bskfol1s31wgo" path="res://Visual assets/UI/Button_Next_text.png" id="17_b5evg"]
 
+[sub_resource type="Theme" id="Theme_kuter"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5pef"]
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+
 [node name="Character_select" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -28,7 +37,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Star_background" parent="." instance=ExtResource("1_pc6gk")]
-visible = false
 layout_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -45,7 +53,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 500)
+custom_minimum_size = Vector2(1000, 480)
 layout_mode = 2
 theme = ExtResource("2_8yxie")
 
@@ -84,6 +92,11 @@ offset_bottom = 500.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 46
 text = "Mission description"
+
+[node name="Panel3" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+theme = ExtResource("2_8yxie")
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -149,17 +162,23 @@ custom_minimum_size = Vector2(600, 300)
 layout_mode = 2
 theme = ExtResource("2_8yxie")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2"]
+custom_minimum_size = Vector2(600, 400)
 layout_mode = 0
-offset_right = 600.0
-offset_bottom = 200.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_8yxie")
 texture = ExtResource("5_i4rkl")
 patch_margin_left = 40
 patch_margin_top = 40
 patch_margin_right = 40
 patch_margin_bottom = 40
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/NinePatchRect"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer/NinePatchRect"]
 custom_minimum_size = Vector2(500, 150)
 layout_mode = 1
 anchors_preset = 8
@@ -175,16 +194,24 @@ bbcode_enabled = true
 text = "[center]No character selected[/center]"
 script = ExtResource("11_27rgt")
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2"]
-layout_mode = 0
-offset_top = 207.0
-offset_right = 600.0
-offset_bottom = 357.0
-texture = ExtResource("5_i4rkl")
-patch_margin_left = 40
-patch_margin_top = 40
-patch_margin_right = 40
-patch_margin_bottom = 40
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer/NinePatchRect"]
+custom_minimum_size = Vector2(2.08165e-12, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kuter")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5pef")
+
+[node name="Margin" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
 
 [node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 85)

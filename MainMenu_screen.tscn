@@ -59,24 +59,42 @@ theme = ExtResource("2_bej77")
 bbcode_enabled = true
 text = "PLAY"
 
-[node name="Options" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+[node name="TextureButton2" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
+layout_mode = 2
+
+[node name="Options" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton2"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+offset_top = 4.0
+offset_right = 400.0
+offset_bottom = 104.0
 theme = ExtResource("2_bej77")
 bbcode_enabled = true
 text = "OPTIONS"
 script = ExtResource("3_a6bsi")
 
-[node name="Credits" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+[node name="TextureButton3" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
+layout_mode = 2
+
+[node name="Credits" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton3"]
 custom_minimum_size = Vector2(2.08165e-12, 100)
 layout_mode = 2
+offset_top = -208.0
+offset_right = 400.0
+offset_bottom = -108.0
 theme = ExtResource("2_bej77")
 text = "CREDITS"
 script = ExtResource("3_a6bsi")
 
-[node name="Quit" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems"]
+[node name="TextureButton4" type="TextureButton" parent="CenterContainer/ScreenItems/MenuItems"]
+layout_mode = 2
+
+[node name="Quit" type="RichTextLabel" parent="CenterContainer/ScreenItems/MenuItems/TextureButton4"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+offset_top = -108.0
+offset_right = 400.0
+offset_bottom = -8.0
 theme = ExtResource("2_bej77")
 text = "QUIT"
 script = ExtResource("3_a6bsi")
@@ -126,5 +144,3 @@ render_target_update_mode = 4
 
 [node name="Node3D" parent="CenterContainer/ScreenItems/CrystalBallContainer/SubViewportContainer/SubViewport" instance=ExtResource("8_2tywp")]
 undulate_amount_1 = 0.1
-
-[connection signal="gui_input" from="CenterContainer/ScreenItems/MenuItems/TextureButton/Play" to="." method="_on_play_gui_input"]

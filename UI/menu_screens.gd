@@ -18,4 +18,3 @@ func _process(_delta):
 			tween.tween_property(self, "position", Vector2(-screen_width * MissionState.current_screen, position.y) , .6)
 			tween.tween_property(self, "tween_playing", false, 0)
 			
-			
