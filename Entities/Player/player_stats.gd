@@ -21,7 +21,7 @@ var has_objective := false
 ## Get reference to Player node. Crashes if node cannot be found.
 func get_player() -> Player:
 	if not player:
-		player = get_tree().get_first_node_in_group("Player")
+		player = get_tree().get_first_node_in_group("player")
 	assert(player is Player, "player not found in scene tree")
 	return player
 

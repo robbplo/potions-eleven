@@ -16,7 +16,7 @@ polygon = PackedVector2Array(-115, -287, -115, -285.6, -136.1, -280, -139.6, -28
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_edwp8"]
 shader = ExtResource("2_gddfp")
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
 collision_mask = 5

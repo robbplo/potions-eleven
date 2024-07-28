@@ -12,7 +12,7 @@ polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3s5j"]
 size = Vector2(64, 64)
 
-[node name="Wall" type="Sprite2D"]
+[node name="Wall" type="Sprite2D" groups=["nav_geometry"]]
 texture = SubResource("GradientTexture2D_w6dkb")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
