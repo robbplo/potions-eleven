@@ -22,6 +22,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -59,7 +61,9 @@ layout_mode = 2
 
 [node name="LevelViewport" type="SubViewport" parent="CenterContainer/Main Screen/Level screen"]
 handle_input_locally = false
-size = Vector2i(1320, 960)
+size = Vector2i(1340, 960)
+size_2d_override = Vector2i(2680, 1920)
+size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="PathingTest" parent="CenterContainer/Main Screen/Level screen/LevelViewport" instance=ExtResource("1_58qq5")]
