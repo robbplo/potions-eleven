@@ -40,7 +40,8 @@ enabled=PackedStringArray()
 
 [global_group]
 
-Player=""
+nav_geometry="Nodes which should be included in the nav mesh"
+player=""
 
 [gui]
 
