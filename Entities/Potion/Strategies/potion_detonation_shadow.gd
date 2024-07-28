@@ -24,6 +24,9 @@ func detonate(potion: PotionProjectile) -> void:
 	var occluder := (instance.get_node("LightOccluder2D") as LightOccluder2D).occluder
 	occluder.polygon = _create_circle()
 
+	var collision_shape := instance.get_node("StaticBody2D/CollisionShape2D").shape as CircleShape2D
+	collision_shape.radius = radius
+
 	PlayerStats.get_level().add_child(instance)
 
 	await instance.get_tree().create_timer(duration).timeout
