@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://b31ye0ji6x3sc"]
+
+[ext_resource type="Script" path="res://Audio assets/sfx_mixer.gd" id="1_3kr67"]
+[ext_resource type="AudioStream" uid="uid://cgmcswkswrujs" path="res://Audio assets/ui_sounds/click_1.wav" id="2_fv703"]
+[ext_resource type="AudioStream" uid="uid://cd0gkn7nax27v" path="res://Audio assets/ui_sounds/click_2.wav" id="3_y3c61"]
+[ext_resource type="AudioStream" uid="uid://8ok6q07xetbe" path="res://Audio assets/ui_sounds/click_3.wav" id="4_g8dha"]
+[ext_resource type="AudioStream" uid="uid://buntxc3hstcmt" path="res://Audio assets/ui_sounds/whoosh_1.wav" id="5_6c83x"]
+[ext_resource type="AudioStream" uid="uid://bcwrdxep74k7" path="res://Audio assets/player_sounds/bottle_1.wav" id="5_j7lx5"]
+[ext_resource type="AudioStream" uid="uid://4xr27xsdcam2" path="res://Audio assets/ui_sounds/whoosh_2.wav" id="6_hebn0"]
+[ext_resource type="AudioStream" uid="uid://0k7dxnq5xv0j" path="res://Audio assets/player_sounds/bottle_4.wav" id="6_k5h1k"]
+
+[node name="SfxMixer" type="Node"]
+script = ExtResource("1_3kr67")
+
+[node name="Click1" type="Node" parent="."]
+
+[node name="Click1" type="AudioStreamPlayer" parent="Click1"]
+stream = ExtResource("2_fv703")
+
+[node name="Click2" type="AudioStreamPlayer" parent="Click1"]
+stream = ExtResource("3_y3c61")
+max_polyphony = 4
+
+[node name="Click3" type="AudioStreamPlayer" parent="Click1"]
+stream = ExtResource("4_g8dha")
+max_polyphony = 4
+
+[node name="Woosh1" type="Node" parent="."]
+
+[node name="Woosh1" type="AudioStreamPlayer" parent="Woosh1"]
+stream = ExtResource("5_6c83x")
+max_polyphony = 4
+
+[node name="Woosh2" type="AudioStreamPlayer" parent="Woosh1"]
+stream = ExtResource("6_hebn0")
+max_polyphony = 4
+
+[node name="BottleSelect" type="Node" parent="."]
+
+[node name="Bottle1" type="AudioStreamPlayer" parent="BottleSelect"]
+stream = ExtResource("5_j7lx5")
+max_polyphony = 4
+
+[node name="Bottle2" type="AudioStreamPlayer" parent="BottleSelect"]
+stream = ExtResource("6_k5h1k")
+max_polyphony = 4
+
+[node name="Bottle3" type="AudioStreamPlayer" parent="BottleSelect"]
+stream = ExtResource("2_fv703")
+max_polyphony = 4
+
+[node name="Bottle4" type="AudioStreamPlayer" parent="BottleSelect"]
+stream = ExtResource("2_fv703")
+max_polyphony = 4

@@ -20,15 +20,25 @@ func move_to_screen(screen: Screen):
 
 func _on_main_menu_button_pressed(button: String) -> void:
 	match button:
-		"Play": current_screen = Screen.MISSION_SELECT
+		"Play": 
+			current_screen = Screen.MISSION_SELECT
+			SfxMixer.woosh_1()
 	print(current_screen)
 
 func _on_mission_select_button_pressed(button: String) -> void:
 	match button:
-		"Prev": current_screen = Screen.MAIN_MENU
-		"Next": current_screen = Screen.CHARACTER_SELECT
+		"Prev": 
+			current_screen = Screen.MAIN_MENU
+			SfxMixer.woosh_1()
+		"Next": 
+			current_screen = Screen.CHARACTER_SELECT
+			SfxMixer.woosh_1()
 
 func _on_character_select_button_pressed(button: String) -> void:
 	match button:
-		"Prev": current_screen = Screen.MISSION_SELECT
-		"Next": current_screen = Screen.GAME_SCREEN
+		"Prev": 
+			current_screen = Screen.MISSION_SELECT
+			SfxMixer.woosh_1()
+		"Next": 
+			current_screen = Screen.GAME_SCREEN
+			SfxMixer.woosh_1()

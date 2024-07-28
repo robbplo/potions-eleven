@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://sar8kg0mu2tx"
+path="res://.godot/imported/click_2_down.wav-39d9947b081840f7a3890f2704f7a8de.sample"
+
+[deps]
+
+source_file="res://Audio assets/ui_sounds/click_2_down.wav"
+dest_files=["res://.godot/imported/click_2_down.wav-39d9947b081840f7a3890f2704f7a8de.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

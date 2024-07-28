@@ -9,9 +9,9 @@
 [ext_resource type="Script" path="res://UI/Main_menu_play.gd" id="6_5xs3e"]
 [ext_resource type="Script" path="res://main_menu_popup_button.gd" id="6_k3t7u"]
 [ext_resource type="Script" path="res://crystal_ball_container.gd" id="7_mcjx7"]
-[ext_resource type="PackedScene" path="res://Visual assets/CrystalBall3D.tscn" id="8_2tywp"]
-[ext_resource type="PackedScene" path="res://UI/OptionsWindow.tscn" id="11_d3wvt"]
-[ext_resource type="PackedScene" path="res://UI/credits_window.tscn" id="12_kgrg3"]
+[ext_resource type="PackedScene" uid="uid://bajk6nx4csred" path="res://Visual assets/CrystalBall3D.tscn" id="8_2tywp"]
+[ext_resource type="PackedScene" uid="uid://dlp3pebbu6j2p" path="res://UI/OptionsWindow.tscn" id="11_d3wvt"]
+[ext_resource type="PackedScene" uid="uid://db7kfdv2r4gos" path="res://UI/credits_window.tscn" id="12_kgrg3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
