@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://be1qfoves2lqr"]
+[gd_scene load_steps=14 format=3 uid="uid://be1qfoves2lqr"]
 
 [ext_resource type="Script" path="res://radial_raycast.gd" id="2_27dwg"]
 [ext_resource type="Shader" path="res://Level assets/Wall Shaders/unshaded.gdshader" id="3_6bdcw"]
@@ -6,27 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://Level assets/Poly_wall.tscn" id="3_hltnd"]
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="5_0ir41"]
 [ext_resource type="Texture2D" uid="uid://ce5kbwar3gfyd" path="res://Visual assets/Sprites/Character Icons/ANOR_LONDO.png" id="5_8pk35"]
-[ext_resource type="Shader" path="res://Starfield.gdshader" id="5_wnuda"]
-[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="6_x2042"]
-[ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://Visual assets/Sprites/Lights/Circle_Gradient_90.png" id="7_kwxvb"]
-[ext_resource type="Texture2D" uid="uid://brm26r05w60vt" path="res://Visual assets/Sprites/Lights/Circle_Gradient_70.png" id="9_4gqjm"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/LIGHTS/Circle_Flat.png" id="6_x2042"]
+[ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_90.png" id="7_kwxvb"]
+[ext_resource type="Texture2D" uid="uid://brm26r05w60vt" path="res://Visual assets/Sprites/LIGHTS/Circle_Gradient_70.png" id="9_4gqjm"]
 [ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://standard_world_env.res" id="10_0g6or"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k6mpx"]
 shader = ExtResource("3_6bdcw")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a1csl"]
-shader = ExtResource("5_wnuda")
-shader_parameter/anim_speed = 2.375e-07
-shader_parameter/star_brightness = 0.01
-shader_parameter/dust = 0.0
-shader_parameter/dist_fade = 0.223
-shader_parameter/pixelation = 1000.0
-shader_parameter/quantization_levels = 256
-shader_parameter/dust_color = Color(1, 1, 1, 1)
-shader_parameter/saturation = 0.0
-shader_parameter/layers = 4.0
-shader_parameter/iterations = 10
 
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
@@ -83,13 +69,6 @@ visible = false
 position = Vector2(4, -3)
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_a1csl")
-custom_minimum_size = Vector2(1920, 1080)
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.329412, 0.32549, 0.396078, 1)
 polygon = PackedVector2Array(98, 76, 98, 971, 1490, 973, 1486, 76)
@@ -110,37 +89,30 @@ metadata/_edit_lock_ = true
 
 [node name="Wall" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
 position = Vector2(142, 330)
-color = Color(0.14902, 0.164706, 0.247059, 1)
 polygon = PackedVector2Array(-4, -222, 1379, -218, 1378, 122, 1337, 123, 1338, -187, 137, -187, 134, 40, 50.2987, 41.1603, -2, 39)
 
 [node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
 position = Vector2(142, 366)
-color = Color(0.14902, 0.164706, 0.247059, 1)
 polygon = PackedVector2Array(-2, 57, 147, 57, 148, 249, 149, 585, 1344, 589, 1339, 181, 1383, 180, 1392, 588, 1392, 641, 157, 641, -5, 641, -4, 293)
 
 [node name="Wall3" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
 position = Vector2(466, 392)
-color = Color(0.14902, 0.164706, 0.247059, 1)
 polygon = PackedVector2Array(-8, 0, 140, -1, 142, 44, -8, 43)
 
 [node name="Wall4" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
 position = Vector2(460, 269)
-color = Color(0.14902, 0.164706, 0.247059, 1)
 polygon = PackedVector2Array(-8, -1, 139, 0, 142, 44, -8, 43)
 
 [node name="Wall5" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
 position = Vector2(802, 265)
-color = Color(0.14902, 0.164706, 0.247059, 1)
 polygon = PackedVector2Array(-7, -1, 140, -1, 142, 44, -8, 43)
 
 [node name="Wall6" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
 position = Vector2(801, 386)
-color = Color(0.14902, 0.164706, 0.247059, 1)
 polygon = PackedVector2Array(-9, 1, 43.9399, 0.279724, 138, -1, 142, 44, -8, 43)
 
 [node name="Wall7" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
 position = Vector2(591, 592)
-color = Color(0.14902, 0.164706, 0.247059, 1)
 polygon = PackedVector2Array(-119, -87, -92, -87, -92, 222, 95, 223, 93, 64, 117, 62, 122, 221, 336, 219, 321, 4, 316, -56, 118, -54, 116, -11, 93, -10, 90, -54, -31, -52, -33, -87, 345, -82, 345, -53, 350, 64, 362, 244, -120, 239, -119, 19, -119, -17)
 
 [node name="Player" parent="." instance=ExtResource("5_0ir41")]

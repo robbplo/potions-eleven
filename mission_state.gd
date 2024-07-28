@@ -1,22 +1,16 @@
-extends TextureButton
+extends Node2D
 
-enum Screen {
-	MAIN_MENU, 
-	MISSION_SELECT, 
-	CHARACTER_SELECT, 
-	GAME_SCREEN
-}
+signal mission_selected(mission: String)
+signal character_selected(character: String)
 
-var selected_mission: String :set =set_mission
-var selected_character: String :set =set_character
-var current_screen: Screen = Screen.MAIN_MENU
-
+var selected_mission: String: set = set_mission
+var selected_character: String: set = set_character
 
 func set_mission(mission_name: String):
 	selected_mission = mission_name
-	
+	mission_selected.emit(mission_name)
+
 func set_character(character_name: String):
 	selected_character = character_name
-	
-func set_current_screen(screen: Screen):
-	current_screen = screen
+	character_selected.emit(character_name)
+

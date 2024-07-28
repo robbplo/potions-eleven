@@ -21,7 +21,7 @@ point_count = 5
 vertices = PackedVector2Array(1020.5, 674.383, 1511.77, 912.258, -190.93, 946.656, 849.5, 674.383, 573.5, 674, 402.5, 674, 1275.66, 145.742, 1526.2, -244.398, 1154.74, 266.656, 1020.5, 257.633, 818.344, -69.7422, 849.5, 257.633, -171.047, -281.602, 402.5, -128.883, 939.258, -190.656, 573.5, -128.883)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 1, 0), PackedInt32Array(8, 6, 0), PackedInt32Array(8, 0, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(10, 9, 11), PackedInt32Array(5, 2, 12, 13), PackedInt32Array(7, 6, 14), PackedInt32Array(12, 7, 14), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(15, 14, 10), PackedInt32Array(4, 15, 10, 11, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-234, -347, 1591, -307, 1575, 975, -256, 1012)])
-source_geometry_mode = 1
+source_geometry_mode = 2
 source_geometry_group_name = &"nav_geometry"
 agent_radius = 64.0
 
@@ -44,25 +44,24 @@ top_level = true
 position = Vector2(178, 100)
 curve = SubResource("Curve2D_gi8k0")
 
-[node name="Wall2" parent="." groups=["nav_geometry"] instance=ExtResource("3_57pmu")]
+[node name="Wall2" parent="." instance=ExtResource("3_57pmu")]
 position = Vector2(539, 333.563)
 scale = Vector2(0.671875, 10.5449)
 
-[node name="Wall3" parent="." groups=["nav_geometry"] instance=ExtResource("3_57pmu")]
+[node name="Wall3" parent="." instance=ExtResource("3_57pmu")]
 position = Vector2(1098, 99)
 rotation = -0.785397
 scale = Vector2(0.671875, 5.43359)
 
-[node name="Wall" parent="." groups=["nav_geometry"] instance=ExtResource("3_57pmu")]
+[node name="Wall" parent="." instance=ExtResource("3_57pmu")]
 position = Vector2(986, 527)
 scale = Vector2(0.671875, 4.51172)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(51, 61)
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("3_8y6x8")]
+[node name="Player" parent="." instance=ExtResource("3_8y6x8")]
 position = Vector2(732, 470)
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_vcl5l")]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfkms2vsok7e6"]
+[gd_scene load_steps=14 format=3 uid="uid://dfkms2vsok7e6"]
 
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_1rh5r"]
+[ext_resource type="Script" path="res://mission_select_screen.gd" id="1_67xp4"]
 [ext_resource type="Texture2D" uid="uid://nlgepfj3mhmb" path="res://Visual assets/Textures/Stars_1.png" id="1_ytbrt"]
 [ext_resource type="PackedScene" uid="uid://vccovs30q4s8" path="res://UI/Mission Select/mission_button.tscn" id="3_aie3o"]
 [ext_resource type="Texture2D" uid="uid://dj8ihlsb0b5v7" path="res://Visual assets/UI/Mission_button_2.png" id="3_b67qx"]
@@ -20,8 +21,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_67xp4")
 
 [node name="Star_background" parent="." instance=ExtResource("1_1rh5r")]
+visible = false
 layout_mode = 1
 Background_color = Color(0.262745, 0.231373, 0.301961, 1)
 
@@ -127,7 +130,7 @@ bbcode_enabled = true
 text = "[center]No mission selected[/center]"
 script = ExtResource("4_35ub8")
 
-[node name="goto_Character_select" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
+[node name="NextButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
 clip_children = 2
 layout_mode = 1
 anchors_preset = 3
@@ -143,9 +146,8 @@ scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(120, 42)
 texture_normal = ExtResource("9_e3wxi")
 script = ExtResource("10_m2311")
-go_to_screen = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_Character_select"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/NextButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,7 +156,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_vwjae")
 
-[node name="goto_main_menu" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
+[node name="PrevButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Description"]
 clip_children = 2
 layout_mode = 1
 anchors_preset = 2
@@ -168,7 +170,7 @@ pivot_offset = Vector2(120, 42)
 texture_normal = ExtResource("9_e3wxi")
 script = ExtResource("10_m2311")
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/goto_main_menu"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Description/PrevButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -178,3 +180,6 @@ offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_w8fyr")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/Description/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/Description/PrevButton" to="." method="_on_prev_button_pressed"]

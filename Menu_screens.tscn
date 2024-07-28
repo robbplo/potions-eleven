@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cadpflxxm27ei"]
+[gd_scene load_steps=6 format=3 uid="uid://ludic33xsx7p"]
 
 [ext_resource type="Script" path="res://UI/menu_screens.gd" id="1_es768"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_fpkgo"]
@@ -36,3 +36,7 @@ layout_mode = 2
 [node name="Character_select" parent="Menu_Mover" instance=ExtResource("4_0f5yv")]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
+
+[connection signal="button_pressed" from="Menu_Mover/Main_menu" to="Menu_Mover" method="_on_main_menu_button_pressed"]
+[connection signal="button_pressed" from="Menu_Mover/Mission Select" to="Menu_Mover" method="_on_mission_select_button_pressed"]
+[connection signal="button_pressed" from="Menu_Mover/Character_select" to="Menu_Mover" method="_on_character_select_button_pressed"]

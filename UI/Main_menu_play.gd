@@ -9,16 +9,15 @@ var encrypted_text: String
 var decrypted_text: String
 var text_mode: String = "encrypted"
 
-@onready var button_text = $Play
+@onready var button_text = $Text
 
 func _ready():
 	decrypted_text = button_text.text
 	encrypted_text = "[code]" + button_text.text + "[/code]"
-	
-	button_down.connect(_goto_screen)
+
 	mouse_entered.connect(_decrypt_animation)
 	mouse_exited.connect(_encrypt_animation)
-	
+
 	button_text.text = encrypted_text
 	button_text.visible_ratio = 1
 	button_text.bbcode_enabled = true
@@ -32,7 +31,7 @@ func _decrypt_animation():
 	tween.tween_property(button_text, "visible_ratio", 0.0, animation_speed)
 	tween.tween_callback(_set_decrypted)
 	tween.tween_property(button_text, "visible_ratio", 1.0, animation_speed)
-	
+
 func _encrypt_animation():
 	text_mode = "encrypted"
 	var tween = get_tree().create_tween().bind_node(self)
@@ -45,6 +44,3 @@ func _set_decrypted():
 
 func _set_encrypted():
 	button_text.text = encrypted_text
-
-func _goto_screen():
-	MissionState.set_current_screen(go_to_screen)

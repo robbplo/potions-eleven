@@ -12,14 +12,14 @@ polygon = PackedVector2Array(0, 0, 64, 0, 64, 64, 0, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3s5j"]
 size = Vector2(64, 64)
 
-[node name="Wall" type="Sprite2D" groups=["nav_geometry"]]
+[node name="Wall2" type="Sprite2D"]
 texture = SubResource("GradientTexture2D_w6dkb")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(-32, -32)
 occluder = SubResource("OccluderPolygon2D_7v0cv")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["nav_geometry"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_m3s5j")

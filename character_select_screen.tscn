@@ -1,8 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://c8xayyppwcjmu"]
 
+[ext_resource type="Script" path="res://character_select_screen.gd" id="1_f70sp"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_pc6gk"]
 [ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="2_8yxie"]
-[ext_resource type="PackedScene" uid="uid://cvnuqnev7skun" path="res://UI/character_select_button.tscn" id="2_hw7sa"]
+[ext_resource type="PackedScene" path="res://UI/character_select_button.tscn" id="2_hw7sa"]
 [ext_resource type="Texture2D" uid="uid://dj8lrxafpjtsy" path="res://Visual assets/Sprites/Character Icons/OMELAS.png" id="3_bixdw"]
 [ext_resource type="Texture2D" uid="uid://ce5kbwar3gfyd" path="res://Visual assets/Sprites/Character Icons/ANOR_LONDO.png" id="4_shdnp"]
 [ext_resource type="Texture2D" uid="uid://chw5nmj1k3d7x" path="res://Visual assets/Sprites/Character Icons/STORMWIND.png" id="5_3alpd"]
@@ -16,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://bnarmgvs4klad" path="res://Visual assets/UI/Button_BackNext_bg.png" id="14_22oug"]
 [ext_resource type="Script" path="res://UI/Screen_navigation_button.gd" id="15_lfog5"]
 [ext_resource type="Texture2D" uid="uid://c5ref83klog6g" path="res://Visual assets/UI/Button_Back_text.png" id="16_fbo16"]
-[ext_resource type="Script" path="res://UI/goto_game_screen.gd" id="17_7uunq"]
 [ext_resource type="Texture2D" uid="uid://bskfol1s31wgo" path="res://Visual assets/UI/Button_Next_text.png" id="17_b5evg"]
 
 [sub_resource type="Theme" id="Theme_kuter"]
@@ -35,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f70sp")
 
 [node name="Star_background" parent="." instance=ExtResource("1_pc6gk")]
 layout_mode = 1
@@ -218,7 +219,7 @@ custom_minimum_size = Vector2(2.08165e-12, 85)
 layout_mode = 2
 theme = ExtResource("2_8yxie")
 
-[node name="goto_mission_select" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2"]
+[node name="PrevButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2"]
 clip_children = 2
 layout_mode = 1
 anchors_preset = 2
@@ -232,9 +233,8 @@ scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(120, 42)
 texture_normal = ExtResource("14_22oug")
 script = ExtResource("15_lfog5")
-go_to_screen = 1
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/goto_mission_select"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/PrevButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -245,7 +245,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("16_fbo16")
 
-[node name="goto_Game_screen" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2"]
+[node name="NextButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2"]
 clip_children = 2
 layout_mode = 1
 anchors_preset = 3
@@ -261,9 +261,9 @@ grow_vertical = 0
 scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(120, 42)
 texture_normal = ExtResource("14_22oug")
-script = ExtResource("17_7uunq")
+script = ExtResource("15_lfog5")
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/goto_Game_screen"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/NextButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -271,3 +271,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_b5evg")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/NextButton" to="." method="_on_next_button_pressed"]
