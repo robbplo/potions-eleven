@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dou6x4xa7ud5e"]
+[gd_scene load_steps=12 format=3 uid="uid://dou6x4xa7ud5e"]
 
 [ext_resource type="Script" path="res://music_mixer.gd" id="1_unga5"]
 [ext_resource type="AudioStream" uid="uid://bir1d8r20te0u" path="res://Audio assets/Loops/main_menu_song.wav" id="2_688x6"]
 [ext_resource type="AudioStream" uid="uid://dnogci37l1qk5" path="res://Audio assets/Loops/main_menu_riser.wav" id="3_8yiq0"]
+[ext_resource type="AudioStream" uid="uid://bh2s0udqvefg1" path="res://Audio assets/Loops/Heist1/Intro/Heist1 arpeggio.wav" id="4_tpbrv"]
+[ext_resource type="AudioStream" uid="uid://b5hu5jgsya7gf" path="res://Audio assets/Loops/Heist1/Intro/Heist1 bass_drone.wav" id="5_36y0s"]
+[ext_resource type="AudioStream" uid="uid://x1vaoeq0ww1d" path="res://Audio assets/Loops/Heist1/Intro/Heist1 Drums Main.wav" id="6_a16ro"]
+[ext_resource type="AudioStream" uid="uid://p5sdyvhqe54l" path="res://Audio assets/Loops/Heist1/heist_main_song.wav" id="7_nqxa1"]
+[ext_resource type="AudioStream" uid="uid://0rilj4f7bvn6" path="res://Audio assets/Loops/Heist1/heist_ shaker.wav" id="8_4qw4p"]
+[ext_resource type="AudioStream" uid="uid://d3ib4imtn7mm1" path="res://Audio assets/Loops/Heist1/heist_ ride.wav" id="9_3seod"]
+[ext_resource type="AudioStream" uid="uid://dpqyx2tkvb2tm" path="res://Audio assets/Loops/Heist1/heist_ bubble_synth.wav" id="10_ittpx"]
+[ext_resource type="AudioStream" uid="uid://wkexyd5g0wec" path="res://Audio assets/Loops/Heist1/heist_ melody_synth.wav" id="11_1t0ra"]
 
 [node name="MusicMixer" type="Node"]
 script = ExtResource("1_unga5")
@@ -14,3 +22,33 @@ bus = &"Music"
 [node name="MenuRiser" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8yiq0")
 bus = &"Music"
+
+[node name="HeistSong" type="Node" parent="."]
+
+[node name="HeistIntroArp" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("4_tpbrv")
+
+[node name="HeistIntroBass" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("5_36y0s")
+
+[node name="HeistIntroDrums" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("6_a16ro")
+
+[node name="HeistMainSong" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("7_nqxa1")
+
+[node name="HeistShaker" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("8_4qw4p")
+volume_db = -80.0
+
+[node name="HeistRide" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("9_3seod")
+volume_db = -80.0
+
+[node name="HeistBubbleSynth" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("10_ittpx")
+volume_db = -80.0
+
+[node name="HeistMelodySynth" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("11_1t0ra")
+volume_db = -80.0

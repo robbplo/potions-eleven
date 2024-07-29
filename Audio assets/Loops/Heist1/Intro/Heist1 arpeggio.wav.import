@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bh2s0udqvefg1"
+path="res://.godot/imported/Heist1 arpeggio.wav-6a39a219296b05b106eb6eb4f2fa7112.sample"
+
+[deps]
+
+source_file="res://Audio assets/Loops/Heist1/Intro/Heist1 arpeggio.wav"
+dest_files=["res://.godot/imported/Heist1 arpeggio.wav-6a39a219296b05b106eb6eb4f2fa7112.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
