@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dou6x4xa7ud5e"]
+
+[ext_resource type="Script" path="res://music_mixer.gd" id="1_unga5"]
+[ext_resource type="AudioStream" uid="uid://bir1d8r20te0u" path="res://Audio assets/Loops/main_menu_song.wav" id="2_688x6"]
+[ext_resource type="AudioStream" uid="uid://dnogci37l1qk5" path="res://Audio assets/Loops/main_menu_riser.wav" id="3_8yiq0"]
+
+[node name="MusicMixer" type="Node"]
+script = ExtResource("1_unga5")
+
+[node name="MenuSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_688x6")
+bus = &"Music"
+
+[node name="MenuRiser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8yiq0")
+bus = &"Music"

@@ -40,3 +40,4 @@ func select(idx) -> void:
 	if idx <= loadout.size():
 		selected = idx
 		PlayerStats.potion_selected.emit(idx)
+		SfxMixer.bottle_select()

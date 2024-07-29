@@ -130,7 +130,7 @@ size_flags_horizontal = 0
 script = ExtResource("7_mcjx7")
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/ScreenItems/crystal_ball_container"]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.0862745, 0.054902, 0.105882, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

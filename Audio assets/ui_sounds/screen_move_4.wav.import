@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b34c5l36ur3q7"
+path="res://.godot/imported/screen_move_4.wav-c6dcd894a2f736f3f21d011231a396eb.sample"
+
+[deps]
+
+source_file="res://Audio assets/ui_sounds/screen_move_4.wav"
+dest_files=["res://.godot/imported/screen_move_4.wav-c6dcd894a2f736f3f21d011231a396eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

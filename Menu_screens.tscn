@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://ludic33xsx7p"]
+[gd_scene load_steps=11 format=3 uid="uid://ludic33xsx7p"]
 
+[ext_resource type="Script" path="res://menu_screens.gd" id="1_0pmd3"]
 [ext_resource type="Script" path="res://UI/menu_screens.gd" id="1_es768"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_fpkgo"]
 [ext_resource type="PackedScene" uid="uid://dweq7o6uye81i" path="res://MainMenu_screen.tscn" id="2_m3bol"]
 [ext_resource type="PackedScene" uid="uid://dfkms2vsok7e6" path="res://mission_select_screen.tscn" id="3_ig3uy"]
 [ext_resource type="PackedScene" uid="uid://c8xayyppwcjmu" path="res://character_select_screen.tscn" id="4_0f5yv"]
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="7_n10vf"]
+[ext_resource type="Script" path="res://crystal_ball_container.gd" id="8_velfo"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="9_8ibn5"]
+[ext_resource type="PackedScene" uid="uid://bajk6nx4csred" path="res://Visual assets/CrystalBall3D.tscn" id="10_qrxyc"]
 
 [node name="Menu_screens" type="Control"]
 layout_mode = 3
@@ -13,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0pmd3")
 
 [node name="Star_background" parent="." instance=ExtResource("1_fpkgo")]
 layout_mode = 1
@@ -37,6 +43,92 @@ layout_mode = 2
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 2
 
+[node name="Panel" type="Panel" parent="Menu_Mover"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+theme = ExtResource("7_n10vf")
+
+[node name="crystal_ball_container" type="Control" parent="Menu_Mover/Panel"]
+custom_minimum_size = Vector2(900, 900)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -540.0
+offset_right = 450.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("8_velfo")
+
+[node name="TextureRect" type="TextureRect" parent="Menu_Mover/Panel/crystal_ball_container"]
+self_modulate = Color(0.0862745, 0.054902, 0.105882, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -540.0
+offset_right = 540.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.83, 0.83)
+pivot_offset = Vector2(540, 540)
+texture = ExtResource("9_8ibn5")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Menu_Mover/Panel/crystal_ball_container"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -450.0
+offset_right = 450.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(450, 450)
+
+[node name="SubViewport" type="SubViewport" parent="Menu_Mover/Panel/crystal_ball_container/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(900, 900)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Node3D" parent="Menu_Mover/Panel/crystal_ball_container/SubViewportContainer/SubViewport" instance=ExtResource("10_qrxyc")]
+visible = false
+undulate_amount_1 = 0.1
+
+[node name="TextureRect2" type="TextureRect" parent="Menu_Mover/Panel/crystal_ball_container"]
+self_modulate = Color(0.0862745, 0.054902, 0.105882, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -540.0
+offset_right = 540.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.83, 0.83)
+pivot_offset = Vector2(540, 540)
+texture = ExtResource("9_8ibn5")
+
+[connection signal="go_to_level" from="Menu_Mover" to="." method="_on_menu_mover_go_to_level"]
 [connection signal="button_pressed" from="Menu_Mover/Main_menu" to="Menu_Mover" method="_on_main_menu_button_pressed"]
 [connection signal="button_pressed" from="Menu_Mover/Mission Select" to="Menu_Mover" method="_on_mission_select_button_pressed"]
 [connection signal="button_pressed" from="Menu_Mover/Character_select" to="Menu_Mover" method="_on_character_select_button_pressed"]

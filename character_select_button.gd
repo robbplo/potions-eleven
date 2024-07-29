@@ -25,6 +25,7 @@ func _ready():
 	encrypted_text = "[center][code]" + name_label.text + "[/code][/center]"
 	character_icon.mouse_entered.connect(_hover_tween)
 	character_icon.mouse_exited.connect(_stopped_hover_tween)
+	character_icon.button_down.connect(SfxMixer.click_2)
 	
 	## some basic setup for good measure.
 	name_label.text = encrypted_text
@@ -38,6 +39,7 @@ func _process(_delta):
 	if temp_pressed != is_pressed:
 		_button_changed()
 		is_pressed = temp_pressed
+	
 
 ## Everything that happens while the mouse hovers over the character_icon's bounding box
 func _hover_tween():

@@ -16,6 +16,7 @@ func _ready():
 
 	mouse_entered.connect(_hover_tween)
 	mouse_exited.connect(_stopped_hover_tween)
+	button_down.connect(SfxMixer.click_2)
 
 
 func _process(_delta):

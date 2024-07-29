@@ -22,7 +22,7 @@ func _ready():
 	button_text.visible_ratio = 1
 	button_text.bbcode_enabled = true
 	
-	button_down.connect(SfxMixer.click_1)
+	button_down.connect(SfxMixer.click_2)
 
 
 func _process(_delta):

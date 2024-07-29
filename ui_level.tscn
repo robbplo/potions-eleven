@@ -37,7 +37,6 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-Background_color = Color(0.0862745, 0.054902, 0.105882, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
