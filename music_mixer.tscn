@@ -70,6 +70,7 @@ _data = {
 }
 
 [node name="MusicMixer" type="Node"]
+process_mode = 3
 script = ExtResource("1_unga5")
 
 [node name="MenuSong" type="AudioStreamPlayer" parent="."]

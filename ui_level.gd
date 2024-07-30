@@ -7,7 +7,8 @@ func _ready():
 	MusicMixer.play_heist_song()
 	$Star_background.background_color = Color("160e1b")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
+		get_tree().paused = !get_tree().paused
+	if event is InputEventKey and event.keycode == KEY_ENTER:
+		get_tree().paused = false

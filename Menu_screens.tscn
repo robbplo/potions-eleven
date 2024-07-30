@@ -14,7 +14,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0x1r"]
 shader = ExtResource("11_tcmar")
-shader_parameter/effect_amount = 1.1875e-07
+shader_parameter/effect_amount = 1.0
 
 [node name="Menu_screens" type="Control"]
 layout_mode = 3
@@ -134,6 +134,7 @@ pivot_offset = Vector2(540, 540)
 texture = ExtResource("9_8ibn5")
 
 [node name="LensDistortion" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_a0x1r")
 layout_mode = 1
 anchors_preset = 15

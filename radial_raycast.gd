@@ -90,4 +90,3 @@ func cast_ray(ray_angle: float):
 ## Check if the collision is within the illumination range
 func _collision_result_illuminates(result: Dictionary) -> bool:
 	return self.global_position.distance_to(result["position"]) <= illumination_range
-

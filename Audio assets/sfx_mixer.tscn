@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://brk1i5ninxi0w" path="res://Audio assets/ui_sounds/go_to_level.wav" id="17_w2a54"]
 
 [node name="SfxMixer" type="Node"]
+process_mode = 3
 script = ExtResource("1_3kr67")
 
 [node name="Click1" type="Node" parent="."]

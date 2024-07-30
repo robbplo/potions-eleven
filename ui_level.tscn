@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wd5x384kouju"]
+[gd_scene load_steps=19 format=3 uid="uid://wd5x384kouju"]
 
 [ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://pathing_test.tscn" id="1_58qq5"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_d415v"]
@@ -10,11 +10,13 @@
 [ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://UI/UI_Theme.tres" id="4_krk0p"]
 [ext_resource type="Texture2D" uid="uid://b8qu6pscm3u4s" path="res://Visual assets/Sprites/Character Icons/ATUAN.png" id="5_tfc6l"]
 [ext_resource type="Texture2D" uid="uid://cdio61bvhkgr7" path="res://Visual assets/UI/SpeechBubblePoint.png" id="6_d5325"]
+[ext_resource type="Theme" uid="uid://ceu0chv0p66gw" path="res://UI/UI_theme_Options.tres" id="6_mvbvu"]
 [ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://UI/Simple_text.tres" id="7_cm7td"]
+[ext_resource type="Script" path="res://lose_popup.gd" id="7_mccgk"]
 [ext_resource type="Script" path="res://UI/Mission Select/MissionDescription.gd" id="8_1yb0t"]
+[ext_resource type="Script" path="res://win_popup.gd" id="8_eet7a"]
 [ext_resource type="Script" path="res://UI/Game_screen/player_icon.gd" id="10_ahkj3"]
 [ext_resource type="Script" path="res://UI/Game_screen/thoughts_text.gd" id="10_xyceo"]
-[ext_resource type="Script" path="res://UI/Game_screen/dev_option_button.gd" id="12_a8gb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oq0kq"]
 shader = ExtResource("1_hokyh")
@@ -23,12 +25,11 @@ shader_parameter/frame_index = 0
 shader_parameter/mask_texture = ExtResource("2_rp0dl")
 
 [node name="UILevel" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ec1g8")
@@ -41,54 +42,126 @@ offset_right = 0.0
 offset_bottom = 0.0
 background_color = Color(0.0862745, 0.054902, 0.105882, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-custom_minimum_size = Vector2(1920, 1080)
+[node name="Main Screen" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 960.0
-offset_bottom = 540.0
+offset_left = -904.0
+offset_top = -480.0
+offset_right = 904.0
+offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Main Screen" type="HBoxContainer" parent="CenterContainer"]
+[node name="LevelScreenContainer" type="CenterContainer" parent="Main Screen"]
 layout_mode = 2
 
-[node name="Level screen" type="SubViewportContainer" parent="CenterContainer/Main Screen"]
+[node name="LevelScreen" type="SubViewportContainer" parent="Main Screen/LevelScreenContainer"]
+process_mode = 1
 material = SubResource("ShaderMaterial_oq0kq")
 layout_mode = 2
 
-[node name="LevelViewport" type="SubViewport" parent="CenterContainer/Main Screen/Level screen"]
+[node name="LevelViewport" type="SubViewport" parent="Main Screen/LevelScreenContainer/LevelScreen"]
 handle_input_locally = false
 size = Vector2i(1340, 960)
 size_2d_override = Vector2i(2680, 1920)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="PathingTest" parent="CenterContainer/Main Screen/Level screen/LevelViewport" instance=ExtResource("1_58qq5")]
+[node name="PathingTest" parent="Main Screen/LevelScreenContainer/LevelScreen/LevelViewport" instance=ExtResource("1_58qq5")]
 
-[node name="Buffer" type="Panel" parent="CenterContainer/Main Screen"]
+[node name="LosePopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_mvbvu")
+script = ExtResource("7_mccgk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/LosePopup"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 37.0
+offset_right = 542.0
+offset_bottom = 119.0
+theme_override_font_sizes/normal_font_size = 30
+text = "u fucking suck
+"
+
+[node name="RetryButton" type="Button" parent="Main Screen/LevelScreenContainer/LosePopup"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 496.0
+offset_right = 586.0
+offset_bottom = 527.0
+theme = ExtResource("6_mvbvu")
+text = "Try again"
+
+[node name="BackButton" type="Button" parent="Main Screen/LevelScreenContainer/LosePopup"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 496.0
+offset_right = 379.0
+offset_bottom = 527.0
+theme = ExtResource("6_mvbvu")
+text = "Back to menu"
+
+[node name="WinPopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_mvbvu")
+script = ExtResource("8_eet7a")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/WinPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -276.0
+offset_right = 394.0
+offset_bottom = -231.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_mvbvu")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]u rock dude!!!!"
+fit_content = true
+
+[node name="Button" type="Button" parent="Main Screen/LevelScreenContainer/WinPopup"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 496.0
+offset_right = 445.0
+offset_bottom = 527.0
+theme = ExtResource("6_mvbvu")
+text = "Back to menu"
+
+[node name="Buffer" type="Panel" parent="Main Screen"]
 custom_minimum_size = Vector2(60, 2.08165e-12)
 layout_mode = 2
 theme = ExtResource("4_krk0p")
 
-[node name="Sidepanel" type="VBoxContainer" parent="CenterContainer/Main Screen"]
+[node name="Sidepanel" type="VBoxContainer" parent="Main Screen"]
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Mission" type="Control" parent="CenterContainer/Main Screen/Sidepanel"]
+[node name="Mission" type="Control" parent="Main Screen/Sidepanel"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/Main Screen/Sidepanel/Mission"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Main Screen/Sidepanel/Mission"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +177,7 @@ patch_margin_bottom = 40
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/Main Screen/Sidepanel/Mission"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/Sidepanel/Mission"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,19 +198,19 @@ Get the objective and escape safely."
 shortcut_keys_enabled = false
 script = ExtResource("8_1yb0t")
 
-[node name="Pots" type="HBoxContainer" parent="CenterContainer/Main Screen/Sidepanel"]
+[node name="Pots" type="HBoxContainer" parent="Main Screen/Sidepanel"]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 
-[node name="GameUI" parent="CenterContainer/Main Screen/Sidepanel/Pots" instance=ExtResource("2_87lol")]
+[node name="GameUI" parent="Main Screen/Sidepanel/Pots" instance=ExtResource("2_87lol")]
 layout_mode = 2
 
-[node name="ThoughtsBubble" type="Control" parent="CenterContainer/Main Screen/Sidepanel"]
+[node name="ThoughtsBubble" type="Control" parent="Main Screen/Sidepanel"]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 theme = ExtResource("4_krk0p")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/Main Screen/Sidepanel/ThoughtsBubble"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Main Screen/Sidepanel/ThoughtsBubble"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,7 +226,7 @@ patch_margin_bottom = 40
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="ThoughtsText" type="RichTextLabel" parent="CenterContainer/Main Screen/Sidepanel/ThoughtsBubble"]
+[node name="ThoughtsText" type="RichTextLabel" parent="Main Screen/Sidepanel/ThoughtsBubble"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -170,16 +243,16 @@ theme = ExtResource("7_cm7td")
 text = "Ah yes, i love me some rock potions!"
 script = ExtResource("10_xyceo")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Main Screen/Sidepanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Screen/Sidepanel"]
 custom_minimum_size = Vector2(2.08165e-12, 160)
 layout_mode = 2
 
-[node name="Player" type="Panel" parent="CenterContainer/Main Screen/Sidepanel/HBoxContainer"]
+[node name="Player" type="Panel" parent="Main Screen/Sidepanel/HBoxContainer"]
 custom_minimum_size = Vector2(150, 160)
 layout_mode = 2
 theme = ExtResource("4_krk0p")
 
-[node name="PlayerIcon" type="TextureRect" parent="CenterContainer/Main Screen/Sidepanel/HBoxContainer/Player"]
+[node name="PlayerIcon" type="TextureRect" parent="Main Screen/Sidepanel/HBoxContainer/Player"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
 anchors_preset = 2
@@ -193,35 +266,12 @@ expand_mode = 2
 stretch_mode = 4
 script = ExtResource("10_ahkj3")
 
-[node name="SpeechBubblePoint" type="TextureRect" parent="CenterContainer/Main Screen/Sidepanel/HBoxContainer"]
+[node name="SpeechBubblePoint" type="TextureRect" parent="Main Screen/Sidepanel/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("6_d5325")
 
-[node name="OptionButton" type="OptionButton" parent="."]
-layout_mode = 2
-offset_left = 1630.0
-offset_top = 790.0
-offset_right = 1825.0
-offset_bottom = 821.0
-selected = 0
-item_count = 8
-popup/item_0/text = "OMELAS"
-popup/item_1/text = "ANOR LONDO"
-popup/item_1/id = 1
-popup/item_2/text = "STORMWIND"
-popup/item_2/id = 2
-popup/item_3/text = "MENZOBERRANZAN"
-popup/item_3/id = 3
-popup/item_4/text = "ATUAN"
-popup/item_4/id = 4
-popup/item_5/text = "RAPTURE"
-popup/item_5/id = 5
-popup/item_6/text = "RIVENDELL"
-popup/item_6/id = 6
-popup/item_7/text = "GORMENGHAST"
-popup/item_7/id = 7
-script = ExtResource("12_a8gb1")
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/RetryButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/BackButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/WinPopup/Button" to="Main Screen/LevelScreenContainer/WinPopup" method="_on_button_pressed"]
 
-[connection signal="item_selected" from="OptionButton" to="OptionButton" method="_on_item_selected"]
-
-[editable path="CenterContainer/Main Screen/Sidepanel/Pots/GameUI"]
+[editable path="Main Screen/Sidepanel/Pots/GameUI"]

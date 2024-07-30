@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cc2ikoae8fpvy"]
+[gd_scene load_steps=14 format=3 uid="uid://pujbwy86c7af"]
 
 [ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="1_p1xus"]
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="2_lty0a"]
@@ -19,11 +19,17 @@ source_geometry_mode = 2
 source_geometry_group_name = &"nav_geometry"
 agent_radius = 64.0
 
+[sub_resource type="Curve2D" id="Curve2D_mfkqc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1074, -996, 0, 0, 0, 0, 2638, -996, 0, 0, 0, 0, 2638, -1508, 0, 0, 0, 0, -1074, -1508, 0, 0, 0, 0, -1074, -996)
+}
+point_count = 5
+
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1074, -996, 0, 0, 0, 0, 2638, -996, 0, 0, 0, 0, 2638, -1508, 0, 0, 0, 0, -1074, -1508)
+"points": PackedVector2Array(0, 0, 0, 0, -1074, -996, 0, 0, 0, 0, 2638, -996, 0, 0, 0, 0, 2638, -1508, 0, 0, 0, 0, -1074, -1508, 0, 0, 0, 0, -1074, -996)
 }
-point_count = 4
+point_count = 5
 
 [node name="PathingTest" type="Node2D"]
 
@@ -73,6 +79,14 @@ illumination_range = 540.0
 position = Vector2(-1224, -1568)
 polygon = PackedVector2Array(-1456, 4320, -1384, -2000, 6728, -2000, 6736, -136, 112, -136, 112, 2488.4, 4336, 2488, 4336, -136, 6736, -136, 6712, 4216)
 metadata/_edit_lock_ = true
+
+[node name="Enemy2" parent="." instance=ExtResource("2_lty0a")]
+position = Vector2(-572, -554)
+
+[node name="Path2D" type="Path2D" parent="Enemy2"]
+top_level = true
+position = Vector2(175, 779)
+curve = SubResource("Curve2D_mfkqc")
 
 [node name="Enemy" parent="." instance=ExtResource("2_lty0a")]
 position = Vector2(-488, -1184)

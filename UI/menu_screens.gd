@@ -1,4 +1,4 @@
-class_name MenuScreens extends Control
+class_name MenuMover extends Control
 
 enum Screen {
 	MAIN_MENU,
@@ -24,7 +24,6 @@ func _on_main_menu_button_pressed(button: String) -> void:
 		"Play": 
 			current_screen = Screen.MISSION_SELECT
 			SfxMixer.screen_move()
-	print(current_screen)
 
 func _on_mission_select_button_pressed(button: String) -> void:
 	match button:
