@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ludic33xsx7p"]
+[gd_scene load_steps=13 format=3 uid="uid://ludic33xsx7p"]
 
 [ext_resource type="Script" path="res://menu_screens.gd" id="1_0pmd3"]
 [ext_resource type="Script" path="res://UI/menu_screens.gd" id="1_es768"]
@@ -10,6 +10,11 @@
 [ext_resource type="Script" path="res://crystal_ball_container.gd" id="8_velfo"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="9_8ibn5"]
 [ext_resource type="PackedScene" uid="uid://bajk6nx4csred" path="res://Visual assets/CrystalBall3D.tscn" id="10_qrxyc"]
+[ext_resource type="Shader" path="res://mission_post_processing.gdshader" id="11_tcmar"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0x1r"]
+shader = ExtResource("11_tcmar")
+shader_parameter/effect_amount = 1.1875e-07
 
 [node name="Menu_screens" type="Control"]
 layout_mode = 3
@@ -127,6 +132,16 @@ grow_vertical = 2
 scale = Vector2(0.83, 0.83)
 pivot_offset = Vector2(540, 540)
 texture = ExtResource("9_8ibn5")
+
+[node name="LensDistortion" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_a0x1r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="go_to_level" from="Menu_Mover" to="." method="_on_menu_mover_go_to_level"]
 [connection signal="button_pressed" from="Menu_Mover/Main_menu" to="Menu_Mover" method="_on_main_menu_button_pressed"]

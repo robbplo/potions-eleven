@@ -60,6 +60,7 @@ func _setup() -> void:
 func _physics_process(delta: float) -> void:
 	if state in [State.PATROLLING, State.PURSUING, State.SEARCHING]:
 		_move_toward_target(delta)
+	
 
 ## Set a new navigation target.
 func set_target(target: Vector2):
@@ -160,3 +161,10 @@ func _on_kill_area_body_entered(body:Node2D) -> void:
 		if ($KillArea as Area2D).overlaps_body(body):
 			body.die()
 			state = State.IDLE
+		
+#func _set_music_to_DANGER(alerted: bool):
+	#if alerted:
+		#MusicMixer.danger_fade_in()
+	#else:
+		#MusicMixer.danger_fade_out()
+	

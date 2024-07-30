@@ -34,6 +34,8 @@ func throw_potion(target: Vector2) -> void:
 
 	ammo[selected] -= 1
 	PlayerStats.potion_ammo_changed.emit(selected, ammo[selected])
+	
+	SfxMixer.woosh_1()
 
 ## Change selected potion
 func select(idx) -> void:
