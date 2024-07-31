@@ -50,7 +50,7 @@ var path_current_idx := 0:
 
 func _ready() -> void:
 	# call is deferred to prevent blocking the thread
-	call_deferred("_setup")
+	_setup()
 
 func _setup() -> void:
 	# Wait for nav server, then start patrolling.

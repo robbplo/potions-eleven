@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://cc2ikoae8fpvy"]
+[gd_scene load_steps=19 format=3 uid="uid://cc2ikoae8fpvy"]
 
-[ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="1_p1xus"]
-[ext_resource type="Script" path="res://tiling_background.gd" id="2_67fgo"]
+[ext_resource type="PackedScene" uid="uid://bhrb8em0601pf" path="res://tiling_background.tscn" id="2_6qv52"]
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="2_lty0a"]
 [ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://player.tscn" id="4_tnvhb"]
 [ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://Level assets/Poly_wall.tscn" id="5_3qn37"]
@@ -69,15 +68,7 @@ point_count = 5
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.196078, 0.196078, 0.196078, 1)
 
-[node name="TilingBackground" type="Node2D" parent="."]
-position = Vector2(-504, -1693)
-script = ExtResource("2_67fgo")
-
-[node name="Tile" type="Sprite2D" parent="TilingBackground"]
-modulate = Color(0.47451, 0.494118, 0.541176, 1)
-position = Vector2(1836.5, 1543)
-scale = Vector2(130.781, 112.438)
-texture = ExtResource("1_p1xus")
+[node name="TilingBackground" parent="." instance=ExtResource("2_6qv52")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

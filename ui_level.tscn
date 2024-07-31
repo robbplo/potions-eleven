@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://win_popup.gd" id="8_eet7a"]
 [ext_resource type="Script" path="res://UI/Game_screen/player_icon.gd" id="10_ahkj3"]
 [ext_resource type="Script" path="res://UI/Game_screen/thoughts_text.gd" id="10_xyceo"]
-[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://UI/typewriter_rich_text_effect.tres" id="11_1x5tw"]
+[ext_resource type="RichTextEffect" path="res://UI/typewriter_rich_text_effect.tres" id="11_1x5tw"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="16_3libp"]
 [ext_resource type="PackedScene" uid="uid://dlp3pebbu6j2p" path="res://UI/OptionsWindow.tscn" id="21_bn71b"]
 

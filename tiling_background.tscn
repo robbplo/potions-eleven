@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhrb8em0601pf"]
+
+[ext_resource type="Script" path="res://tiling_background.gd" id="1_015mm"]
+[ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="2_wnh4b"]
+
+[node name="TilingBackground" type="Node2D"]
+position = Vector2(-504, -1693)
+script = ExtResource("1_015mm")
+
+[node name="Tile" type="Sprite2D" parent="."]
+modulate = Color(0.47451, 0.494118, 0.541176, 1)
+position = Vector2(1836.5, 1543)
+scale = Vector2(130.781, 112.438)
+texture = ExtResource("2_wnh4b")
