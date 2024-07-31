@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfkms2vsok7e6"]
+[gd_scene load_steps=16 format=3 uid="uid://dfkms2vsok7e6"]
 
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_1rh5r"]
 [ext_resource type="Script" path="res://mission_select_screen.gd" id="1_67xp4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://UI/Mission Select/MissionDescription.gd" id="4_35ub8"]
 [ext_resource type="Texture2D" uid="uid://dfq7rh1wugdj0" path="res://Visual assets/UI/Mission_button_3.png" id="4_qewas"]
 [ext_resource type="Texture2D" uid="uid://cguwloaw2vfgr" path="res://Visual assets/UI/Mission_button_4.png" id="5_6gxw6"]
+[ext_resource type="Texture2D" uid="uid://dpjqvlfjva8qm" path="res://Visual assets/UI/Mission_button_Tutorial.png" id="6_klbuo"]
 [ext_resource type="Texture2D" uid="uid://bnarmgvs4klad" path="res://Visual assets/UI/Button_BackNext_bg.png" id="9_e3wxi"]
 [ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://UI/Simple_text.tres" id="9_mr06t"]
 [ext_resource type="Script" path="res://UI/Screen_navigation_button.gd" id="10_m2311"]
@@ -67,9 +68,21 @@ layout_mode = 2
 
 [node name="Mission_button" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
 layout_mode = 0
-offset_left = -0.109711
+offset_left = -3.05474e-07
+offset_top = 181.0
+offset_right = 300.0
+offset_bottom = 551.0
+grow_horizontal = 1
+grow_vertical = 1
+texture_normal = ExtResource("6_klbuo")
+button_image = ExtResource("6_klbuo")
+mission_name = "TUTORIAL"
+
+[node name="Mission_button5" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
+layout_mode = 0
+offset_left = 276.0
 offset_top = 180.676
-offset_right = 299.89
+offset_right = 576.0
 offset_bottom = 550.676
 grow_horizontal = 1
 grow_vertical = 1
@@ -77,9 +90,9 @@ mission_name = "XANTHOSIS"
 
 [node name="Mission_button2" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
 layout_mode = 0
-offset_left = 356.89
+offset_left = 525.0
 offset_top = 183.676
-offset_right = 656.89
+offset_right = 825.0
 offset_bottom = 553.676
 grow_horizontal = 1
 grow_vertical = 1
@@ -89,10 +102,10 @@ mission_name = "NEWT'S CRYSTAL"
 
 [node name="Mission_button3" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
 layout_mode = 0
-offset_left = 734.89
-offset_top = 167.676
-offset_right = 1034.89
-offset_bottom = 537.676
+offset_left = 761.0
+offset_top = 178.0
+offset_right = 1061.0
+offset_bottom = 548.0
 grow_horizontal = 1
 grow_vertical = 1
 texture_normal = ExtResource("4_qewas")
@@ -101,10 +114,10 @@ mission_name = "VOID LABORATORY"
 
 [node name="Mission_button4" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
 layout_mode = 0
-offset_left = 1080.0
-offset_top = 165.0
-offset_right = 1380.0
-offset_bottom = 535.0
+offset_left = 1011.0
+offset_top = 175.0
+offset_right = 1311.0
+offset_bottom = 545.0
 grow_horizontal = 1
 grow_vertical = 1
 texture_normal = ExtResource("5_6gxw6")
