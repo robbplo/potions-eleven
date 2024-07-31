@@ -24,6 +24,10 @@ func _process(_delta):
 		"ANIMI":
 			text = "ANIMI"
 			_set_global_BBCode()
+			
+		"TUTORIAL":
+			text = "TUTORIAL"
+			_set_global_BBCode()
 
 func _set_global_BBCode():
 	text = "[center]" + text + "[/center]"

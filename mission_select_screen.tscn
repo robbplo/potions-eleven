@@ -63,63 +63,68 @@ theme = ExtResource("3_y4ajl")
 layout_mode = 2
 
 [node name="Level_buttons" type="Control" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1400, 700)
+custom_minimum_size = Vector2(1620, 700)
 layout_mode = 2
 
 [node name="Mission_button" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
-layout_mode = 0
-offset_left = -3.05474e-07
-offset_top = 181.0
-offset_right = 300.0
-offset_bottom = 551.0
+layout_mode = 2
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 360.0
+offset_bottom = 430.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("6_klbuo")
 button_image = ExtResource("6_klbuo")
 mission_name = "TUTORIAL"
 
 [node name="Mission_button5" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
-layout_mode = 0
-offset_left = 276.0
-offset_top = 180.676
-offset_right = 576.0
-offset_bottom = 550.676
+layout_mode = 2
+offset_left = 360.0
+offset_top = 60.0
+offset_right = 660.0
+offset_bottom = 430.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 mission_name = "XANTHOSIS"
 
 [node name="Mission_button2" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
-layout_mode = 0
-offset_left = 525.0
-offset_top = 183.676
-offset_right = 825.0
-offset_bottom = 553.676
+layout_mode = 2
+offset_left = 660.0
+offset_top = 60.0
+offset_right = 960.0
+offset_bottom = 430.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_b67qx")
 button_image = ExtResource("3_b67qx")
 mission_name = "NEWT'S CRYSTAL"
 
 [node name="Mission_button3" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
-layout_mode = 0
-offset_left = 761.0
-offset_top = 178.0
-offset_right = 1061.0
-offset_bottom = 548.0
+layout_mode = 2
+offset_left = 960.0
+offset_top = 60.0
+offset_right = 1260.0
+offset_bottom = 430.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("4_qewas")
 button_image = ExtResource("4_qewas")
 mission_name = "VOID LABORATORY"
 
 [node name="Mission_button4" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
-layout_mode = 0
-offset_left = 1011.0
-offset_top = 175.0
-offset_right = 1311.0
-offset_bottom = 545.0
+layout_mode = 2
+offset_left = 1260.0
+offset_top = 60.0
+offset_right = 1560.0
+offset_bottom = 430.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("5_6gxw6")
 button_image = ExtResource("5_6gxw6")
 mission_name = "ANIMI"

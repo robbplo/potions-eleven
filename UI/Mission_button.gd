@@ -29,17 +29,17 @@ func _process(_delta):
 ## Everything that happens while the mouse hovers over the character_icon's bounding box
 func _hover_tween():
 	var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2(0.65, 0.65), 0.3)
+	tween.tween_property(self, "scale", Vector2(0.85, 0.85), 0.3)
 
 ## Everything that happens when the mouse leaves the character_icon's bounding box
 func _stopped_hover_tween():
 	if button_pressed == false:
 		var tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-		tween.tween_property(self, "scale", Vector2(0.6, 0.6), 0.6)
+		tween.tween_property(self, "scale", Vector2(0.8, 0.8), 0.6)
 
 func _button_changed():
 	if button_pressed == true:
-		scale = Vector2(0.65, 0.65)
+		scale = Vector2(0.85, 0.85)
 		MissionState.set_mission(mission_name)
 	else:
 		_stopped_hover_tween()
