@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://wd5x384kouju"]
+[gd_scene load_steps=23 format=3 uid="uid://wd5x384kouju"]
 
 [ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://pathing_test.tscn" id="1_58qq5"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_d415v"]
@@ -18,8 +18,9 @@
 [ext_resource type="Script" path="res://win_popup.gd" id="8_eet7a"]
 [ext_resource type="Script" path="res://UI/Game_screen/player_icon.gd" id="10_ahkj3"]
 [ext_resource type="Script" path="res://UI/Game_screen/thoughts_text.gd" id="10_xyceo"]
-[ext_resource type="RichTextEffect" path="res://UI/typewriter_rich_text_effect.tres" id="11_1x5tw"]
+[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://UI/typewriter_rich_text_effect.tres" id="11_1x5tw"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="16_3libp"]
+[ext_resource type="PackedScene" uid="uid://dlp3pebbu6j2p" path="res://UI/OptionsWindow.tscn" id="21_bn71b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oq0kq"]
 shader = ExtResource("1_hokyh")
@@ -88,21 +89,42 @@ script = ExtResource("7_6e5e3")
 
 [node name="RestartButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
 layout_mode = 0
-offset_left = 338.0
-offset_top = 176.0
-offset_right = 418.0
-offset_bottom = 207.0
+offset_left = 337.0
+offset_top = 260.0
+offset_right = 506.0
+offset_bottom = 291.0
 theme = ExtResource("6_mvbvu")
-text = "Restart"
+text = "Restart level
+"
 
 [node name="BackButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
 layout_mode = 0
-offset_left = 322.0
-offset_top = 432.0
-offset_right = 437.0
-offset_bottom = 463.0
+offset_left = 293.0
+offset_top = 419.0
+offset_right = 554.0
+offset_bottom = 450.0
 theme = ExtResource("6_mvbvu")
-text = "Back to menu"
+text = "Back to main menu"
+
+[node name="OptionsButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 337.0
+offset_right = 522.0
+offset_bottom = 368.0
+theme = ExtResource("6_mvbvu")
+text = "Sound options"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 77.0
+offset_right = 610.0
+offset_bottom = 210.0
+theme = ExtResource("7_cm7td")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center]PAUSED"
 
 [node name="LosePopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
 visible = false
@@ -114,13 +136,16 @@ script = ExtResource("7_mccgk")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/LosePopup"]
 layout_mode = 0
-offset_left = 300.0
-offset_top = 37.0
-offset_right = 542.0
-offset_bottom = 119.0
-theme_override_font_sizes/normal_font_size = 30
-text = "u fucking suck
+offset_left = 112.0
+offset_top = 189.0
+offset_right = 686.0
+offset_bottom = 450.0
+theme = ExtResource("7_cm7td")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center][shake]CAUGHT
 "
+fit_content = true
 
 [node name="RetryButton" type="Button" parent="Main Screen/LevelScreenContainer/LosePopup"]
 layout_mode = 0
@@ -133,12 +158,12 @@ text = "Try again"
 
 [node name="BackButton" type="Button" parent="Main Screen/LevelScreenContainer/LosePopup"]
 layout_mode = 0
-offset_left = 264.0
+offset_left = 176.0
 offset_top = 496.0
-offset_right = 379.0
+offset_right = 437.0
 offset_bottom = 527.0
 theme = ExtResource("6_mvbvu")
-text = "Back to menu"
+text = "Back to main menu"
 
 [node name="WinPopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
 visible = false
@@ -147,6 +172,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("6_mvbvu")
 script = ExtResource("8_eet7a")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/WinPopup"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 187.0
+offset_right = 699.0
+offset_bottom = 448.0
+theme = ExtResource("7_cm7td")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center][wave]SUCCESFUL MISSION"
+fit_content = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/WinPopup"]
 layout_mode = 1
@@ -169,9 +206,9 @@ fit_content = true
 
 [node name="Button" type="Button" parent="Main Screen/LevelScreenContainer/WinPopup"]
 layout_mode = 0
-offset_left = 330.0
+offset_left = 322.0
 offset_top = 496.0
-offset_right = 445.0
+offset_right = 509.0
 offset_bottom = 527.0
 theme = ExtResource("6_mvbvu")
 text = "Back to menu"
@@ -220,6 +257,8 @@ offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_cm7td")
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "MISSION:
 
@@ -270,7 +309,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_cm7td")
 bbcode_enabled = true
-text = "[typewriter speed=0.03][center]switch potions with number keys 1 - 4"
+text = "[typewriter speed=0.03][center]switch potions with number keys 1 to 4"
 custom_effects = [ExtResource("11_1x5tw")]
 script = ExtResource("10_xyceo")
 
@@ -319,8 +358,13 @@ scale = Vector2(2.08165e-12, 2.08165e-12)
 pivot_offset = Vector2(540, 540)
 texture = ExtResource("16_3libp")
 
+[node name="OptionsWindow" parent="." instance=ExtResource("21_bn71b")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/RestartButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/BackButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/OptionsButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_options_button_pressed"]
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/RetryButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/BackButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/WinPopup/Button" to="Main Screen/LevelScreenContainer/WinPopup" method="_on_button_pressed"]

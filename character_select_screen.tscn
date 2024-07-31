@@ -46,6 +46,7 @@ grow_vertical = 2
 script = ExtResource("1_f70sp")
 
 [node name="Star_background" parent="." instance=ExtResource("1_pc6gk")]
+visible = false
 layout_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

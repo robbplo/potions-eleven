@@ -39,16 +39,18 @@ theme = ExtResource("2_ly8jb")
 theme_override_styles/panel = SubResource("StyleBoxFlat_4vk7j")
 
 [node name="Button" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -48.0
-offset_bottom = 31.0
+offset_left = -161.0
+offset_top = 40.0
+offset_right = -41.0
+offset_bottom = 160.0
 grow_horizontal = 0
 theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 60
 text = "close"
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]

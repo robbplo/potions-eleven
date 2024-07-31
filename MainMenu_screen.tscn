@@ -23,6 +23,7 @@ grow_vertical = 2
 script = ExtResource("1_eeq5j")
 
 [node name="Star_background" parent="." instance=ExtResource("1_2jtdq")]
+visible = false
 layout_mode = 1
 
 [node name="MenuContainer" type="CenterContainer" parent="."]

@@ -26,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_67xp4")
 
 [node name="Star_background" parent="." instance=ExtResource("1_1rh5r")]
+visible = false
 layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -112,6 +113,7 @@ offset_bottom = 430.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.8, 0.8)
+disabled = true
 texture_normal = ExtResource("4_qewas")
 button_image = ExtResource("4_qewas")
 mission_name = "VOID LABORATORY"
@@ -125,6 +127,7 @@ offset_bottom = 430.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.8, 0.8)
+disabled = true
 texture_normal = ExtResource("5_6gxw6")
 button_image = ExtResource("5_6gxw6")
 mission_name = "ANIMI"
@@ -142,7 +145,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_mr06t")
-theme_override_font_sizes/normal_font_size = 76
+theme_override_font_sizes/mono_font_size = 55
+theme_override_font_sizes/normal_font_size = 55
 bbcode_enabled = true
 text = "[center]No mission selected[/center]"
 script = ExtResource("4_35ub8")

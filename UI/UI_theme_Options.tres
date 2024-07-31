@@ -1,6 +1,50 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ceu0chv0p66gw"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ceu0chv0p66gw"]
+
+[ext_resource type="FontFile" uid="uid://dmwl7a5s11gy6" path="res://Visual assets/UI/Jerian_english-Regular.otf" id="1_d27t4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c33k5"]
+bg_color = Color(0.8, 0.776471, 0.780392, 1)
+border_color = Color(0.8, 0.776471, 0.780392, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 12
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 1
+shadow_offset = Vector2(2.08165e-12, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q1a2"]
+bg_color = Color(0.701961, 0.65098, 0.662745, 1)
+border_color = Color(0.8, 0.776471, 0.780392, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 12
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcsmg"]
+bg_color = Color(0.611765, 0.556863, 0.584314, 1)
+border_color = Color(0.8, 0.776471, 0.780392, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 12
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rc7i"]
+bg_color = Color(1, 0.996078, 0.968627, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
@@ -8,4 +52,13 @@ corner_radius_bottom_left = 40
 corner_detail = 20
 
 [resource]
+Button/colors/font_color = Color(0.0862745, 0.054902, 0.105882, 1)
+Button/colors/font_hover_pressed_color = Color(0.0862745, 0.054902, 0.105882, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 0)
+Button/colors/font_pressed_color = Color(0.0862745, 0.054902, 0.105882, 1)
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_d27t4")
+Button/styles/hover = SubResource("StyleBoxFlat_c33k5")
+Button/styles/normal = SubResource("StyleBoxFlat_7q1a2")
+Button/styles/pressed = SubResource("StyleBoxFlat_mcsmg")
 Panel/styles/panel = SubResource("StyleBoxFlat_3rc7i")
