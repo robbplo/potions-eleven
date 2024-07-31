@@ -15,3 +15,4 @@ func _ready() -> void:
 			new_tile.position = pos
 			new_tile.scale = Vector2.ONE * tile_scale
 			add_child(new_tile)
+ 
