@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wd5x384kouju"]
+[gd_scene load_steps=19 format=3 uid="uid://wd5x384kouju"]
 
 [ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://pathing_test.tscn" id="1_58qq5"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_d415v"]
@@ -14,7 +14,9 @@
 [ext_resource type="Script" path="res://UI/Mission Select/MissionDescription.gd" id="8_1yb0t"]
 [ext_resource type="Script" path="res://UI/Game_screen/player_icon.gd" id="10_ahkj3"]
 [ext_resource type="Script" path="res://UI/Game_screen/thoughts_text.gd" id="10_xyceo"]
+[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://UI/typewriter_rich_text_effect.tres" id="11_1x5tw"]
 [ext_resource type="Script" path="res://UI/Game_screen/dev_option_button.gd" id="12_a8gb1"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="16_3libp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oq0kq"]
 shader = ExtResource("1_hokyh")
@@ -111,10 +113,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -182.0
-offset_top = -187.0
-offset_right = 187.0
-offset_bottom = 188.0
+offset_left = -165.5
+offset_top = -168.0
+offset_right = 165.5
+offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_cm7td")
@@ -160,14 +162,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -177.5
-offset_top = -136.0
-offset_right = 177.5
-offset_bottom = 136.0
+offset_left = -167.5
+offset_top = -128.0
+offset_right = 167.5
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_cm7td")
-text = "Ah yes, i love me some rock potions!"
+bbcode_enabled = true
+text = "[typewriter speed=0.03][center]switch potions with number keys 1 - 4"
+custom_effects = [ExtResource("11_1x5tw")]
 script = ExtResource("10_xyceo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Main Screen/Sidepanel"]
@@ -198,6 +202,7 @@ layout_mode = 2
 texture = ExtResource("6_d5325")
 
 [node name="OptionButton" type="OptionButton" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 1630.0
 offset_top = 790.0
@@ -221,6 +226,24 @@ popup/item_6/id = 6
 popup/item_7/text = "GORMENGHAST"
 popup/item_7/id = 7
 script = ExtResource("12_a8gb1")
+
+[node name="CircleOverlay" type="TextureRect" parent="."]
+self_modulate = Color(0.0862745, 0.054902, 0.105882, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(540, 540)
+texture = ExtResource("16_3libp")
 
 [connection signal="item_selected" from="OptionButton" to="OptionButton" method="_on_item_selected"]
 

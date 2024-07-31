@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b8qu6pscm3u4s" path="res://Visual assets/Sprites/Character Icons/ATUAN.png" id="7_n7qvn"]
 [ext_resource type="Script" path="res://mission_description.gd" id="7_otwiu"]
 [ext_resource type="Texture2D" uid="uid://b286q1fdkhupe" path="res://Visual assets/Sprites/Character Icons/RAPTURE.png" id="8_7u0iw"]
+[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://UI/typewriter_rich_text_effect.tres" id="8_ich3q"]
 [ext_resource type="Texture2D" uid="uid://dsdubmob2m0vx" path="res://Visual assets/Sprites/Character Icons/RIVENDELL.png" id="9_y7x3k"]
 [ext_resource type="Texture2D" uid="uid://c76jkfc7ealix" path="res://Visual assets/Sprites/Character Icons/GORMENGHAST.png" id="10_oedqd"]
 [ext_resource type="Script" path="res://UI/Character Select/Character_description.gd" id="11_27rgt"]
@@ -24,9 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://bskfol1s31wgo" path="res://Visual assets/UI/Button_Next_text.png" id="17_b5evg"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_nauqh"]
-script = ExtResource("6_qakgd")
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_0nyxi"]
 script = ExtResource("6_qakgd")
 
 [sub_resource type="Theme" id="Theme_kuter"]
@@ -117,7 +115,7 @@ theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
 text = "[typewriter speed=.03][center]Mission description"
 scroll_active = false
-custom_effects = [SubResource("RichTextEffect_0nyxi")]
+custom_effects = [ExtResource("8_ich3q")]
 script = ExtResource("7_otwiu")
 
 [node name="Margin" type="Panel" parent="CenterContainer/VBoxContainer"]

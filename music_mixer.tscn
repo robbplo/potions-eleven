@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.66533e-15]
+"values": [-80.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -31,7 +31,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.66533e-15]
+"values": [-80.0]
 }
 
 [sub_resource type="Animation" id="Animation_ppguc"]
@@ -88,10 +88,12 @@ bus = &"Music"
 
 [node name="HeistShaker" type="AudioStreamPlayer" parent="HeistSong"]
 stream = ExtResource("5_th10p")
+volume_db = -80.0
 bus = &"Music"
 
 [node name="HeistBubbleSynth" type="AudioStreamPlayer" parent="HeistSong"]
 stream = ExtResource("6_7p2o3")
+volume_db = -80.0
 bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HeistSong"]

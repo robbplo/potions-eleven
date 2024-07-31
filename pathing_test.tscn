@@ -18,9 +18,9 @@ _data = {
 point_count = 5
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lckgc"]
-vertices = PackedVector2Array(1020.5, 674.383, 1511.77, 912.258, -190.93, 946.656, 849.5, 674.383, 573.5, 674, 402.5, 674, 1275.66, 145.742, 1526.2, -244.398, 1154.74, 266.656, 1020.5, 257.633, 818.344, -69.7422, 849.5, 257.633, -171.047, -281.602, 402.5, -128.883, 939.258, -190.656, 573.5, -128.883)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 1, 0), PackedInt32Array(8, 6, 0), PackedInt32Array(8, 0, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(10, 9, 11), PackedInt32Array(5, 2, 12, 13), PackedInt32Array(7, 6, 14), PackedInt32Array(12, 7, 14), PackedInt32Array(13, 12, 14, 15), PackedInt32Array(15, 14, 10), PackedInt32Array(4, 15, 10, 11, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-234, -347, 1591, -307, 1575, 975, -256, 1012)])
+vertices = PackedVector2Array(1020.5, 674.383, 2898.24, 1825.31, -1215.32, 1684.9, 849.5, 674.383, 573.5, 674, 402.5, 674, 1275.66, 145.742, 2466.24, -457.578, 1154.74, 266.656, 1020.5, 257.633, 818.344, -69.7422, 849.5, 257.633, 573.5, -128.883, -1472.64, -353.883, 402.5, -128.883, 939.258, -190.656)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 1, 0, 8), PackedInt32Array(8, 0, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(10, 9, 11, 12), PackedInt32Array(5, 2, 13, 14), PackedInt32Array(12, 14, 13, 7, 15), PackedInt32Array(11, 3, 4, 12), PackedInt32Array(7, 6, 15), PackedInt32Array(10, 12, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1545, -416, 2519, -523, 2976, 1892, -1272, 1747)])
 source_geometry_mode = 2
 source_geometry_group_name = &"nav_geometry"
 agent_radius = 64.0
@@ -58,15 +58,14 @@ position = Vector2(986, 527)
 scale = Vector2(0.671875, 4.51172)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(51, 61)
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
 
 [node name="Player" parent="." instance=ExtResource("3_8y6x8")]
-position = Vector2(304, 716)
+position = Vector2(1224, 28)
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_vcl5l")]
-position = Vector2(304, 716)
+position = Vector2(1224, 28)
 target = NodePath("../Player")
 
 [node name="StandardWorldEnv" parent="." instance=ExtResource("6_h7st5")]

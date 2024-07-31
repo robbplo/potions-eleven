@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="RichTextTextTranslationEffect" load_steps=2 format=3 uid="uid://bbhhnjpo2h4tg"]
+
+[ext_resource type="Script" path="res://UI/Text_translation_effect.gd" id="1_hmqgj"]
+
+[resource]
+script = ExtResource("1_hmqgj")

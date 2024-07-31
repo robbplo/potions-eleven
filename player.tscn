@@ -21,7 +21,6 @@ shader = ExtResource("2_gddfp")
 collision_layer = 2
 collision_mask = 5
 motion_mode = 1
-wall_min_slide_angle = 0.785398
 script = ExtResource("1_1um88")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

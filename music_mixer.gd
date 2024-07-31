@@ -17,7 +17,7 @@ func _process(delta):
 func play_menu_song_with_riser():
 	$MenuRiser.play()
 	get_tree().create_timer(5.333).timeout.connect(func(): $MenuSong.play())
-
+	
 func play_menu_song():
 	$MenuSong.play()
 
