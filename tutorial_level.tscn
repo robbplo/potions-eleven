@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://blrh7hh0a63u3"]
+[gd_scene load_steps=20 format=3 uid="uid://blrh7hh0a63u3"]
 
 [ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://standard_world_env.res" id="1_jfxhr"]
 [ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="2_y2wr8"]
@@ -10,10 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://enemy.tscn" id="8_s2n3g"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="9_mvo6k"]
 [ext_resource type="Script" path="res://radial_raycast.gd" id="10_vqni8"]
+[ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://UI/Simple_text.tres" id="11_a0rsh"]
+[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://UI/typewriter_rich_text_effect.tres" id="12_wav6p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lckgc"]
-vertices = PackedVector2Array(461, -799.57, 576.781, -734.438, 461, -676.547, 269, -893, 461, -573, 269, -573, 461, -893, 1421, -676.547, 1308.1, -733, 1421, -789.453, 1613, -893, 1613, -573, 1421, -573, 1421, -893, 461, -1365.45, 573.898, -1309, 461, -1252.55, 461, -1149, 269, -1149, 269, -1469, 461, -1469, 1421, -1252.55, 1308.1, -1309, 1421, -1365.45, 1613, -1469, 1613, -1149, 1421, -1149, 1421, -1469, 1293, 771, 2381, 787, -499, 787, 1037, 771, 845, 771, 589, 771, 1869, -317, 1869, -1705.76, 2381, -1705.08, 1293, 259, -499, -1708.91, 13, -1708.23, 13, -317, 589, 259, 717, -317, 717, -1707.29, 1165, -1706.7, 845, -317, 589, -317, 589, 195, 845, 195, 845, 259, 1165, -317, 1037, -317, 1037, 195, 1293, 195, 1293, -317, 1037, 259)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(6, 0, 3), PackedInt32Array(7, 8, 9), PackedInt32Array(10, 11, 12, 7), PackedInt32Array(10, 7, 9), PackedInt32Array(10, 9, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(14, 16, 19), PackedInt32Array(20, 14, 19), PackedInt32Array(21, 22, 23), PackedInt32Array(24, 25, 26, 21), PackedInt32Array(24, 21, 23), PackedInt32Array(24, 23, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 31, 30), PackedInt32Array(33, 32, 30), PackedInt32Array(34, 35, 36, 29), PackedInt32Array(34, 29, 28, 37), PackedInt32Array(30, 38, 39, 40), PackedInt32Array(33, 30, 40, 41), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(40, 46, 47), PackedInt32Array(41, 40, 47), PackedInt32Array(41, 47, 48, 49), PackedInt32Array(44, 50, 51), PackedInt32Array(45, 44, 51, 48), PackedInt32Array(48, 51, 52, 49), PackedInt32Array(53, 54, 34), PackedInt32Array(53, 34, 37), PackedInt32Array(52, 53, 37, 55), PackedInt32Array(49, 52, 55), PackedInt32Array(49, 55, 31, 32)])
+vertices = PackedVector2Array(-371, -893, 269, -799.57, 384.781, -734.438, 269, -676.547, -371, -573, 269, -573, 269, -893, 1613, -676.547, 1500.1, -733, 1613, -789.453, 2253, -893, 2253, -573, 1613, -573, 1613, -893, -371, -1469, 269, -1365.45, 381.898, -1309, 269, -1252.55, -371, -1149, 269, -1149, 269, -1469, 1613, -1252.55, 1500.1, -1309, 1613, -1365.45, 2253, -1469, 2253, -1149, 1613, -1149, 1613, -1469, 1293, 771, 2381, 787, -499, 787, 1037, 771, 845, 771, 589, 771, 1293, 195, 1357, -317, 2381, -317, 1293, 259, 1293, -317, 1357, -1706.44, 589, 259, -499, -317, 525, -317, 525, -1707.54, 589, -317, 1037, -317, 1037, 195, 845, 195, 845, -317, 1037, 259, 845, 259, 589, 195)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(3, 5, 4), PackedInt32Array(6, 1, 0), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 11, 12, 7), PackedInt32Array(10, 9, 13), PackedInt32Array(14, 15, 16, 17, 18), PackedInt32Array(17, 19, 18), PackedInt32Array(20, 15, 14), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(24, 25, 26, 21), PackedInt32Array(24, 23, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 31, 30), PackedInt32Array(33, 32, 30), PackedInt32Array(34, 35, 36, 29, 37), PackedInt32Array(35, 34, 38, 39), PackedInt32Array(40, 33, 30, 41, 42), PackedInt32Array(42, 43, 39, 44), PackedInt32Array(45, 46, 47, 48), PackedInt32Array(49, 31, 32, 50), PackedInt32Array(29, 28, 37), PackedInt32Array(46, 34, 37, 49), PackedInt32Array(47, 46, 49, 50), PackedInt32Array(51, 47, 50, 40), PackedInt32Array(51, 40, 42), PackedInt32Array(44, 51, 42), PackedInt32Array(48, 44, 39), PackedInt32Array(45, 48, 39), PackedInt32Array(45, 39, 38)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1203, -1885, 3109, -1837, 3125, -221, 3125, 899, -1203, 907)])
 source_geometry_mode = 2
 source_geometry_group_name = &"nav_geometry"
@@ -21,9 +23,9 @@ agent_radius = 64.0
 
 [sub_resource type="Curve2D" id="Curve2D_ljekp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 320, -1408, 0, 0, 0, 0, 320, -1088, 0, 0, 0, 0, 512, -1088, 0, 0, 0, 0, 512, -1408, 0, 0, 0, 0, 320, -1408)
+"points": PackedVector2Array(0, 0, 0, 0, -152, -1328, 0, 0, 0, 0, -184, -1096, 0, 0, 0, 0, 208, -1096, 0, 0, 0, 0, 216, -1312, 0, 0, 0, 0, 264, -1320, 0, 0, 0, 0, 264, -1088, 0, 0, 0, 0, 336, -1080, 0, 0, 0, 0, 320, -1344, 0, 0, 0, 0, 168, -1336)
 }
-point_count = 5
+point_count = 9
 
 [sub_resource type="Curve2D" id="Curve2D_udys3"]
 _data = {
@@ -33,15 +35,27 @@ point_count = 62
 
 [sub_resource type="Curve2D" id="Curve2D_8lcgi"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1496, -1376, 0, 0, 0, 0, 1640, -1128, 0, 0, 0, 0, 1512, -1152, 0, 0, 0, 0, 1560, -1224, 0, 0, 0, 0, 1616, -1224, 0, 0, 0, 0, 1624, -1352, 0, 0, 0, 0, 1520, -1272, 0, 0, 0, 0, 1576, -1176, 0, 0, 0, 0, 1512, -1216, 0, 0, 0, 0, 1496, -1376)
+"points": PackedVector2Array(0, 0, 0, 0, 1496, -1376, 0, 0, 0, 0, 1880, -1120, 0, 0, 0, 0, 1512, -1152, 0, 0, 0, 0, 1768, -1152, 0, 0, 0, 0, 1736, -1240, 0, 0, 0, 0, 1776, -1296, 0, 0, 0, 0, 1624, -1352, 0, 0, 0, 0, 1520, -1272, 0, 0, 0, 0, 1672, -1208, 0, 0, 0, 0, 1640, -1200, 0, 0, 0, 0, 1496, -1376)
 }
-point_count = 10
+point_count = 11
 
 [sub_resource type="Curve2D" id="Curve2D_gpgwl"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 7.92285, 8.0766, 0, 0, 0, 0, 6.07556, 200.068, 0, 0, 0, 0, 15.8456, 16.1533, 0, 0, 0, 0, 14.0752, 200.145, 0, 0, 0, 0, 8, 120, 0, 0, 0, 0, -8.07642, 7.92267, 0, 0, 0, 0, -8, 80, 0, 0, 0, 0, -8, 120, 0, 0, 0, 0, -17.9233, 199.837, 0, 0, 0, 0, 7.92285, 8.0766)
 }
 point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_2g4bq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -575.999, -128.004, 0, 0, 0, 0, -576.004, 639.996, 0, 0, 0, 0, 255.996, 640.002, 0, 0, 0, 0, 256.001, -127.998, 0, 0, 0, 0, -575.999, -128.004)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ogv6q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -672, -416, 0, 0, 0, 0, 160, -416, 0, 0, 0, 0, 160, 416, 0, 0, 0, 0, -672, 416, 0, 0, 0, 0, -672, -416)
+}
+point_count = 5
 
 [node name="PathingTest" type="Node2D"]
 
@@ -58,19 +72,20 @@ texture = ExtResource("2_y2wr8")
 metadata/_edit_lock_ = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(51, 61)
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_eoo31")]
-position = Vector2(992, 320)
+position = Vector2(992, 544)
 
 [node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_niy1r")]
-position = Vector2(992, 320)
+position = Vector2(992, 544)
 target = NodePath("../Player")
 
 [node name="Objective" parent="." instance=ExtResource("5_g7qnq")]
-position = Vector2(992, -32)
+position = Vector2(992, 120)
 
 [node name="Exit" parent="." instance=ExtResource("6_p1xl0")]
 position = Vector2(992, -1600)
@@ -81,7 +96,7 @@ position = Vector2(-1224, -1568)
 polygon = PackedVector2Array(-1456, 4320, -1384, -2000, 6728, -2000, 6736, -136, 712, -144, 712, 2480, 3720, 2480, 3720, -136, 6736, -136, 6712, 4216)
 
 [node name="Enemy" parent="." instance=ExtResource("8_s2n3g")]
-position = Vector2(320, -1408)
+position = Vector2(-152, -1328)
 rotation = -0.00962138
 
 [node name="Path2D" type="Path2D" parent="Enemy"]
@@ -111,52 +126,39 @@ polygon = PackedVector2Array(40, -208, 168, -208, 168, 176, 40, 176)
 metadata/_edit_lock_ = true
 
 [node name="Wall5" parent="." instance=ExtResource("7_gxwp0")]
-position = Vector2(536, -496)
-polygon = PackedVector2Array(-408, 48, -408, -912, -408, -1104, 168, -1104, 168, -976, 168, -784, 40, -848, 40, -976, -280, -976, -280, -528, 40, -528, 40, -656, 168, -720, 168, -528, 168, -208, 40, -280, 40, -400, -280, -400, -280, 48, 40, 48, 40, -80, 168, -144, 168, 48, 168, 176, -408, 176)
-metadata/_edit_lock_ = true
+position = Vector2(344, -496)
+polygon = PackedVector2Array(-856, -1216, 168, -1216, 168, -976, 168, -784, 40, -848, 40, -976, -728, -976, -728, -528, 40, -528, 40, -656, 168, -720, 168, -528, 168, -208, 40, -280, 40, -400, -728, -400, -728, 48, 40, 48, 40, -80, 168, -144, 168, 48, 168, 176, -856, 176)
 
 [node name="Wall6" parent="." instance=ExtResource("7_gxwp0")]
-position = Vector2(1240, -496)
-polygon = PackedVector2Array(40, -144, 168, -80, 168, 48, 488, 48, 488, -400, 168, -400, 168, -272, 40, -208, 40, -720, 168, -656, 168, -528, 488, -528, 488, -976, 168, -976, 168, -848, 40, -784, 40, -1104, 616, -1104, 616, 176, 40, 176)
-metadata/_edit_lock_ = true
+position = Vector2(1432, -496)
+polygon = PackedVector2Array(40, -144, 168, -80, 168, 48, 936, 48, 936, -400, 168, -400, 168, -272, 40, -208, 40, -720, 168, -656, 168, -528, 936, -528, 936, -976, 168, -976, 168, -848, 40, -784, 40, -1216, 1064, -1216, 1064, 176, 40, 176)
 
 [node name="Enemy2" parent="." instance=ExtResource("8_s2n3g")]
-position = Vector2(576, -672)
+position = Vector2(-0.00012207, -688)
 rotation = -0.00962138
 
 [node name="Path2D" type="Path2D" parent="Enemy2"]
 top_level = true
+position = Vector2(-440, -8)
 curve = SubResource("Curve2D_udys3")
 
 [node name="Enemy3" parent="." instance=ExtResource("8_s2n3g")]
-position = Vector2(1544, -1368)
+position = Vector2(1960, -1280)
 rotation = -0.00962138
 
 [node name="Path2D" type="Path2D" parent="Enemy3"]
 top_level = true
+position = Vector2(192, 16)
 curve = SubResource("Curve2D_8lcgi")
 
 [node name="Enemy4" parent="." instance=ExtResource("8_s2n3g")]
-position = Vector2(1552, -776)
+position = Vector2(1992, -768)
 rotation = 1.57079
 
 [node name="Path2D" type="Path2D" parent="Enemy4"]
 top_level = true
-position = Vector2(1560, -776)
+position = Vector2(1720, -784)
 curve = SubResource("Curve2D_gpgwl")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(992, 288)
-color = Color(0.501961, 0.709804, 1, 1)
-energy = 0.6
-shadow_enabled = true
-texture = ExtResource("9_mvo6k")
-texture_scale = 2.0
-
-[node name="RadialRaycast" type="Node2D" parent="PointLight2D"]
-script = ExtResource("10_vqni8")
-ray_range = 540.0
-illumination_range = 540.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 position = Vector2(992, -1600)
@@ -171,12 +173,170 @@ ray_range = 540.0
 illumination_range = 540.0
 
 [node name="PointLight2D3" type="PointLight2D" parent="."]
-position = Vector2(992, -320)
+position = Vector2(768, -224)
 color = Color(0.560784, 0.133333, 0.184314, 1)
+energy = 0.7
 shadow_enabled = true
 texture = ExtResource("9_mvo6k")
+texture_scale = 1.5
 
 [node name="RadialRaycast" type="Node2D" parent="PointLight2D3"]
 script = ExtResource("10_vqni8")
 ray_range = 540.0
 illumination_range = 540.0
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(1224, -224)
+color = Color(0.560784, 0.133333, 0.184314, 1)
+energy = 0.7
+shadow_enabled = true
+texture = ExtResource("9_mvo6k")
+texture_scale = 1.5
+
+[node name="RadialRaycast" type="Node2D" parent="PointLight2D4"]
+script = ExtResource("10_vqni8")
+ray_range = 540.0
+illumination_range = 540.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(992, 120)
+color = Color(0.501961, 0.709804, 1, 1)
+energy = 0.6
+shadow_enabled = true
+texture = ExtResource("9_mvo6k")
+texture_scale = 0.5
+
+[node name="RadialRaycast" type="Node2D" parent="PointLight2D"]
+script = ExtResource("10_vqni8")
+ray_range = 540.0
+illumination_range = 540.0
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(1000, 848)
+color = Color(0.419608, 0.619608, 0.392157, 1)
+energy = 0.6
+shadow_enabled = true
+texture = ExtResource("9_mvo6k")
+texture_scale = 1.5
+
+[node name="RadialRaycast" type="Node2D" parent="PointLight2D6"]
+script = ExtResource("10_vqni8")
+ray_range = 540.0
+illumination_range = 540.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 100)
+offset_left = 896.0
+offset_top = 624.0
+offset_right = 1096.0
+offset_bottom = 726.0
+theme = ExtResource("11_a0rsh")
+theme_override_colors/default_color = Color(1, 0.996078, 0.968627, 1)
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center][typewriter speed=0.04]Move WASD."
+fit_content = true
+custom_effects = [ExtResource("12_wav6p")]
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(200, 100)
+offset_left = 896.0
+offset_top = 704.0
+offset_right = 1096.0
+offset_bottom = 828.0
+theme = ExtResource("11_a0rsh")
+theme_override_colors/default_color = Color(1, 0.996078, 0.968627, 1)
+theme_override_font_sizes/mono_font_size = 36
+bbcode_enabled = true
+text = "[code] [center] [typewriter speed=0.04][shake]Within A Stealthy Darkness"
+fit_content = true
+custom_effects = [ExtResource("12_wav6p")]
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(270, 100)
+offset_left = 856.0
+offset_top = 176.0
+offset_right = 1126.0
+offset_bottom = 278.0
+theme = ExtResource("11_a0rsh")
+theme_override_colors/default_color = Color(1, 0.996078, 0.968627, 1)
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center][typewriter speed=0.04][code]THIS IS AN[/code]
+OBJECTIVE"
+fit_content = true
+custom_effects = [ExtResource("12_wav6p")]
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(270, 100)
+offset_left = 856.0
+offset_top = -80.0
+offset_right = 1126.0
+offset_bottom = 73.0
+theme = ExtResource("11_a0rsh")
+theme_override_colors/default_color = Color(1, 0.996078, 0.968627, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center][typewriter speed=0.04][code]Bring [/code]OBJECTIVES to EXITS"
+fit_content = true
+custom_effects = [ExtResource("12_wav6p")]
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(270, 100)
+offset_left = 856.0
+offset_top = -1520.0
+offset_right = 1126.0
+offset_bottom = -1344.0
+theme = ExtResource("11_a0rsh")
+theme_override_colors/default_color = Color(1, 0.996078, 0.968627, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center][typewriter speed=0.04][code]When you're[/code] ready, [code] step onto the [/code] exit"
+fit_content = true
+custom_effects = [ExtResource("12_wav6p")]
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(400, 100)
+offset_left = 792.0
+offset_top = -472.0
+offset_right = 1192.0
+offset_bottom = -252.0
+theme = ExtResource("11_a0rsh")
+theme_override_colors/default_color = Color(1, 0.996078, 0.968627, 1)
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center][typewriter speed=0.04][code]Remember: [/code]enemies [code] can only [/code] see [code]you when you're in the [/code]light"
+fit_content = true
+custom_effects = [ExtResource("12_wav6p")]
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 840.0
+offset_top = -896.0
+offset_right = 1140.0
+offset_bottom = -676.0
+theme = ExtResource("11_a0rsh")
+theme_override_colors/default_color = Color(1, 0.996078, 0.968627, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][typewriter speed=0.04][code]And use your [/code][shake]potions![/shake] Aim and click. [code]Use them on these[/code] enemies, [code]if you want. "
+fit_content = true
+custom_effects = [ExtResource("12_wav6p")]
+
+[node name="Enemy5" parent="." instance=ExtResource("8_s2n3g")]
+position = Vector2(512, -128)
+rotation = 3.14159
+
+[node name="Path2D" type="Path2D" parent="Enemy5"]
+top_level = true
+position = Vector2(256, 0)
+curve = SubResource("Curve2D_2g4bq")
+
+[node name="Enemy6" parent="." instance=ExtResource("8_s2n3g")]
+position = Vector2(1472, -128)
+
+[node name="Path2D" type="Path2D" parent="Enemy6"]
+top_level = true
+position = Vector2(2144, 288)
+curve = SubResource("Curve2D_ogv6q")
