@@ -4,7 +4,7 @@ extends HBoxContainer
 var current_selected: int = 0
 
 func _ready() -> void:
-	init_loadout()
+	MissionState.mission_started.connect(init_loadout)
 	PlayerStats.potion_ammo_changed.connect(_on_potion_ammo_changed)
 	PlayerStats.potion_selected.connect(_on_potion_selected)
 

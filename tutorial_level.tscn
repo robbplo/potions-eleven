@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://blrh7hh0a63u3"]
+[gd_scene load_steps=16 format=3 uid="uid://b5m6ogyli8plm"]
 
 [ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://standard_world_env.res" id="1_jfxhr"]
 [ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://Visual assets/Sprites/square_white.jpg" id="2_y2wr8"]

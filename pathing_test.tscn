@@ -69,6 +69,7 @@ position = Vector2(178, 100)
 curve = SubResource("Curve2D_gi8k0")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(51, 61)
 navigation_polygon = SubResource("NavigationPolygon_lckgc")
 

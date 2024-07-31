@@ -13,13 +13,13 @@ config_version=5
 config/name="Potion's Eleven"
 run/main_scene="res://Menu_screens.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://Visual assets/Sprites/Character Icons/icon.svg"
+config/icon="res://Game_image.png"
 
 [autoload]
 
 IlluminatedEntities="*res://illuminated_entities.gd"
-PlayerStats="*res://Entities/Player/player_stats.gd"
 MissionState="*res://mission_state.gd"
+PlayerStats="*res://Entities/Player/player_stats.gd"
 SfxMixer="*res://Audio assets/sfx_mixer.tscn"
 MusicMixer="*res://music_mixer.tscn"
 

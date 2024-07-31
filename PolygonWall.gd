@@ -86,6 +86,7 @@ func _create_outline():
 	
 ## Set occluder, outline and collision to be the same shape as the polygon
 func _update_polygons():
+	if shape.size() > 2:
 		outline.points = shape
 		occluder.occluder.polygon = shape
 		collision_shape.polygon = shape

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wd5x384kouju"]
+[gd_scene load_steps=22 format=3 uid="uid://wd5x384kouju"]
 
 [ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://pathing_test.tscn" id="1_58qq5"]
 [ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://Visual assets/Background/star_background.tscn" id="1_d415v"]
@@ -11,13 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://b8qu6pscm3u4s" path="res://Visual assets/Sprites/Character Icons/ATUAN.png" id="5_tfc6l"]
 [ext_resource type="Texture2D" uid="uid://cdio61bvhkgr7" path="res://Visual assets/UI/SpeechBubblePoint.png" id="6_d5325"]
 [ext_resource type="Theme" uid="uid://ceu0chv0p66gw" path="res://UI/UI_theme_Options.tres" id="6_mvbvu"]
+[ext_resource type="Script" path="res://pause_popup.gd" id="7_6e5e3"]
 [ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://UI/Simple_text.tres" id="7_cm7td"]
 [ext_resource type="Script" path="res://lose_popup.gd" id="7_mccgk"]
 [ext_resource type="Script" path="res://UI/Mission Select/MissionDescription.gd" id="8_1yb0t"]
 [ext_resource type="Script" path="res://win_popup.gd" id="8_eet7a"]
 [ext_resource type="Script" path="res://UI/Game_screen/player_icon.gd" id="10_ahkj3"]
 [ext_resource type="Script" path="res://UI/Game_screen/thoughts_text.gd" id="10_xyceo"]
-[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://UI/typewriter_rich_text_effect.tres" id="11_1x5tw"]
+[ext_resource type="RichTextEffect" path="res://UI/typewriter_rich_text_effect.tres" id="11_1x5tw"]
 [ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://Visual assets/Sprites/Lights/Circle_Flat.png" id="16_3libp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oq0kq"]
@@ -76,6 +77,32 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="PathingTest" parent="Main Screen/LevelScreenContainer/LevelScreen/LevelViewport" instance=ExtResource("1_58qq5")]
+
+[node name="PausePopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_mvbvu")
+script = ExtResource("7_6e5e3")
+
+[node name="RestartButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 176.0
+offset_right = 418.0
+offset_bottom = 207.0
+theme = ExtResource("6_mvbvu")
+text = "Restart"
+
+[node name="BackButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 432.0
+offset_right = 437.0
+offset_bottom = 463.0
+theme = ExtResource("6_mvbvu")
+text = "Back to menu"
 
 [node name="LosePopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
 visible = false
@@ -292,6 +319,8 @@ scale = Vector2(2.08165e-12, 2.08165e-12)
 pivot_offset = Vector2(540, 540)
 texture = ExtResource("16_3libp")
 
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/RestartButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/BackButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/RetryButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/BackButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Main Screen/LevelScreenContainer/WinPopup/Button" to="Main Screen/LevelScreenContainer/WinPopup" method="_on_button_pressed"]
