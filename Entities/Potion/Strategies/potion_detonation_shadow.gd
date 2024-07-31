@@ -41,4 +41,3 @@ func _create_circle() -> PackedVector2Array:
 		var point := (Vector2.UP * radius).rotated(angle)
 		points.append(point)
 	return points
-

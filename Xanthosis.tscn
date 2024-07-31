@@ -19,6 +19,12 @@ source_geometry_mode = 2
 source_geometry_group_name = &"nav_geometry"
 agent_radius = 64.0
 
+[sub_resource type="Curve2D" id="Curve2D_mfkqc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1074, -996, 0, 0, 0, 0, 2638, -996, 0, 0, 0, 0, 2638, -1508, 0, 0, 0, 0, -1074, -1508, 0, 0, 0, 0, -1074, -996)
+}
+point_count = 5
+
 [sub_resource type="Curve2D" id="Curve2D_gi8k0"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -562, -996, 0, 0, 0, 0, 2190, -996, 0, 0, 0, 0, 2190, -1508, 0, 0, 0, 0, -562, -1508, 0, 0, 0, 0, -562, -1060, 0, 0, 0, 0, -562, -996)
@@ -59,7 +65,7 @@ point_count = 9
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 992, 448, 0, 0, 0, 0, 992, -768, 0, 0, 0, 0, 992, 312, 0, 0, 0, 0, 992, 448)
 }
-point_count = 4
+point_count = 5
 
 [node name="PathingTest" type="Node2D"]
 

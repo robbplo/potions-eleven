@@ -1,5 +1,6 @@
 extends Control
 
+var starting_screen: MenuMover.Screen = 0
 
 func _ready():
 	MusicMixer.play_menu_song_with_riser()
@@ -8,14 +9,14 @@ func _ready():
 	$Menu_Mover/Panel/crystal_ball_container/TextureRect.scale = Vector2(0.0, 0.0)
 	$Menu_Mover/Panel/crystal_ball_container/SubViewportContainer.scale = Vector2(0.0, 0.0)
 	$Menu_Mover/Panel/crystal_ball_container/TextureRect2.scale =  Vector2(0.0, 0.0)
-func _process(delta):
-	pass
-
+	if starting_screen != 0:
+		$Menu_Mover.current_screen = starting_screen
 
 func _on_menu_mover_go_to_level():
-	print("moving to level")
 	var tween_music = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_CUBIC)
 	tween_music.tween_property(MusicMixer, "menu_song_volume", 0.0, 3)
+	tween_music.parallel().tween_property(MusicMixer, "menu_song_volume", 0.0, 3)
+	tween_music.tween_callback(MusicMixer.stop_menu_song)
 	
 	var tween_bg = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_LINEAR).set_parallel(true)
 	tween_bg.tween_interval(2)

@@ -22,7 +22,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 ## Yeet
 func throw_potion(target: Vector2) -> void:
-	if ammo[selected] <= 0:
+	if loadout.size() <= selected || ammo[selected] <= 0:
 		# Cannot throw when no is potion
 		return
 

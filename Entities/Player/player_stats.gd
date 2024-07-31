@@ -12,6 +12,8 @@ signal potion_selected(idx: int)
 signal objective_collected
 ## Player reached the exit with the objective.
 signal objective_extracted
+## YOU DIED
+signal player_died
 
 ## Player node
 var player: Player
@@ -37,3 +39,4 @@ func collect_objective():
 func extract_objective():
 	objective_extracted.emit()
 	print("level complentened")
+	

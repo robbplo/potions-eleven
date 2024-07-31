@@ -18,3 +18,7 @@ func _load_animation():
 	$CircleOverlay.scale = Vector2(5.0, 5.0)
 	var tween = get_tree().create_tween().bind_node(self).set_ease(Tween.EASE_IN)
 	tween.tween_property($CircleOverlay, "scale", Vector2(0.0, 0.0) , 1)
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
+		get_tree().paused = !get_tree().paused

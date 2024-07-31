@@ -22,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		potion_belt.throw_potion(get_global_mouse_position())
 
 func die():
+	PlayerStats.player_died.emit()
 	queue_free()
 
 func _eye_look_at(target: Vector2):
