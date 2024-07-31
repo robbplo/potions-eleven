@@ -38,14 +38,34 @@ script = ExtResource("3_6xymf")
 layout_mode = 2
 
 [node name="margin_left" type="Panel" parent="MenuContainer/ScreenItems"]
+visible = false
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2
 theme = ExtResource("1_1ej4r")
 
 [node name="MenuItems" type="VBoxContainer" parent="MenuContainer/ScreenItems"]
-custom_minimum_size = Vector2(400, 2.08165e-12)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-alignment = 1
+
+[node name="Spacer2" type="Panel" parent="MenuContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_1ej4r")
+
+[node name="TitleLabel" type="RichTextLabel" parent="MenuContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_bej77")
+bbcode_enabled = true
+text = "POTION'S ELEVEN"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Spacer" type="Panel" parent="MenuContainer/ScreenItems/MenuItems"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_1ej4r")
 
 [node name="Play" type="TextureButton" parent="MenuContainer/ScreenItems/MenuItems"]
 custom_minimum_size = Vector2(200, 100)
