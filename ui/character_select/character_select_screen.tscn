@@ -1,0 +1,301 @@
+[gd_scene load_steps=27 format=3 uid="uid://c8xayyppwcjmu"]
+
+[ext_resource type="Script" path="res://ui/character_select/character_select_screen.gd" id="1_f70sp"]
+[ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://visuals/background/star_background.tscn" id="1_pc6gk"]
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://ui/ui_theme.tres" id="2_8yxie"]
+[ext_resource type="PackedScene" uid="uid://cvnuqnev7skun" path="res://ui/character_select/character_select_button.tscn" id="2_hw7sa"]
+[ext_resource type="Texture2D" uid="uid://dj8lrxafpjtsy" path="res://visuals/sprites/characters/player/omelas.png" id="3_bixdw"]
+[ext_resource type="Texture2D" uid="uid://ce5kbwar3gfyd" path="res://visuals/sprites/characters/player/anor_londo.png" id="4_shdnp"]
+[ext_resource type="Texture2D" uid="uid://chw5nmj1k3d7x" path="res://visuals/sprites/characters/player/stormwind.png" id="5_3alpd"]
+[ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://ui/simple_text.tres" id="5_4dpnm"]
+[ext_resource type="Texture2D" uid="uid://sc6xu4ji4nxc" path="res://visuals/ui/background_box.png" id="5_i4rkl"]
+[ext_resource type="Texture2D" uid="uid://dm4g7puwhhpec" path="res://visuals/sprites/characters/player/menzoberranzan.png" id="6_gkn5d"]
+[ext_resource type="Script" path="res://ui/text_translation_effect.gd" id="6_qakgd"]
+[ext_resource type="Script" path="res://ui/character_select/mission_title.gd" id="6_r4yt1"]
+[ext_resource type="Texture2D" uid="uid://b8qu6pscm3u4s" path="res://visuals/sprites/characters/player/atuan.png" id="7_n7qvn"]
+[ext_resource type="Script" path="res://ui/character_select/mission_description.gd" id="7_otwiu"]
+[ext_resource type="Texture2D" uid="uid://b286q1fdkhupe" path="res://visuals/sprites/characters/player/rapture.png" id="8_7u0iw"]
+[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://ui/typewriter_rich_text_effect.tres" id="8_ich3q"]
+[ext_resource type="Texture2D" uid="uid://dsdubmob2m0vx" path="res://visuals/sprites/characters/player/rivendell.png" id="9_y7x3k"]
+[ext_resource type="Texture2D" uid="uid://c76jkfc7ealix" path="res://visuals/sprites/characters/player/gormenghast.png" id="10_oedqd"]
+[ext_resource type="Script" path="res://ui/character_select/character_description.gd" id="11_27rgt"]
+[ext_resource type="Texture2D" uid="uid://bnarmgvs4klad" path="res://visuals/ui/button_back_next_bg.png" id="14_22oug"]
+[ext_resource type="Script" path="res://ui/screen_navigation_button.gd" id="15_lfog5"]
+[ext_resource type="Texture2D" uid="uid://c5ref83klog6g" path="res://visuals/ui/button_back_text.png" id="16_fbo16"]
+[ext_resource type="Texture2D" uid="uid://bskfol1s31wgo" path="res://visuals/ui/button_next_text.png" id="17_b5evg"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_nauqh"]
+script = ExtResource("6_qakgd")
+
+[sub_resource type="Theme" id="Theme_kuter"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5pef"]
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+
+[node name="Character_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f70sp")
+
+[node name="Star_background" parent="." instance=ExtResource("1_pc6gk")]
+visible = false
+layout_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 85)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MissionText" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 480)
+layout_mode = 2
+theme = ExtResource("2_8yxie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MissionText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CenterContainer/VBoxContainer/MissionText/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 150)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_i4rkl")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="MissionTitle" type="RichTextLabel" parent="CenterContainer/VBoxContainer/MissionText/VBoxContainer/NinePatchRect2"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+offset_top = 40.0
+offset_right = 1399.0
+offset_bottom = 140.0
+theme = ExtResource("5_4dpnm")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[typewriter][center]MISSION TITLE"
+custom_effects = [SubResource("RichTextEffect_nauqh")]
+script = ExtResource("6_r4yt1")
+
+[node name="MissionDescription" type="RichTextLabel" parent="CenterContainer/VBoxContainer/MissionText/VBoxContainer/NinePatchRect2"]
+custom_minimum_size = Vector2(600, 330)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -330.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_4dpnm")
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[typewriter speed=.03][center]Mission description"
+scroll_active = false
+custom_effects = [ExtResource("8_ich3q")]
+script = ExtResource("7_otwiu")
+
+[node name="Margin" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+theme = ExtResource("2_8yxie")
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Characters 1 - 4" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Character_select_button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "OMELAS"
+character_image = ExtResource("3_bixdw")
+
+[node name="Character_select_button2" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "ANOR LONDO"
+character_image = ExtResource("4_shdnp")
+
+[node name="Character_select_button3" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "STORMWIND"
+character_image = ExtResource("5_3alpd")
+
+[node name="Character_select_button4" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 1 - 4" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "MENZOBERRANZAN"
+character_image = ExtResource("6_gkn5d")
+
+[node name="Characters 5 -8" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Character_select_button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 5 -8" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "ATUAN"
+character_image = ExtResource("7_n7qvn")
+
+[node name="Character_select_button2" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 5 -8" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "RAPTURE"
+character_image = ExtResource("8_7u0iw")
+
+[node name="Character_select_button3" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 5 -8" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "RIVENDELL"
+character_image = ExtResource("9_y7x3k")
+
+[node name="Character_select_button4" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/Characters 5 -8" instance=ExtResource("2_hw7sa")]
+layout_mode = 2
+character_name = "GORMENGHAST"
+character_image = ExtResource("10_oedqd")
+
+[node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+theme = ExtResource("2_8yxie")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_8yxie")
+texture = ExtResource("5_i4rkl")
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer/NinePatchRect"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 24.0
+offset_right = 250.0
+offset_bottom = 174.0
+grow_horizontal = 2
+theme = ExtResource("5_4dpnm")
+bbcode_enabled = true
+text = "[center]No character selected[/center]"
+script = ExtResource("11_27rgt")
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer/NinePatchRect"]
+custom_minimum_size = Vector2(2.08165e-12, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kuter")
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5pef")
+
+[node name="Margin" type="Panel" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 85)
+layout_mode = 2
+theme = ExtResource("2_8yxie")
+
+[node name="PrevButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -85.0
+offset_right = 220.0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(120, 42)
+texture_normal = ExtResource("14_22oug")
+script = ExtResource("15_lfog5")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/PrevButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_fbo16")
+
+[node name="NextButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -85.0
+offset_right = 20.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(120, 42)
+texture_normal = ExtResource("14_22oug")
+script = ExtResource("15_lfog5")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/NextButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_b5evg")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/NextButton" to="." method="_on_next_button_pressed"]

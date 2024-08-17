@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://dou6x4xa7ud5e"]
+
+[ext_resource type="Script" path="res://engine/music_mixer.gd" id="1_unga5"]
+[ext_resource type="AudioStream" uid="uid://bir1d8r20te0u" path="res://assets/audio/loops/main_menu_song.wav" id="2_688x6"]
+[ext_resource type="AudioStream" uid="uid://dnogci37l1qk5" path="res://assets/audio/loops/main_menu_riser.wav" id="3_8yiq0"]
+[ext_resource type="AudioStream" uid="uid://cf53w5xjff66x" path="res://assets/audio/loops/heist1/heist_full.wav" id="4_oxqgl"]
+[ext_resource type="AudioStream" uid="uid://ba5wxp5cte2d8" path="res://assets/audio/loops/heist1/heist_full_shaker.wav" id="5_th10p"]
+[ext_resource type="AudioStream" uid="uid://cvk5qbmtq4jen" path="res://assets/audio/loops/heist1/heist_full_bubblesynth.wav" id="6_7p2o3"]
+
+[sub_resource type="Animation" id="Animation_n7ky3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeistShaker:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeistBubbleSynth:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+
+[sub_resource type="Animation" id="Animation_ppguc"]
+resource_name = "Audio_fade"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeistShaker:volume_db")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -10.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeistBubbleSynth:volume_db")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -10.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fajkb"]
+_data = {
+"RESET": SubResource("Animation_n7ky3"),
+"audio_fade": SubResource("Animation_ppguc")
+}
+
+[node name="MusicMixer" type="Node"]
+process_mode = 3
+script = ExtResource("1_unga5")
+
+[node name="MenuSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_688x6")
+bus = &"Music"
+
+[node name="MenuRiser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8yiq0")
+bus = &"Music"
+
+[node name="HeistSong" type="Node" parent="."]
+
+[node name="HeistMainSong" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("4_oxqgl")
+bus = &"Music"
+
+[node name="HeistShaker" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("5_th10p")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="HeistBubbleSynth" type="AudioStreamPlayer" parent="HeistSong"]
+stream = ExtResource("6_7p2o3")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HeistSong"]
+libraries = {
+"": SubResource("AnimationLibrary_fajkb")
+}

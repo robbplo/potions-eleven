@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnjx0gp7mon3y"]
+
+[ext_resource type="Script" path="res://visuals/background/star_background.gd" id="1_ixte7"]
+[ext_resource type="Shader" path="res://visuals/background/texture_scroller_stars1.gdshader" id="2_dcivs"]
+[ext_resource type="Texture2D" uid="uid://cjerph823xhqe" path="res://visuals/textures/stars_hq1.png" id="3_axrqo"]
+[ext_resource type="Shader" path="res://visuals/background/texture_scroller_stars2.gdshader" id="4_hf7df"]
+[ext_resource type="Texture2D" uid="uid://cgvswunywht3r" path="res://visuals/textures/stars_hq2.png" id="5_ca05v"]
+[ext_resource type="Shader" path="res://visuals/background/texture_scroller_stars3.gdshader" id="6_ehatp"]
+[ext_resource type="Texture2D" uid="uid://dxjh8l542g1ca" path="res://visuals/textures/stars_hq3.png" id="7_ybqio"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfxvf"]
+shader = ExtResource("2_dcivs")
+shader_parameter/scroll_speed = 0.03
+shader_parameter/angle_degrees = 0.0
+shader_parameter/repeat_x = 1.0
+shader_parameter/repeat_y = 1.0
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = ExtResource("3_axrqo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6rpmd"]
+shader = ExtResource("4_hf7df")
+shader_parameter/scroll_speed = 0.02
+shader_parameter/angle_degrees = 0.0
+shader_parameter/repeat_x = 1.0
+shader_parameter/repeat_y = 1.0
+shader_parameter/row_offset = 1.0
+shader_parameter/texture_to_scroll = ExtResource("5_ca05v")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8byfh"]
+shader = ExtResource("6_ehatp")
+shader_parameter/scroll_speed = 0.01
+shader_parameter/angle_degrees = 0.0
+shader_parameter/repeat_x = 1.0
+shader_parameter/repeat_y = 1.0
+shader_parameter/row_offset = 0.0
+shader_parameter/texture_to_scroll = ExtResource("7_ybqio")
+
+[node name="Star_background" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.0
+offset_top = -54.0
+offset_right = 144.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixte7")
+background_color = Color(1, 0.996078, 0.968627, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.996078, 0.968627, 1)
+
+[node name="Stars_1" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.666667)
+material = SubResource("ShaderMaterial_gfxvf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -61.0
+offset_right = -55.0
+offset_bottom = -60.9999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stars_2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6rpmd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.5145
+offset_top = -41.5527
+offset_right = -37.5146
+offset_bottom = -41.5526
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stars_3" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.588235)
+material = SubResource("ShaderMaterial_8byfh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.4702
+offset_top = -31.4938
+offset_right = -28.47
+offset_bottom = -31.4938
+grow_horizontal = 2
+grow_vertical = 2

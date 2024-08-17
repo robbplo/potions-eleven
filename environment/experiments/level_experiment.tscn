@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0tueexsxrjtd"]
+
+[ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://visuals/sprites/lights/circle_gradient_90.png" id="1_0t3xv"]
+[ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://environment/standard_world_env.res" id="1_7gib5"]
+[ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://environment/terrain/poly_wall.tscn" id="1_s2lju"]
+
+[node name="LevelExperiment" type="Node2D"]
+texture_filter = 5
+position = Vector2(2, 0)
+
+[node name="StandardWorldEnv" parent="." instance=ExtResource("1_7gib5")]
+
+[node name="Floor" type="Polygon2D" parent="."]
+texture_filter = 2
+color = Color(1, 0.996078, 0.968627, 1)
+polygon = PackedVector2Array(-35, -35, -34, 687, 1170, 687, 1167, -46)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(214, 123)
+color = Color(0.72549, 0.960784, 0.666667, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("1_0t3xv")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(335, 38)
+color = Color(1, 0.666667, 0.752941, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("1_0t3xv")
+texture_scale = 0.7
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+texture_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="Wall" parent="." instance=ExtResource("1_s2lju")]
+position = Vector2(282, 173)
+color = Color(0.14902, 0.164706, 0.247059, 1)
+polygon = PackedVector2Array(43, -13, 104, -1, 142, 44, -8, 43)
+
+[node name="Wall2" parent="." instance=ExtResource("1_s2lju")]
+position = Vector2(89, 29)
+color = Color(0.14902, 0.164706, 0.247059, 1)
+polygon = PackedVector2Array(-2.08165e-12, -2.08165e-12, 104, -1, 53, 79, -8, 43)

@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://db7kfdv2r4gos"]
+
+[ext_resource type="Script" path="res://ui/credits/credits_window.gd" id="1_tdkf3"]
+[ext_resource type="Theme" uid="uid://ceu0chv0p66gw" path="res://ui/ui_theme_options.tres" id="2_26sqi"]
+[ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://ui/simple_text.tres" id="3_rnb2k"]
+[ext_resource type="Script" path="res://ui/text_translation_effect.gd" id="4_uifaw"]
+[ext_resource type="FontFile" uid="uid://dmwl7a5s11gy6" path="res://visuals/ui/jerian_english_regular.otf" id="5_uhkfs"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_x40hc"]
+script = ExtResource("4_uifaw")
+
+[node name="CreditsWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tdkf3")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1800, 960)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -900.0
+offset_top = -480.0
+offset_right = 900.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_26sqi")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Robbin" type="VBoxContainer" parent="Panel/CenterContainer/Credits"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer/Credits/Robbin"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_rnb2k")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[center]Robbin
+"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_x40hc")]
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/CenterContainer/Credits/Robbin"]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme = ExtResource("3_rnb2k")
+bbcode_enabled = true
+text = "[center]Programmer, making things work[code] "
+fit_content = true
+
+[node name="Jeremy" type="VBoxContainer" parent="Panel/CenterContainer/Credits"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer/Credits/Jeremy"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = ExtResource("3_rnb2k")
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "[center]Jeremy"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/CenterContainer/Credits/Jeremy"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme = ExtResource("3_rnb2k")
+bbcode_enabled = true
+text = "[center][shake rate=10]Audio[/shake], [wave]visual[/wave], interface
+[code]I HOPE YOU ENJOYED DECYPHERING THIS SCRIPT. "
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/CenterContainer/Credits"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme = ExtResource("3_rnb2k")
+bbcode_enabled = true
+text = "[center]Special thanks to Sam"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Panel/CenterContainer/Credits"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+theme = ExtResource("3_rnb2k")
+bbcode_enabled = true
+text = "[center] This is our first game. Thank you for playing!"
+fit_content = true
+scroll_active = false
+
+[node name="Button" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 41.0
+offset_right = -40.0
+offset_bottom = 161.0
+grow_horizontal = 0
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("5_uhkfs")
+theme_override_font_sizes/font_size = 70
+text = "close"
+
+[connection signal="button_up" from="Panel/Button" to="." method="_on_button_button_up"]

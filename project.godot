@@ -11,17 +11,21 @@ config_version=5
 [application]
 
 config/name="Potion's Eleven"
-run/main_scene="res://Menu_screens.tscn"
+run/main_scene="res://ui/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://Game_image.png"
+config/icon="res://visuals/game_image.png"
+
+[audio]
+
+buses/default_bus_layout="res://engine/default_bus_layout.tres"
 
 [autoload]
 
-IlluminatedEntities="*res://illuminated_entities.gd"
-MissionState="*res://mission_state.gd"
-PlayerStats="*res://Entities/Player/player_stats.gd"
-SfxMixer="*res://Audio assets/sfx_mixer.tscn"
-MusicMixer="*res://music_mixer.tscn"
+IlluminatedEntities="*res://engine/globals/illuminated_entities.gd"
+MissionState="*res://engine/globals/mission_state.gd"
+PlayerStats="*res://engine/globals/player_stats.gd"
+SfxMixer="*res://engine/sfx_mixer.tscn"
+MusicMixer="*res://engine/music_mixer.tscn"
 
 [debug]
 
@@ -47,7 +51,7 @@ player=""
 
 [gui]
 
-theme/custom="res://UI/theme.tres"
+theme/custom="res://ui/theme.tres"
 
 [input]
 

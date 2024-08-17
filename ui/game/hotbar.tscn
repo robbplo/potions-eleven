@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfrqeqfe46o7s"]
+
+[ext_resource type="Script" path="res://ui/game/hotbar.gd" id="1_gpodd"]
+[ext_resource type="PackedScene" uid="uid://fktec81jj6g8" path="res://ui/game/hotbar_item.tscn" id="2_66ydp"]
+
+[node name="Hotbar" type="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 400.0
+offset_bottom = 100.0
+theme_override_constants/separation = 0
+script = ExtResource("1_gpodd")
+
+[node name="Panel" parent="." instance=ExtResource("2_66ydp")]
+layout_mode = 2
+
+[node name="Panel2" parent="." instance=ExtResource("2_66ydp")]
+layout_mode = 2
+
+[node name="Panel3" parent="." instance=ExtResource("2_66ydp")]
+layout_mode = 2
+
+[node name="Panel4" parent="." instance=ExtResource("2_66ydp")]
+layout_mode = 2

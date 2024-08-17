@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnpr48jjt1ons"]
+
+[ext_resource type="Script" path="res://entities/objective/exit.gd" id="1_q5njc"]
+[ext_resource type="Texture2D" uid="uid://cpbospumoscc5" path="res://visuals/sprites/square_white.jpg" id="2_dw2lu"]
+[ext_resource type="Shader" path="res://environment/shaders/unshaded.gdshader" id="3_hw6t1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bibqp"]
+shader = ExtResource("3_hw6t1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkjw7"]
+size = Vector2(64, 64)
+
+[node name="Exit" type="Node2D"]
+script = ExtResource("1_q5njc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0645445, 0.0698135, 0.0729024, 0.34902)
+material = SubResource("ShaderMaterial_bibqp")
+scale = Vector2(2, 2)
+texture = ExtResource("2_dw2lu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_hkjw7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

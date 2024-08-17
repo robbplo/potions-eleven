@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PotionResource" load_steps=10 format=3 uid="uid://colswb5k3dlgs"]
+
+[ext_resource type="Script" path="res://entities/potions/resources/potion_resource.gd" id="1_2fdc0"]
+[ext_resource type="PackedScene" uid="uid://ir164a4c237k" path="res://entities/potions/strategies/potion_detonation_teleport_effect.tscn" id="1_ahqcp"]
+[ext_resource type="Script" path="res://entities/potions/strategies/potion_detonation_teleport.gd" id="1_n4o2l"]
+[ext_resource type="Texture2D" uid="uid://btucodumeu6g6" path="res://visuals/sprites/potions/small_pot_teleport.png" id="1_wwt4o"]
+[ext_resource type="PackedScene" uid="uid://dp34arec5vmnh" path="res://entities/potions/strategies/potion_detonation_teleport_origin.tscn" id="2_ex124"]
+[ext_resource type="Script" path="res://entities/potions/strategies/potion_throw_lob.gd" id="3_x7sav"]
+[ext_resource type="Texture2D" uid="uid://0qm75av164rh" path="res://visuals/sprites/potions/pot_teleport.png" id="4_qqybt"]
+
+[sub_resource type="Resource" id="Resource_sok4e"]
+script = ExtResource("1_n4o2l")
+effect_scene = ExtResource("1_ahqcp")
+origin_scene = ExtResource("2_ex124")
+timer = 1.0
+
+[sub_resource type="Resource" id="Resource_wvv6l"]
+script = ExtResource("3_x7sav")
+throw_time = 0.5
+fuse_time = 1.0
+
+[resource]
+script = ExtResource("1_2fdc0")
+proj_texture = ExtResource("1_wwt4o")
+proj_texture_scale = 0.35
+ui_texture = ExtResource("4_qqybt")
+count = 2
+throw_strategy = SubResource("Resource_wvv6l")
+detonation_strategy = SubResource("Resource_sok4e")

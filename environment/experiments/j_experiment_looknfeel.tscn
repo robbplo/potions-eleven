@@ -1,0 +1,164 @@
+[gd_scene load_steps=14 format=3 uid="uid://be1qfoves2lqr"]
+
+[ext_resource type="Script" path="res://engine/radial_raycast.gd" id="2_27dwg"]
+[ext_resource type="Shader" path="res://environment/shaders/unshaded.gdshader" id="3_6bdcw"]
+[ext_resource type="PackedScene" uid="uid://bak0chjmjimnj" path="res://entities/enemies/enemy.tscn" id="3_e5pgv"]
+[ext_resource type="PackedScene" uid="uid://l7oisqarvqqk" path="res://environment/terrain/poly_wall.tscn" id="3_hltnd"]
+[ext_resource type="PackedScene" uid="uid://dq00o3co8gq3p" path="res://entities/player/player.tscn" id="5_0ir41"]
+[ext_resource type="Texture2D" uid="uid://ce5kbwar3gfyd" path="res://visuals/sprites/characters/player/anor_londo.png" id="5_8pk35"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://visuals/sprites/lights/circle_flat.png" id="6_x2042"]
+[ext_resource type="Texture2D" uid="uid://d3jn2q0u0iqdr" path="res://visuals/sprites/lights/circle_gradient_90.png" id="7_kwxvb"]
+[ext_resource type="Texture2D" uid="uid://brm26r05w60vt" path="res://visuals/sprites/lights/circle_gradient_70.png" id="9_4gqjm"]
+[ext_resource type="PackedScene" uid="uid://bv4sbjlhn8fio" path="res://environment/standard_world_env.res" id="10_0g6or"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6mpx"]
+shader = ExtResource("3_6bdcw")
+
+[sub_resource type="Curve2D" id="Curve2D_gi8k0"]
+_data = {
+"points": PackedVector2Array(25, -25, 0, 0, 82, 11, 0, 0, 0, 0, 234, 8, 0, 0, 0, 0, 814, 7, 0, 0, 0, 0, 807, 192, 0, 0, 0, 0, 385, 186, 0, 0, 0, 0, 380, 310, 0, 0, 0, 0, 208, 314, 0, 0, 0, 0, 211, 432, 0, 0, 0, 0, 269, 547, 0, 0, 0, 0, 299, 477, 0, 0, 0, 0, 413, 472, 0, 0, 0, 0, 520, 601, 0, 0, 0, 0, 511, 474, 0, 0, 0, 0, 336, 471, 0, 0, 0, 0, 214, 402, 0, 0, 0, 0, 209, 315, 0, 0, 0, 0, 86, 317, 0, 0, 0, 0, 100, 703, 0, 0, 0, 0, 683, 708, 0, 0, 0, 0, 684, 739, 0, 0, 0, 0, 55, 741, 0, 0, 0, 0, 41, 399, 0, 0, 0, 0, 32, 20)
+}
+point_count = 23
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lckgc"]
+vertices = PackedVector2Array(623.422, 333.141, 773.539, 327.859, 964.906, 329.141, 957.281, 364.75, 844.672, 366.281, 628.906, 456.141, 773.469, 448.867, 964.867, 450.148, 1458.93, 473.5, 956, 490.258, 536.812, 484.719, 974.391, 856.219, 1465.75, 934.93, 310.938, 931.062, 450.906, 850.789, 1459.94, 163, 310, 614.922, 452, 611, 961.133, 244, 298.828, 163, 775.453, 244, 771.523, 367.281, 1460.76, 527.461, 960.961, 654.672, 956, 538.609, 892.07, 597.656, 905.57, 791.188, 732.367, 792.812, 727.328, 632.32, 452, 485, 308.898, 403, 438, 454.867, 663.773, 637.617, 665.742, 794.891, 519, 794.102, 541.133, 560.312, 662.344, 558.312, 1500.66, 472.469, 1501.21, 526.531, 519, 485, 625.133, 370.867, 438, 372.133, 432, 331.867, 161, 403, 161, 391.594, 192.57, 391.156, 296.828, 389.727, 617.688, 249.133, 432, 247.859, 665.367, 602.828, 726.133, 600.188, 888.609, 556.18, 728.102, 557.797)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(2, 15, 8, 7, 3), PackedInt32Array(14, 13, 16, 17), PackedInt32Array(15, 2, 18), PackedInt32Array(19, 15, 18, 20), PackedInt32Array(0, 4, 21), PackedInt32Array(22, 12, 11, 23, 24, 9, 8), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(29, 17, 16, 30, 31), PackedInt32Array(32, 33, 34, 35, 36), PackedInt32Array(8, 37, 38, 22), PackedInt32Array(29, 31, 5, 10, 39), PackedInt32Array(6, 5, 40, 21), PackedInt32Array(0, 21, 40, 41, 42), PackedInt32Array(30, 43, 44, 45, 46), PackedInt32Array(1, 0, 47, 20), PackedInt32Array(19, 20, 47, 48), PackedInt32Array(46, 19, 48, 42, 30), PackedInt32Array(30, 42, 41, 31), PackedInt32Array(34, 39, 10, 35), PackedInt32Array(32, 36, 49), PackedInt32Array(28, 32, 49, 50, 25), PackedInt32Array(51, 25, 50, 52)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(141, 116, 1517, 115, 1526, 991, 141, 982)])
+agent_radius = 20.0
+
+[node name="PathingTest" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_k6mpx")
+position = Vector2(1533, 142)
+
+[node name="AnorLondo" type="Sprite2D" parent="Node2D"]
+use_parent_material = true
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_8pk35")
+
+[node name="CircleFlat2" type="Sprite2D" parent="Node2D"]
+use_parent_material = true
+position = Vector2(127, -31)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_x2042")
+
+[node name="CircleFlat" type="Sprite2D" parent="Node2D"]
+use_parent_material = true
+position = Vector2(76.6, -31.4)
+scale = Vector2(0.0398148, 0.0398148)
+texture = ExtResource("6_x2042")
+
+[node name="CircleFlat3" type="Sprite2D" parent="Node2D"]
+use_parent_material = true
+position = Vector2(127.6, 16.6)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_x2042")
+
+[node name="CircleFlat4" type="Sprite2D" parent="Node2D"]
+use_parent_material = true
+position = Vector2(76.6, 16.6)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_x2042")
+
+[node name="StandardWorldEnv" parent="." instance=ExtResource("10_0g6or")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2(4, -3)
+color = Color(0, 0, 0, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.329412, 0.32549, 0.396078, 1)
+polygon = PackedVector2Array(98, 76, 98, 971, 1490, 973, 1486, 76)
+
+[node name="Enemy" parent="." instance=ExtResource("3_e5pgv")]
+position = Vector2(310, 149)
+scale = Vector2(0.3, 0.3)
+
+[node name="Path2D" type="Path2D" parent="Enemy"]
+top_level = true
+position = Vector2(277, 129)
+curve = SubResource("Curve2D_gi8k0")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-39, -32)
+navigation_polygon = SubResource("NavigationPolygon_lckgc")
+metadata/_edit_lock_ = true
+
+[node name="Wall" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
+position = Vector2(142, 330)
+polygon = PackedVector2Array(-4, -222, 1379, -218, 1378, 122, 1337, 123, 1338, -187, 137, -187, 134, 40, 50.2987, 41.1603, -2, 39)
+
+[node name="Wall2" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
+position = Vector2(142, 366)
+polygon = PackedVector2Array(-2, 57, 147, 57, 148, 249, 149, 585, 1344, 589, 1339, 181, 1383, 180, 1392, 588, 1392, 641, 157, 641, -5, 641, -4, 293)
+
+[node name="Wall3" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
+position = Vector2(466, 392)
+polygon = PackedVector2Array(-8, 0, 140, -1, 142, 44, -8, 43)
+
+[node name="Wall4" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
+position = Vector2(460, 269)
+polygon = PackedVector2Array(-8, -1, 139, 0, 142, 44, -8, 43)
+
+[node name="Wall5" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
+position = Vector2(802, 265)
+polygon = PackedVector2Array(-7, -1, 140, -1, 142, 44, -8, 43)
+
+[node name="Wall6" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
+position = Vector2(801, 386)
+polygon = PackedVector2Array(-9, 1, 43.9399, 0.279724, 138, -1, 142, 44, -8, 43)
+
+[node name="Wall7" parent="NavigationRegion2D" instance=ExtResource("3_hltnd")]
+position = Vector2(591, 592)
+polygon = PackedVector2Array(-119, -87, -92, -87, -92, 222, 95, 223, 93, 64, 117, 62, 122, 221, 336, 219, 321, 4, 316, -56, 118, -54, 116, -11, 93, -10, 90, -54, -31, -52, -33, -87, 345, -82, 345, -53, 350, 64, 362, 244, -120, 239, -119, 19, -119, -17)
+
+[node name="Player" parent="." instance=ExtResource("5_0ir41")]
+position = Vector2(715, 189)
+scale = Vector2(0.1, 0.1)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(809, 170)
+color = Color(0.678431, 0.235294, 0.258824, 1)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("7_kwxvb")
+
+[node name="RadialRaycast" type="Node2D" parent="PointLight2D2"]
+script = ExtResource("2_27dwg")
+ray_count = 100
+ray_range = 512.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(158, 344)
+color = Color(1, 0.933333, 0.74902, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("7_kwxvb")
+
+[node name="RadialRaycast" type="Node2D" parent="PointLight2D"]
+position = Vector2(101, -28)
+script = ExtResource("2_27dwg")
+ray_count = 100
+ray_range = 512.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(621, 521)
+color = Color(0.901961, 0.658824, 0.45098, 1)
+energy = 0.7
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("9_4gqjm")
+texture_scale = 0.3
+
+[node name="RadialRaycast" type="Node2D" parent="PointLight2D3"]
+script = ExtResource("2_27dwg")
+ray_count = 100
+ray_range = 512.0
+
+[editable path="Enemy"]
+[editable path="Player"]

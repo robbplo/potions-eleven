@@ -1,0 +1,206 @@
+[gd_scene load_steps=16 format=3 uid="uid://dfkms2vsok7e6"]
+
+[ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://visuals/background/star_background.tscn" id="1_1rh5r"]
+[ext_resource type="Script" path="res://ui/mission_select/mission_select_screen.gd" id="1_67xp4"]
+[ext_resource type="Texture2D" uid="uid://nlgepfj3mhmb" path="res://visuals/textures/stars_1.png" id="1_ytbrt"]
+[ext_resource type="PackedScene" uid="uid://vccovs30q4s8" path="res://ui/mission_select/mission_button.tscn" id="3_aie3o"]
+[ext_resource type="Texture2D" uid="uid://dj8ihlsb0b5v7" path="res://visuals/ui/mission_button_2.png" id="3_b67qx"]
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://ui/ui_theme.tres" id="3_y4ajl"]
+[ext_resource type="Script" path="res://ui/mission_select/briefing.gd" id="4_35ub8"]
+[ext_resource type="Texture2D" uid="uid://dfq7rh1wugdj0" path="res://visuals/ui/mission_button_3.png" id="4_qewas"]
+[ext_resource type="Texture2D" uid="uid://cguwloaw2vfgr" path="res://visuals/ui/mission_button_4.png" id="5_6gxw6"]
+[ext_resource type="Texture2D" uid="uid://dpjqvlfjva8qm" path="res://visuals/ui/mission_button_tutorial.png" id="6_klbuo"]
+[ext_resource type="Texture2D" uid="uid://bnarmgvs4klad" path="res://visuals/ui/button_back_next_bg.png" id="9_e3wxi"]
+[ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://ui/simple_text.tres" id="9_mr06t"]
+[ext_resource type="Script" path="res://ui/screen_navigation_button.gd" id="10_m2311"]
+[ext_resource type="Texture2D" uid="uid://c5ref83klog6g" path="res://visuals/ui/button_back_text.png" id="11_w8fyr"]
+[ext_resource type="Texture2D" uid="uid://bskfol1s31wgo" path="res://visuals/ui/button_next_text.png" id="12_vwjae"]
+
+[node name="Mission Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_67xp4")
+
+[node name="Star_background" parent="." instance=ExtResource("1_1rh5r")]
+visible = false
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ytbrt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(1400, 700)
+layout_mode = 2
+theme = ExtResource("3_y4ajl")
+
+[node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(1400, 250)
+layout_mode = 2
+theme = ExtResource("3_y4ajl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Level_buttons" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1620, 700)
+layout_mode = 2
+
+[node name="Mission_button" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
+layout_mode = 2
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 360.0
+offset_bottom = 430.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("6_klbuo")
+button_image = ExtResource("6_klbuo")
+mission_name = "TUTORIAL"
+
+[node name="Mission_button5" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
+layout_mode = 2
+offset_left = 360.0
+offset_top = 60.0
+offset_right = 660.0
+offset_bottom = 430.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.8, 0.8)
+mission_name = "XANTHOSIS"
+
+[node name="Mission_button2" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
+layout_mode = 2
+offset_left = 660.0
+offset_top = 60.0
+offset_right = 960.0
+offset_bottom = 430.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_b67qx")
+button_image = ExtResource("3_b67qx")
+mission_name = "NEWT'S CRYSTAL"
+
+[node name="Mission_button3" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
+layout_mode = 2
+offset_left = 960.0
+offset_top = 60.0
+offset_right = 1260.0
+offset_bottom = 430.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.8, 0.8)
+disabled = true
+texture_normal = ExtResource("4_qewas")
+button_image = ExtResource("4_qewas")
+mission_name = "VOID LABORATORY"
+
+[node name="Mission_button4" parent="CenterContainer/VBoxContainer/Level_buttons" instance=ExtResource("3_aie3o")]
+layout_mode = 2
+offset_left = 1260.0
+offset_top = 60.0
+offset_right = 1560.0
+offset_bottom = 430.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.8, 0.8)
+disabled = true
+texture_normal = ExtResource("5_6gxw6")
+button_image = ExtResource("5_6gxw6")
+mission_name = "ANIMI"
+
+[node name="Panel2" type="Panel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1400, 250)
+layout_mode = 2
+theme = ExtResource("3_y4ajl")
+
+[node name="Briefing" type="RichTextLabel" parent="CenterContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_mr06t")
+theme_override_font_sizes/mono_font_size = 55
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "[center]No mission selected[/center]"
+script = ExtResource("4_35ub8")
+
+[node name="NextButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Briefing"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(120, 42)
+texture_normal = ExtResource("9_e3wxi")
+script = ExtResource("10_m2311")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Briefing/NextButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_vwjae")
+
+[node name="PrevButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Panel2/Briefing"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+offset_right = 240.0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(120, 42)
+texture_normal = ExtResource("9_e3wxi")
+script = ExtResource("10_m2311")
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Panel2/Briefing/PrevButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_w8fyr")
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/Briefing/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Panel2/Briefing/PrevButton" to="." method="_on_prev_button_pressed"]

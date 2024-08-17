@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dq00o3co8gq3p"]
+
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_1um88"]
+[ext_resource type="Texture2D" uid="uid://ch1ffkprb1atv" path="res://visuals/sprites/characters/player_layers/anor_londo_body.png" id="2_2p5jt"]
+[ext_resource type="Shader" path="res://environment/shaders/unshaded.gdshader" id="2_gddfp"]
+[ext_resource type="Texture2D" uid="uid://cjenajg2ckclr" path="res://visuals/sprites/characters/player_layers/anor_londo_white.png" id="3_d1qlq"]
+[ext_resource type="Texture2D" uid="uid://c1rat82giq28n" path="res://visuals/sprites/characters/player_layers/anor_londo_iris.png" id="3_ilrvt"]
+[ext_resource type="PackedScene" uid="uid://djak63srdelrs" path="res://entities/player/potion_belt.tscn" id="6_4h4ca"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ad63u"]
+polygon = PackedVector2Array(-115, -287, -115, -285.6, -136.1, -280, -139.6, -280, -162.6, -265, -165, -265, -185, -240, -186.4, -240, -194.4, -220, -195.7, -220, -198.7, -202, -200, -202, -200, 126.3, -193, 149.2, -193, 152.6, -178, 175.6, -178, 178, -153, 197.9, -153, 199.3, -136, 206.3, -136, 207.6, -113.2, 213, 113.3, 213, 131.1, 208, 134.5, 208, 149.5, 200, 151.8, 200, 175.7, 179, 177.2, 179, 191.1, 154, 192.6, 154, 198.5, 128, 200, 128, 200, -200.3, 193, -223.3, 193, -226.6, 178, -249.7, 178, -252, 153, -272, 153, -273.4, 133, -281.4, 133, -282.7, 115, -285.8, 115, -287)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_edwp8"]
+shader = ExtResource("2_gddfp")
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_1um88")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+scale = Vector2(0.25, 0.25)
+occluder = SubResource("OccluderPolygon2D_ad63u")
+occluder_light_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+scale = Vector2(0.25, 0.25)
+polygon = PackedVector2Array(-115, -287, -115, -285.6, -136.1, -280, -139.6, -280, -162.6, -265, -165, -265, -185, -240, -186.4, -240, -194.4, -220, -195.7, -220, -198.7, -202, -200, -202, -200, 126.3, -193, 149.2, -193, 152.6, -178, 175.6, -178, 178, -153, 197.9, -153, 199.3, -136, 206.3, -136, 207.6, -113.2, 213, 113.3, 213, 131.1, 208, 134.5, 208, 149.5, 200, 151.8, 200, 175.7, 179, 177.2, 179, 191.1, 154, 192.6, 154, 198.5, 128, 200, 128, 200, -200.3, 193, -223.3, 193, -226.6, 178, -249.7, 178, -252, 153, -272, 153, -273.4, 133, -281.4, 133, -282.7, 115, -285.8, 115, -287)
+
+[node name="EyeWhite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_edwp8")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_d1qlq")
+
+[node name="EyeIris" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_edwp8")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ilrvt")
+offset = Vector2(0, 16)
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2p5jt")
+
+[node name="PotionBelt" parent="." instance=ExtResource("6_4h4ca")]

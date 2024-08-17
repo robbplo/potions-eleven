@@ -1,0 +1,372 @@
+[gd_scene load_steps=23 format=3 uid="uid://wd5x384kouju"]
+
+[ext_resource type="PackedScene" uid="uid://bw6kkiyj8aglt" path="res://environment/experiments/pathing_test.tscn" id="1_58qq5"]
+[ext_resource type="PackedScene" uid="uid://cnjx0gp7mon3y" path="res://visuals/background/star_background.tscn" id="1_d415v"]
+[ext_resource type="Script" path="res://ui/game/ui_level.gd" id="1_ec1g8"]
+[ext_resource type="Shader" path="res://environment/shaders/level_edge.gdshader" id="1_hokyh"]
+[ext_resource type="PackedScene" uid="uid://bfrqeqfe46o7s" path="res://ui/game/hotbar.tscn" id="2_87lol"]
+[ext_resource type="Texture2D" uid="uid://sc6xu4ji4nxc" path="res://visuals/ui/background_box.png" id="2_hx76q"]
+[ext_resource type="Texture2D" uid="uid://dtyhkq6vo8ltx" path="res://visuals/ui/level_edge_mask.png" id="2_rp0dl"]
+[ext_resource type="Theme" uid="uid://cjwcuk21x287m" path="res://ui/ui_theme.tres" id="4_krk0p"]
+[ext_resource type="Texture2D" uid="uid://b8qu6pscm3u4s" path="res://visuals/sprites/characters/player/atuan.png" id="5_tfc6l"]
+[ext_resource type="Texture2D" uid="uid://cdio61bvhkgr7" path="res://visuals/ui/speech_bubble_point.png" id="6_d5325"]
+[ext_resource type="Theme" uid="uid://ceu0chv0p66gw" path="res://ui/ui_theme_options.tres" id="6_mvbvu"]
+[ext_resource type="Script" path="res://ui/pause_popup.gd" id="7_6e5e3"]
+[ext_resource type="Theme" uid="uid://dld4wkpq72688" path="res://ui/simple_text.tres" id="7_cm7td"]
+[ext_resource type="Script" path="res://ui/game/lose_popup.gd" id="7_mccgk"]
+[ext_resource type="Script" path="res://ui/mission_select/briefing.gd" id="8_1yb0t"]
+[ext_resource type="Script" path="res://ui/win_popup.gd" id="8_eet7a"]
+[ext_resource type="Script" path="res://ui/game/player_icon.gd" id="10_ahkj3"]
+[ext_resource type="Script" path="res://ui/game/thoughts_text.gd" id="10_xyceo"]
+[ext_resource type="RichTextEffect" uid="uid://bbhhnjpo2h4tg" path="res://ui/typewriter_rich_text_effect.tres" id="11_1x5tw"]
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://visuals/sprites/lights/circle_flat.png" id="16_3libp"]
+[ext_resource type="PackedScene" uid="uid://dlp3pebbu6j2p" path="res://ui/options/options_window.tscn" id="21_bn71b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oq0kq"]
+shader = ExtResource("1_hokyh")
+shader_parameter/frame_pixel_width = 1320
+shader_parameter/frame_index = 0
+shader_parameter/mask_texture = ExtResource("2_rp0dl")
+
+[node name="UILevel" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ec1g8")
+
+[node name="Star_background" parent="." instance=ExtResource("1_d415v")]
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+background_color = Color(0.0862745, 0.054902, 0.105882, 1)
+
+[node name="Main Screen" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -904.0
+offset_top = -480.0
+offset_right = 904.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LevelScreenContainer" type="CenterContainer" parent="Main Screen"]
+layout_mode = 2
+
+[node name="LevelScreen" type="SubViewportContainer" parent="Main Screen/LevelScreenContainer"]
+process_mode = 1
+material = SubResource("ShaderMaterial_oq0kq")
+layout_mode = 2
+
+[node name="LevelViewport" type="SubViewport" parent="Main Screen/LevelScreenContainer/LevelScreen"]
+handle_input_locally = false
+size = Vector2i(1340, 960)
+size_2d_override = Vector2i(2680, 1920)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="PathingTest" parent="Main Screen/LevelScreenContainer/LevelScreen/LevelViewport" instance=ExtResource("1_58qq5")]
+
+[node name="PausePopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_mvbvu")
+script = ExtResource("7_6e5e3")
+
+[node name="RestartButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 260.0
+offset_right = 506.0
+offset_bottom = 291.0
+theme = ExtResource("6_mvbvu")
+text = "Restart level
+"
+
+[node name="BackButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 419.0
+offset_right = 554.0
+offset_bottom = 450.0
+theme = ExtResource("6_mvbvu")
+text = "Back to main menu"
+
+[node name="OptionsButton" type="Button" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 337.0
+offset_right = 522.0
+offset_bottom = 368.0
+theme = ExtResource("6_mvbvu")
+text = "Sound options"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/PausePopup"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 77.0
+offset_right = 610.0
+offset_bottom = 210.0
+theme = ExtResource("7_cm7td")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center]PAUSED"
+
+[node name="LosePopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_mvbvu")
+script = ExtResource("7_mccgk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/LosePopup"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 189.0
+offset_right = 686.0
+offset_bottom = 450.0
+theme = ExtResource("7_cm7td")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center][shake]CAUGHT
+"
+fit_content = true
+
+[node name="RetryButton" type="Button" parent="Main Screen/LevelScreenContainer/LosePopup"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 496.0
+offset_right = 586.0
+offset_bottom = 527.0
+theme = ExtResource("6_mvbvu")
+text = "Try again"
+
+[node name="BackButton" type="Button" parent="Main Screen/LevelScreenContainer/LosePopup"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 496.0
+offset_right = 437.0
+offset_bottom = 527.0
+theme = ExtResource("6_mvbvu")
+text = "Back to main menu"
+
+[node name="WinPopup" type="Panel" parent="Main Screen/LevelScreenContainer"]
+visible = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_mvbvu")
+script = ExtResource("8_eet7a")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/WinPopup"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 187.0
+offset_right = 699.0
+offset_bottom = 448.0
+theme = ExtResource("7_cm7td")
+theme_override_font_sizes/normal_font_size = 120
+bbcode_enabled = true
+text = "[center][wave]SUCCESFUL MISSION"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/LevelScreenContainer/WinPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -276.0
+offset_right = 394.0
+offset_bottom = -231.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_mvbvu")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]u rock dude!!!!"
+fit_content = true
+
+[node name="Button" type="Button" parent="Main Screen/LevelScreenContainer/WinPopup"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 496.0
+offset_right = 509.0
+offset_bottom = 527.0
+theme = ExtResource("6_mvbvu")
+text = "Back to menu"
+
+[node name="Buffer" type="Panel" parent="Main Screen"]
+custom_minimum_size = Vector2(60, 2.08165e-12)
+layout_mode = 2
+theme = ExtResource("4_krk0p")
+
+[node name="Sidepanel" type="VBoxContainer" parent="Main Screen"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Mission" type="Control" parent="Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Main Screen/Sidepanel/Mission"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hx76q")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Screen/Sidepanel/Mission"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -168.0
+offset_right = 165.5
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_cm7td")
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "MISSION:
+
+Get the objective and escape safely."
+shortcut_keys_enabled = false
+script = ExtResource("8_1yb0t")
+
+[node name="Pots" type="HBoxContainer" parent="Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+
+[node name="GameUI" parent="Main Screen/Sidepanel/Pots" instance=ExtResource("2_87lol")]
+layout_mode = 2
+
+[node name="ThoughtsBubble" type="Control" parent="Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+theme = ExtResource("4_krk0p")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Main Screen/Sidepanel/ThoughtsBubble"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hx76q")
+region_rect = Rect2(0, 0, 100, 100)
+patch_margin_left = 40
+patch_margin_top = 40
+patch_margin_right = 40
+patch_margin_bottom = 40
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="ThoughtsText" type="RichTextLabel" parent="Main Screen/Sidepanel/ThoughtsBubble"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = -128.0
+offset_right = 167.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_cm7td")
+bbcode_enabled = true
+text = "[typewriter speed=0.03][center]switch potions with number keys 1 to 4"
+custom_effects = [ExtResource("11_1x5tw")]
+script = ExtResource("10_xyceo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Screen/Sidepanel"]
+custom_minimum_size = Vector2(2.08165e-12, 160)
+layout_mode = 2
+
+[node name="Player" type="Panel" parent="Main Screen/Sidepanel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 160)
+layout_mode = 2
+theme = ExtResource("4_krk0p")
+
+[node name="PlayerIcon" type="TextureRect" parent="Main Screen/Sidepanel/HBoxContainer/Player"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 150.0
+grow_vertical = 0
+texture = ExtResource("5_tfc6l")
+expand_mode = 2
+stretch_mode = 4
+script = ExtResource("10_ahkj3")
+
+[node name="SpeechBubblePoint" type="TextureRect" parent="Main Screen/Sidepanel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_d5325")
+
+[node name="CircleOverlay" type="TextureRect" parent="."]
+self_modulate = Color(0.0862745, 0.054902, 0.105882, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(540, 540)
+texture = ExtResource("16_3libp")
+
+[node name="OptionsWindow" parent="." instance=ExtResource("21_bn71b")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/RestartButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/BackButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/PausePopup/OptionsButton" to="Main Screen/LevelScreenContainer/PausePopup" method="_on_options_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/RetryButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/LosePopup/BackButton" to="Main Screen/LevelScreenContainer/LosePopup" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Main Screen/LevelScreenContainer/WinPopup/Button" to="Main Screen/LevelScreenContainer/WinPopup" method="_on_button_pressed"]
+
+[editable path="Main Screen/Sidepanel/Pots/GameUI"]

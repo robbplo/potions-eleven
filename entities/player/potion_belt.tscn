@@ -1,0 +1,13 @@
+[gd_scene load_steps=7 format=3 uid="uid://djak63srdelrs"]
+
+[ext_resource type="Script" path="res://entities/player/potion_belt.gd" id="1_k0qxe"]
+[ext_resource type="Script" path="res://entities/potions/resources/potion_resource.gd" id="2_rfeuk"]
+[ext_resource type="PackedScene" uid="uid://bnmceedlv71tt" path="res://entities/potions/potion_projectile.tscn" id="2_x74s0"]
+[ext_resource type="Resource" uid="uid://c1v0qfc3hyyu7" path="res://entities/potions/resources/shadow_potion.tres" id="3_rtnhc"]
+[ext_resource type="Resource" uid="uid://hivyycwpmrjm" path="res://entities/potions/resources/rock_potion.tres" id="4_c52nr"]
+[ext_resource type="Resource" uid="uid://colswb5k3dlgs" path="res://entities/potions/resources/teleportation_potion.tres" id="5_d547d"]
+
+[node name="PotionBelt" type="Node2D"]
+script = ExtResource("1_k0qxe")
+potion_scene = ExtResource("2_x74s0")
+loadout = Array[ExtResource("2_rfeuk")]([ExtResource("3_rtnhc"), ExtResource("4_c52nr"), ExtResource("5_d547d")])

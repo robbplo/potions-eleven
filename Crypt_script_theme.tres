@@ -1,8 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bfnp7ggiwgbgp"]
-
-[ext_resource type="FontFile" uid="uid://daymdiblkisko" path="res://Visual assets/UI/JerianScript-Regular.otf" id="1_rmvr2"]
-
-[resource]
-default_font = ExtResource("1_rmvr2")
-default_font_size = 50
-RichTextLabel/colors/default_color = Color(0, 0, 0, 1)

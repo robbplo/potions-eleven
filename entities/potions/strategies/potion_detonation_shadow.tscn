@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://de2j62bq5n4us"]
+
+[ext_resource type="Texture2D" uid="uid://qkej6tvyyap2" path="res://visuals/sprites/lights/circle_flat.png" id="1_55qt4"]
+[ext_resource type="Script" path="res://engine/radial_raycast.gd" id="2_byp4h"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lt3bf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8wqe"]
+
+[node name="PotionDetonationShadow" type="Node2D"]
+
+[node name="Shadow" type="PointLight2D" parent="."]
+energy = 5.0
+blend_mode = 1
+texture = ExtResource("1_55qt4")
+
+[node name="RadialRaycast" type="Node2D" parent="."]
+script = ExtResource("2_byp4h")
+ray_range = 540.0
+illumination_range = 540.0
+is_shadow = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_lt3bf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_j8wqe")
